@@ -15,33 +15,31 @@
         <child link="chassis"/>
         <origin xyz="0 0 0"/>
     </joint> launch-prefix="bash -c 'sleep 5; $0 $@'"
-    <!-- chassis description goes here. It describes the chassis of the bot which is a 54cm x 54cm x 150cm box -->
+    <!-- chassis description goes here. Needs to be updated when accurate dimension of the car is known-->
     <link name="chassis">
         <visual>
-            <!-- by default, the origin is centred around the link origin, so offset it by half the height -->
-            <!-- <origin xyz="0 0 0.75" rpy="0 0 0"/> -->
+            <origin xyz="0 0 0.3" rpy="0 0 0"/>
             <geometry>
-                <!-- <box size="0.54 0.54 1.5"/> -->
-                <mesh filename="package://gra_base/meshes/frame_ultra_low_poly.stl" scale="0.001 0.001 0.001"/>
-                <!-- <mesh filename="model://frame_ultra_low_poly.stl"/> -->
+                <box size="2.5 0.75 0.5"/>
+                <!-- <mesh filename="package://gra_base/meshes/frame_ultra_low_poly.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="white"/>
         </visual>
         <!-- physics model -->
         <collision>
-            <origin xyz="0 0 0.77" rpy="0 0 0"/>
+            <origin xyz="0 0 0.3" rpy="0 0 0"/>
             <geometry>
-                <cylinder length="1.54" radius="0.25"/>
+                <box size="2.5 0.75 0.5"/>
             </geometry>
         </collision>
-        <xacro:inertial_cylinder mass="20" length="1.54" radius="0.25">
-            <origin xyz="0 0 0.77" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
+        <xacro:inertial_box mass="300" x="2.5" y="0.75" z="0.5">
+            <origin xyz="0 0 0.3" rpy="0 0 0"/>
+        </xacro:inertial_box>
     </link>
     <joint name="laser_joint" type="fixed">
         <parent link="chassis"/>
         <child link="laser"/>
-        <origin xyz="0 0 0.07" rpy="0 0 0"/>
+        <origin xyz="1 0 0.575" rpy="0 0 0"/>
     </joint>
     <link name="laser">
         <visual>
@@ -61,23 +59,23 @@
     <joint name="wheel_1_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_1"/>
-        <origin xyz="0.2 0 0" rpy="0 -${pi/2} 0"/>
+        <origin xyz="1.25 0.5 0.2" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
     <link name="wheel_1">
         <visual>
             <geometry>      
-                <cylinder length="0.038" radius="0.05" />
+                <cylinder length="0.25" radius="0.20" />
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>      
-                <cylinder length="0.038" radius="0.05" />
+                <cylinder length="0.25" radius="0.20" />
             </geometry>
         </collision>
-        <xacro:inertial_cylinder mass="0.2" length="0.038" radius="0.05">
+        <xacro:inertial_cylinder mass="5" length="0.25" radius="0.20">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
@@ -96,23 +94,23 @@
     <joint name="wheel_2_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_2"/>
-        <origin xyz="-0.1 -0.1732050808 0" rpy="0 ${pi/2} ${pi/3}"/>
+        <origin xyz="1.25 -0.5 0.2" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
     <link name="wheel_2">
         <visual>
             <geometry>      
-                <cylinder length="0.038" radius="0.05" />
+                <cylinder length="0.25" radius="0.20" />
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>      
-                <cylinder length="0.038" radius="0.05" />
+                <cylinder length="0.25" radius="0.20" />
             </geometry>
         </collision>
-        <xacro:inertial_cylinder mass="0.2" length="0.038" radius="0.05">
+        <xacro:inertial_cylinder mass="5" length="0.25" radius="0.20">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
@@ -131,23 +129,23 @@
     <joint name="wheel_3_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_3"/>
-        <origin xyz="-0.1 0.1732050808 0" rpy="0 ${pi/2} -${pi/3}"/>
+        <origin xyz="-1.25 -0.5 0.2" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
     </joint>
 
     <link name="wheel_3">
         <visual>
             <geometry>      
-                <cylinder length="0.038" radius="0.05" />
+                <cylinder length="0.25" radius="0.20" />
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <geometry>      
-                <cylinder length="0.038" radius="0.05" />
+                <cylinder length="0.25" radius="0.20" />
             </geometry>
         </collision>
-        <xacro:inertial_cylinder mass="0.2" length="0.038" radius="0.05">
+        <xacro:inertial_cylinder mass="5" length="0.25" radius="0.20">
             <origin xyz="0 0 0" rpy="0 0 0"/>
         </xacro:inertial_cylinder>
     </link>
@@ -161,6 +159,43 @@
         <fdir1 value="0 0 1"/>
         <maxContacts value= "1"/>
     </gazebo>
+
+        <!-- WHEEL 4 -->
+    <joint name="wheel_4_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel_4"/>
+        <origin xyz="-1.25 0.5 0.2" rpy="${pi/2} 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="wheel_4">
+        <visual>
+            <geometry>      
+                <cylinder length="0.25" radius="0.20" />
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <geometry>      
+                <cylinder length="0.25" radius="0.20" />
+            </geometry>
+        </collision>
+        <xacro:inertial_cylinder mass="5" length="0.25" radius="0.20">
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+        </xacro:inertial_cylinder>
+    </link>
+
+    <gazebo reference="wheel_4">
+        <material>Gazebo/Black</material>
+        <mu1 value="0.2"/>
+        <mu2 value="1.5"/>
+        <kp value="10000000.0" />
+        <kd value="10000.0" />
+        <fdir1 value="0 0 1"/>
+        <maxContacts value= "1"/>
+    </gazebo>
+
+
 
     <!-- Transmissions -->
     <transmission name="tran1">
