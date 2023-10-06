@@ -195,6 +195,42 @@
         <maxContacts value= "1"/>
     </gazebo>
 
+    <!-- Common Steering Link -->
+    <link name="front_steering_link">
+        <visual>
+            <geometry>
+                <box size="0.1 1.0 0.1"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.1 1.0 0.1"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joint connecting base_link to common steering link -->
+    <joint name="front_steering_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="front_steering_link"/>
+        <origin xyz="1.25 0 0.2" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-0.5236" upper="0.5236" effort="100" velocity="1"/> <!-- -30 to 30 degrees in radians -->
+    </joint>
+
+    <!-- Fixed joints connecting front wheels to common steering link -->
+    <joint name="wheel_1_to_steering_joint" type="fixed">
+        <parent link="front_steering_link"/>
+        <child link="wheel_1"/>
+        <origin xyz="0 0.5 0" rpy="${pi/2} 0 0"/>
+    </joint>
+
+    <joint name="wheel_2_to_steering_joint" type="fixed">
+        <parent link="front_steering_link"/>
+        <child link="wheel_2"/>
+        <origin xyz="0 -0.5 0" rpy="-${pi/2} 0 0"/>
+    </joint>
 
 
     <!-- Transmissions -->
