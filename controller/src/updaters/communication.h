@@ -10,12 +10,12 @@
 
 #include <ros.h>
 #include <std_msgs/String.h>
-#include <rbc_base/BaseState.h>
-#include <rbc_base/BaseSetpoint.h>
-#include <rbc_base/BaseParameters.h>
-#include <rbc_base/BaseAdaptiveState.h>
-#include <rbc_base/MotorParameters.h>
-#include <rbc_base/MotorAdaptiveState.h>
+#include <gra_base/BaseState.h>
+#include <gra_base/BaseSetpoint.h>
+#include <gra_base/BaseParameters.h>
+#include <gra_base/BaseAdaptiveState.h>
+#include <gra_base/MotorParameters.h>
+#include <gra_base/MotorAdaptiveState.h>
 
 #include "../defs.h"
 
@@ -28,8 +28,8 @@ class Communication : public BaseStateUpdater<RobotState> {
         ros::NodeHandle nh;
 
         // Create the message objects
-        rbc_base::BaseState base_state_msg;
-        rbc_base::BaseSetpoint base_setpoint_msg;
+        gra_base::BaseState base_state_msg;
+        gra_base::BaseSetpoint base_setpoint_msg;
 
         // Wheel state publisher
         ros::Publisher base_state_publisher = ros::Publisher("base_state", &base_state_msg);
@@ -39,15 +39,15 @@ class Communication : public BaseStateUpdater<RobotState> {
         /** Subscribing to topics */
 
         // "/base_setpoint" topic subscriber, used to set the setpoint of the motors independently
-        void baseSetpointCallback(const rbc_base::BaseSetpoint& msg) {
+        void baseSetpointCallback(const gra_base::BaseSetpoint& msg) {
             for (int i = 0; i < NUM_MOTORS; i++) {
                 state.motors[i].setpoint = msg.setpoints[i].velocity;
             }
         }
-        ros::Subscriber<rbc_base::BaseSetpoint, Communication> base_setpoint_sub = ros::Subscriber<rbc_base::BaseSetpoint, Communication>("base_setpoint", &Communication::baseSetpointCallback, this);
+        ros::Subscriber<gra_base::BaseSetpoint, Communication> base_setpoint_sub = ros::Subscriber<gra_base::BaseSetpoint, Communication>("base_setpoint", &Communication::baseSetpointCallback, this);
 
         // // "/base_parameters" topic subscriber, used to set the PID parameters of the motors independently, but may be less reliable because of the big message size and rosserial's limitations
-        // void baseParametersCallback(const rbc_base::BaseParameters& msg) {
+        // void baseParametersCallback(const gra_base::BaseParameters& msg) {
         //     nh.loginfo("Received base parameters");
         //     state.motors[0].p_in = 50;
         //     for (int i = 0; i < NUM_MOTORS; i++) {
@@ -57,10 +57,10 @@ class Communication : public BaseStateUpdater<RobotState> {
         //         state.motors[i].bias = msg.parameters[i].bias;
         //     }
         // }
-        // ros::Subscriber<rbc_base::BaseParameters, Communication> base_parameters_sub = ros::Subscriber<rbc_base::BaseParameters, Communication>("base_parameters", &Communication::baseParametersCallback, this);
+        // ros::Subscriber<gra_base::BaseParameters, Communication> base_parameters_sub = ros::Subscriber<gra_base::BaseParameters, Communication>("base_parameters", &Communication::baseParametersCallback, this);
         
         // // "/base_global_parameters" topic subscriber, used to set the PID parameters of all motors at once
-        // void baseGlobalParametersCallback(const rbc_base::MotorParameters& msg) {
+        // void baseGlobalParametersCallback(const gra_base::MotorParameters& msg) {
         //     nh.loginfo("Received global parameters");
         //     for (int i = 0; i < NUM_MOTORS; i++) {
         //         state.motors[i].p_in = msg.p_in;
@@ -70,25 +70,25 @@ class Communication : public BaseStateUpdater<RobotState> {
         //         state.motors[i].control_mode = msg.control_mode;
         //     }
         // }
-        // ros::Subscriber<rbc_base::MotorParameters, Communication> base_global_parameters_sub = ros::Subscriber<rbc_base::MotorParameters, Communication>("base_global_parameters", &Communication::baseGlobalParametersCallback, this);
+        // ros::Subscriber<gra_base::MotorParameters, Communication> base_global_parameters_sub = ros::Subscriber<gra_base::MotorParameters, Communication>("base_global_parameters", &Communication::baseGlobalParametersCallback, this);
 
         // // "/base_adaptive_state" topic subscriber, used to set the adaptive state of the motors independently
-        // void baseAdaptiveStateCallback(const rbc_base::BaseAdaptiveState& msg) {
+        // void baseAdaptiveStateCallback(const gra_base::BaseAdaptiveState& msg) {
         //     nh.loginfo("Received adaptive state");
         //     for (int i = 0; i < NUM_MOTORS; i++) {
         //         state.motors[i].i_accumulator = msg.adaptive_states[i].i_accumulator;
         //     }
         // }
-        // ros::Subscriber<rbc_base::BaseAdaptiveState, Communication> base_adaptive_state_sub = ros::Subscriber<rbc_base::BaseAdaptiveState, Communication>("base_adaptive_state", &Communication::baseAdaptiveStateCallback, this);
+        // ros::Subscriber<gra_base::BaseAdaptiveState, Communication> base_adaptive_state_sub = ros::Subscriber<gra_base::BaseAdaptiveState, Communication>("base_adaptive_state", &Communication::baseAdaptiveStateCallback, this);
 
         // // "/base_global_adaptive_state" topic subscriber, used to set the adaptive state of all motors at once
-        // void baseGlobalAdaptiveStateCallback(const rbc_base::MotorAdaptiveState& msg) {
+        // void baseGlobalAdaptiveStateCallback(const gra_base::MotorAdaptiveState& msg) {
         //     nh.loginfo("Received global adaptive state");
         //     for (int i = 0; i < NUM_MOTORS; i++) {
         //         state.motors[i].i_accumulator = msg.i_accumulator;
         //     }
         // }
-        // ros::Subscriber<rbc_base::MotorAdaptiveState, Communication> base_global_adaptive_state_sub = ros::Subscriber<rbc_base::MotorAdaptiveState, Communication>("base_global_adaptive_state", &Communication::baseGlobalAdaptiveStateCallback, this);
+        // ros::Subscriber<gra_base::MotorAdaptiveState, Communication> base_global_adaptive_state_sub = ros::Subscriber<gra_base::MotorAdaptiveState, Communication>("base_global_adaptive_state", &Communication::baseGlobalAdaptiveStateCallback, this);
 
     public:
         Communication(RobotState& state) : BaseStateUpdater<RobotState>(state) {
