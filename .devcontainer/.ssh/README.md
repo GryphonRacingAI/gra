@@ -1,0 +1,1 @@
+I know this is a terrible idea to include a private key on a repository, but to access the robot you will need to be on the same wifi network, which means you already have access to the robot. This is just a way to make it easier to access the robot from VSCode :)

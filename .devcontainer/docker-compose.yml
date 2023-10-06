@@ -1,0 +1,37 @@
+version: '3'
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    network_mode: host
+    privileged: true
+    volumes:
+      - ..:/root/rbc
+      - ./.bashrc:/root/.bashrc
+      - ./convenience.sh:/root/convenience.sh
+      - /root/catkin_ws/.catkin_tools
+      - /root/catkin_ws/build
+      - /root/catkin_ws/devel
+      - /root/catkin_ws/install
+      - /root/catkin_ws/logs
+      - /root/.dev
+      - /root/.bash_history
+      - ./.ssh:/root/.ssh # So that we can use ssh keys, initialized automatically in post_create.sh
+      # The following are optional for Linux hosts for better integration, and is optional
+      - ./sshd_config:/etc/ssh/sshd_config
+      - '/tmp/.X11-unix:/tmp/.X11-unix:rw'
+      - '$HOME/.Xauthority:/root/.Xauthority:rw'
+      - /var/run/dbus:/var/run/dbus
+      - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
+      - /root/.penv
+    devices:
+      - /dev/ttyACM0:/dev/ttyACM0 # Arduino motor controller
+      # - /dev/astra_s:/dev/astra_s # Orbbec Astra S
+      - /dev/dri
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - HOST_OS=linux
+    # Keep alive entrypoint
+    entrypoint: tail -f /dev/null

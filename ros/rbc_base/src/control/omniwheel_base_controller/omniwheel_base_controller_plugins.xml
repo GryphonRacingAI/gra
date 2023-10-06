@@ -1,0 +1,7 @@
+<library path="lib/libomniwheel_base_controller">
+  <class name="rbc_base/OmniwheelBaseController" type="OmniwheelBaseController" base_class_type="controller_interface::ControllerBase">
+    <description>
+      This is a custom controller for an omniwheel base.
+    </description>
+  </class>
+</library>

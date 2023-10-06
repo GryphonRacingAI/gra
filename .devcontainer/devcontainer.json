@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "RoboCapture Dev Container",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "dev",
+	"workspaceFolder": "/root/rbc",
+	"postCreateCommand": "/bin/bash -c '/root/rbc/.devcontainer/post_create.sh'",
+	"postStartCommand": "/bin/bash -c '/root/rbc/.devcontainer/post_start.sh'",
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.cpptools-extension-pack",
+				"ms-iot.vscode-ros",
+				"vsciot-vscode.vscode-arduino",
+				"GitHub.copilot",
+				"hediet.vscode-drawio",
+				"tostc.vscl",
+				"ms-toolsai.jupyter",
+				"michelemelluso.gitignore",
+				"redhat.vscode-xml",
+				"dlech.chmod"
+			]
+		}
+	}
+}

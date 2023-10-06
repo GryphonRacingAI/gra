@@ -1,0 +1,2 @@
+# Setup
+This folder contains all the setup related files on the robot host. You only need to run the "setup.sh" script once with sudo privileges. It will install all the necessary packages and setup the environment variables.

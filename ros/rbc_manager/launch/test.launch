@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- Run test node 1 -->
+    <node pkg="rbc_manager" type="test_node.py" name="test_node" output="screen"/>
+
+    <!-- Run test node 2 -->
+    <node pkg="rbc_manager" type="test_node.py" name="test_node2" output="screen"/>
+</launch>

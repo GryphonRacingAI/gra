@@ -1,0 +1,1 @@
+rbc_base/MotorParameters[4] parameters
