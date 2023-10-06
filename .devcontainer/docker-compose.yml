@@ -7,7 +7,7 @@ services:
     network_mode: host
     privileged: true
     volumes:
-      - ..:/root/rbc
+      - ..:/root/gra
       - ./.bashrc:/root/.bashrc
       - ./convenience.sh:/root/convenience.sh
       - /root/catkin_ws/.catkin_tools

@@ -4,9 +4,9 @@
 	"name": "RoboCapture Dev Container",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "dev",
-	"workspaceFolder": "/root/rbc",
-	"postCreateCommand": "/bin/bash -c '/root/rbc/.devcontainer/post_create.sh'",
-	"postStartCommand": "/bin/bash -c '/root/rbc/.devcontainer/post_start.sh'",
+	"workspaceFolder": "/root/gra",
+	"postCreateCommand": "/bin/bash -c '/root/gra/.devcontainer/post_create.sh'",
+	"postStartCommand": "/bin/bash -c '/root/gra/.devcontainer/post_start.sh'",
 	"customizations": {
 		"vscode": {
 			"settings": {},

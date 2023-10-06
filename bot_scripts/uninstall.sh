@@ -23,7 +23,7 @@ safe_unlink() {
 echo "Starting uninstallation..."
 
 # Remove the symlinks
-safe_unlink ~/rbc
+safe_unlink ~/gra
 safe_unlink ~/catkin_ws/src
 safe_unlink ~/.bashrc
 safe_unlink ~/convenience.sh

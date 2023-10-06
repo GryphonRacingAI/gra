@@ -1,9 +1,9 @@
 function log() {
-    rosrun rbc_core rosout_display.py
+    rosrun gra_core rosout_display.py
 }
 
 function dev() {
-    roslaunch rbc_dev dev.launch
+    roslaunch gra_dev dev.launch
 }
 
 export -f dev

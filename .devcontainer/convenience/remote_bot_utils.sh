@@ -43,7 +43,7 @@ function ad() {
 }
 
 function botsync() {
-    rsync -avz ~/rbc/ "$DEV_BOT_USER@$DEV_BOT_HOSTNAME:~/rbc/" --delete
+    rsync -avz ~/gra/ "$DEV_BOT_USER@$DEV_BOT_HOSTNAME:~/gra/" --delete
 }
 
 function bs() {

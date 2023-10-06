@@ -1,9 +1,9 @@
 #!/bin/bash
 
-source ~/rbc/.devcontainer/env_vars.sh
+source ~/gra/.devcontainer/env_vars.sh
 
 function import() {
-    source $RBC_REPO/.devcontainer/convenience/$1.sh
+    source $GRA_REPO/.devcontainer/convenience/$1.sh
 }
 
 # Basic utilities
@@ -27,9 +27,9 @@ import dockerfile_emu
 
 # ROS remote utils
 import master_switching
-import rbcinfo
+import grainfo
 import remote_bot_utils
 
 # DX
 import rosbash_enhancements
-import rbc_shortcuts
+import gra_shortcuts

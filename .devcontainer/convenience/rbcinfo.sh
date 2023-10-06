@@ -1,7 +1,7 @@
 depends_var DEV_ENV
 depends_func echoColor
 
-function rbcinfo() {
+function grainfo() {
     # Show what device we are on
     echo -n "$(echoColor white "Device: ")"
     if [ "$DEV_ENV" == "0" ]; then
@@ -18,15 +18,15 @@ function rbcinfo() {
     fi
     # Show if we are on bot or local
     echo -n "$(echoColor white "Master: ")"
-    if [ "$RBC_MASTER" == "bot" ]; then
+    if [ "$GRA_MASTER" == "bot" ]; then
         echoColor "blue" "$(echoStyle bold "Bot")"
-    elif [ "$RBC_MASTER" == "local" ]; then
+    elif [ "$GRA_MASTER" == "local" ]; then
         echoColor "green" "$(echoStyle bold "Local")"
     else
-        if [ -z "$RBC_MASTER" ]; then
-            echoColor "red" "$(echoStyle bold "Unknown, \$RBC_MASTER is not set, please run setdevmaster or setbotmaster")"
+        if [ -z "$GRA_MASTER" ]; then
+            echoColor "red" "$(echoStyle bold "Unknown, \$GRA_MASTER is not set, please run setdevmaster or setbotmaster")"
         else
-            echoColor "red" "$(echoStyle bold "Unknown ($RBC_MASTER)")"
+            echoColor "red" "$(echoStyle bold "Unknown ($GRA_MASTER)")"
         fi
     fi
     # Display ROS_MASTER_URI
@@ -102,4 +102,4 @@ function rbcinfo() {
     fi
 }
 
-export -f rbcinfo
+export -f grainfo

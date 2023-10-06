@@ -36,10 +36,10 @@ safe_symlink() {
 echo "Setting up symlinks..."
 
 # Symlink operations
-safe_symlink "$(realpath ../)" ~/rbc
-safe_symlink "$(realpath ~/rbc/ros/)" ~/catkin_ws/src
-safe_symlink "$(realpath ~/rbc/.devcontainer/.bashrc)" ~/.bashrc
-safe_symlink "$(realpath ~/rbc/.devcontainer/convenience.sh)" ~/convenience.sh
+safe_symlink "$(realpath ../)" ~/gra
+safe_symlink "$(realpath ~/gra/ros/)" ~/catkin_ws/src
+safe_symlink "$(realpath ~/gra/.devcontainer/.bashrc)" ~/.bashrc
+safe_symlink "$(realpath ~/gra/.devcontainer/convenience.sh)" ~/convenience.sh
 
 # Dynamically create the roscore.service file
 echo "Generating roscore.service for user $USER..."

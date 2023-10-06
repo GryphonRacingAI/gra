@@ -9,7 +9,7 @@ launch() {
     trap "kill -INT $roslaunch_pid" INT
 
     # Run rosout_display in the foreground
-    rosrun rbc_core rosout_display.py
+    rosrun gra_core rosout_display.py
     display_pid=$!
 
     # If the rosrun command ends first (or for any other reasons),

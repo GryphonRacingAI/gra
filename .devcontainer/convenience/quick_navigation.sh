@@ -1,8 +1,8 @@
-depends_var RBC_REPO
+depends_var GRA_REPO
 depends_var CATKIN_WS_PATH
 
 function cdrepo() {
-    cd $RBC_REPO
+    cd $GRA_REPO
 }
 
 function cdr() {

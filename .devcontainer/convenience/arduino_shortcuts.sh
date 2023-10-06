@@ -1,4 +1,4 @@
-depends_var RBC_REPO
+depends_var GRA_REPO
 depends_func run_in_dir
 depends_func cb
 
@@ -10,11 +10,11 @@ function patch() {
 }
 
 function ac() {
-  run_in_dir "$RBC_REPO/controller" arduino-cli compile --fqbn arduino:avr:mega "$@"
+  run_in_dir "$GRA_REPO/controller" arduino-cli compile --fqbn arduino:avr:mega "$@"
 }
 
 function au() {
-  run_in_dir "$RBC_REPO/controller" arduino-cli upload -p "$ARDUINO_UPDATE_PORT" --fqbn arduino:avr:mega "$@"
+  run_in_dir "$GRA_REPO/controller" arduino-cli upload -p "$ARDUINO_UPDATE_PORT" --fqbn arduino:avr:mega "$@"
 }
 
 function acu() {
