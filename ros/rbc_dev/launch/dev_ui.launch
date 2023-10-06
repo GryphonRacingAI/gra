@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-    <!-- Launch rviz with rbc_core/dev/dev_ui.rviz -->
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rbc_dev)/dev/dev_ui.rviz" />
-</launch>

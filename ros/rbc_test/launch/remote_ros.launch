@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-    <include file="$(find rbc_core)/launch/context.launch" />
-
-    <node pkg="rbc_test" type="talker.py" name="talker" output="screen" machine="rbc_bot" />
-    <node pkg="rbc_test" type="listener.py" name="listener" />
-
-</launch>
