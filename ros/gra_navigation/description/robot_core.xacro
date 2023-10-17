@@ -195,69 +195,43 @@
         <maxContacts value= "1"/>
     </gazebo>
 
-        <!-- WHEEL 1 Steering Joint -->
-    <joint name="wheel_1_steering_joint" type="revolute">
+    <!-- Common Steering Link -->
+    <link name="front_steering_link">
+        <visual>
+            <geometry>
+                <box size="0.1 1.0 0.1"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.1 1.0 0.1"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- Joint connecting base_link to common steering link -->
+    <joint name="front_steering_joint" type="revolute">
         <parent link="base_link"/>
-        <child link="wheel_1_steering_link"/>
-        <origin xyz="1.25 0.5 0.2" rpy="0 0 0"/>
+        <child link="front_steering_link"/>
+        <origin xyz="1.25 0 0.2" rpy="0 0 0"/>
         <axis xyz="0 0 1"/>
         <limit lower="-0.5236" upper="0.5236" effort="100" velocity="1"/> <!-- -30 to 30 degrees in radians -->
     </joint>
 
-    <!-- WHEEL 1 Driving Joint -->
-    <joint name="wheel_1_driving_joint" type="fixed">
-        <parent link="wheel_1_steering_link"/>
+    <!-- Fixed joints connecting front wheels to common steering link -->
+    <joint name="wheel_1_to_steering_joint" type="fixed">
+        <parent link="front_steering_link"/>
         <child link="wheel_1"/>
-        <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 1 0"/>
+        <origin xyz="0 0.5 0" rpy="${pi/2} 0 0"/>
     </joint>
 
-    <!-- Add a steering link for wheel_1 -->
-    <link name="wheel_1_steering_link">
-        <visual>
-            <geometry>
-                <box size="0.1 0.1 0.1"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.1 0.1 0.1"/>
-            </geometry>
-        </collision>
-    </link>
-
-    <!-- WHEEL 2 Steering Joint -->
-    <joint name="wheel_2_steering_joint" type="revolute">
-        <parent link="base_link"/>
-        <child link="wheel_2_steering_link"/>
-        <origin xyz="1.25 -0.5 0.2" rpy="0 0 0"/>
-        <axis xyz="0 0 1"/>
-        <limit lower="-0.5236" upper="0.5236" effort="100" velocity="1"/> <!-- -30 to 30 degrees in radians -->
-    </joint>
-
-    <!-- WHEEL 2 Driving Joint -->
-    <joint name="wheel_2_driving_joint" type="fixed">
-        <parent link="wheel_2_steering_link"/>
+    <joint name="wheel_2_to_steering_joint" type="fixed">
+        <parent link="front_steering_link"/>
         <child link="wheel_2"/>
-        <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
-        <axis xyz="0 1 0"/>
+        <origin xyz="0 -0.5 0" rpy="-${pi/2} 0 0"/>
     </joint>
 
-    <!-- Add a steering link for wheel_2 -->
-    <link name="wheel_2_steering_link">
-        <visual>
-            <geometry>
-                <box size="0.1 0.1 0.1"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.1 0.1 0.1"/>
-            </geometry>
-        </collision>
-    </link>
 
     <!-- Transmissions -->
     <transmission name="tran1">
@@ -300,28 +274,6 @@
         </joint>
         <actuator name="motor_4">
             <hardwareInterface>VelocityJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-
-    <transmission name="steering_tran1">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="wheel_1_steering_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="steering_motor_1">
-            <hardwareInterface>PositionJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
-    
-    <transmission name="steering_tran2">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="wheel_2_steering_joint">
-            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="steering_motor_2">
-            <hardwareInterface>PositionJointInterface</hardwareInterface>
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
     </transmission>
