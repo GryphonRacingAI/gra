@@ -2,6 +2,6 @@
 <launch>
 
     <!-- Convenience file defining remote launching targets, and a nicer logger -->
-    <machine name="gra_bot" address="gra.local" env-loader="~/gra/bot_scripts/env.sh" user="ubuntu" />
+    <machine name="gra_bot" address="Slick.local" env-loader="~/gra/bot_scripts/env.sh" user="ubuntu" />
 
 </launch>

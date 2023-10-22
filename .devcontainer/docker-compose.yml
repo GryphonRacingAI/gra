@@ -29,6 +29,7 @@ services:
       - /dev/ttyACM0:/dev/ttyACM0 # Arduino motor controller
       # - /dev/astra_s:/dev/astra_s # Orbbec Astra S
       - /dev/dri
+      - /dev/ttyUSB0:/dev/ttyUSB0
     environment:
       - DISPLAY
       - QT_X11_NO_MITSHM=1

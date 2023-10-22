@@ -20,8 +20,8 @@
         <visual>
             <origin xyz="0 0 0.3" rpy="0 0 0"/>
             <geometry>
-                <box size="2.5 0.75 0.5"/>
-                <!-- <mesh filename="package://gra_base/meshes/frame_ultra_low_poly.stl" scale="0.001 0.001 0.001"/> -->
+                <!-- <box size="2.5 0.75 0.5"/> -->
+                <mesh filename="package://gra_base/meshes/ads-dv.stl"/>
             </geometry>
             <material name="white"/>
         </visual>
@@ -39,7 +39,7 @@
     <joint name="laser_joint" type="fixed">
         <parent link="chassis"/>
         <child link="laser"/>
-        <origin xyz="1 0 0.575" rpy="0 0 0"/>
+        <origin xyz="0.1 0 0.75" rpy="0 0 0"/>
     </joint>
     <link name="laser">
         <visual>
