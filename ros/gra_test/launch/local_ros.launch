@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-
-    <include file="$(find gra_core)/launch/context.launch" />
-
-    <node pkg="gra_test" type="talker.py" name="talker" output="screen" />
-    <node pkg="gra_test" type="listener.py" name="listener" output="screen" />
-
-</launch>
