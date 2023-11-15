@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "functional": "cpp"
-    },
-    "clangd.arguments": [
-        "--enable-config",
-        "--limit-results=1000",
-    ]
-}
