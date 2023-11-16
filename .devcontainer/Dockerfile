@@ -78,6 +78,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-explore-lite
 
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-ackermann-msgs
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-hector-sensors-description
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-teleop-twist-joy
 
 # Configure it to run on port 2222
 RUN sed -i 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config

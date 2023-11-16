@@ -22,7 +22,7 @@ Arguments:
 -->
 
 <launch>
-  <include file="$(find ackermann_vehicle_gazebo)/launch/ackermann_vehicle_hokuyo_imu.launch"/>
+  <include file="$(find ackermann_vehicle_gazebo)/launch/ackermann_vehicle_hokuyo.launch"/>
   <include file="$(find teleop_twist_joy)/launch/teleop.launch"/>
   <node pkg="ackermann_vehicle_gazebo" type="cmd_vel_to_ackermann_drive.py" name="cmd_vel_to_ackermann_drive" />
 </launch>
