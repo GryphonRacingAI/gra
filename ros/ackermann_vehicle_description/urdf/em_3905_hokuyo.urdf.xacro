@@ -102,7 +102,7 @@ limitations under the License.
   <xacro:property name="servo_no_load_speed" value="4.553"/>
 
   <material name="chassis_mat">
-    <color rgba="0.5 0.5 0.5 1"/>
+    <color rgba="0.0 0.2 0.13 1"/>
   </material>
   <material name="tire_mat">
     <color rgba="0 0 0 1"/>
@@ -302,7 +302,8 @@ limitations under the License.
     <visual>
       <origin xyz="0 0 ${-chassis_height / 2}"/>
       <geometry>
-        <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+        <!-- <box size="${chassis_length} ${chassis_width} ${chassis_height}"/> -->
+        <mesh filename="package://ackermann_vehicle_description/meshes/ads-dv.stl" scale="0.25 0.25 0.25"/>
       </geometry>
       <material name="chassis_mat"/>
     </visual>
@@ -321,7 +322,7 @@ limitations under the License.
     </xacro:solid_cuboid_inertial>
   </link>
   <gazebo reference="chassis">
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/Grass</material>
   </gazebo>
 
   <joint name="base_link_to_chassis" type="fixed">
