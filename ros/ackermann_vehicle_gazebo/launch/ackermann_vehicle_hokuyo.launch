@@ -58,5 +58,7 @@ Arguments:
       <param name="cmd_timeout" value="$(arg cmd_timeout)"/>
       <rosparam file="$(find ackermann_vehicle_gazebo)/config/em_3905_ackermann_ctrlr_params.yaml" command="load"/>
     </node>
+
+    <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
   </group>
 </launch>
