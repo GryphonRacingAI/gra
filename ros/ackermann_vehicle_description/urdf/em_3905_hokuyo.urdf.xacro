@@ -381,4 +381,78 @@ measured in kilograms. All of these values are approximations.
 
   <xacro:hokuyo_laser/>
 
+  <!-- Depth Camera -->
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_link" />
+    <origin xyz="0.065 0 0.075" rpy="0 0 0" />
+  </joint>
+
+  <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.02 0.1 0.03"/>
+      </geometry>
+    </visual>
+    <!-- <inertial>
+      <mass value="0.001"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0.0" ixz="0.0" iyy="0.0001" iyz="0.0" izz="0.0001"/>
+    </inertial> -->
+  </link>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <parent link="camera_link"/>
+    <child link="camera_link_optical"/>
+    <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
+  </joint>
+
+  <link name="camera_link_optical"></link>
+
+  <gazebo reference="camera_link">
+    <material>Gazebo/Blue</material>
+
+    <sensor name="camera" type="depth">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <camera>
+        <horizontal_fov>1.204</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>B8G8R8</format>
+        </image>
+        <clip>
+          <near>0.05</near>
+          <far>8.0</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <frameName>camera_link_optical</frameName>
+        <baseline>0.2</baseline>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>30.0</updateRate>
+        <!-- <cameraName>ackermann_vehicle_ir</cameraName> -->
+        <imageTopicName>/ackermann_vehicle/color/image_raw</imageTopicName>
+        <cameraInfoTopicName>/ackermann_vehicle/color/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>/ackermann_vehicle/depth/image_raw</depthImageTopicName>
+        <depthImageInfoTopicName>/ackermann_vehicle/depth/camera_info</depthImageInfoTopicName>
+        <pointCloudTopicName>/ackermann_vehicle/depth/points</pointCloudTopicName>
+        <pointCloudCutoff>0.5</pointCloudCutoff>
+        <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
+        <distortionK1>0.00000001</distortionK1>
+        <distortionK2>0.00000001</distortionK2>
+        <distortionK3>0.00000001</distortionK3>
+        <distortionT1>0.00000001</distortionT1>
+        <distortionT2>0.00000001</distortionT2>
+        <CxPrime>0</CxPrime>
+        <Cx>0</Cx>
+        <Cy>0</Cy>
+        <focalLength>0</focalLength>
+        <hackBaseline>0</hackBaseline>
+      </plugin>
+    </sensor>
+  </gazebo>
+
 </robot>
