@@ -76,6 +76,12 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-explore-lite
 
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dbg  
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dkms
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-utils
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-realsense2-camera
+
 
 
 # Configure it to run on port 2222

@@ -30,6 +30,15 @@ services:
       # - /dev/astra_s:/dev/astra_s # Orbbec Astra S
       - /dev/dri
       - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/media2
+      - /dev/media3
+      - /dev/video4
+      - /dev/video5
+      - /dev/video6
+      - /dev/video7
+      - /dev/video8
+      - /dev/video9
+
     environment:
       - DISPLAY
       - QT_X11_NO_MITSHM=1

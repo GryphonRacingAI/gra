@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<!-- ackermann_vehicle.launch
+
+Use Gazebo to simulate a vehicle with Ackermann steering.
+
+Arguments:
+    namespace (string, default: ackermann_vehicle)
+        Vehicle namespace.
+    world_name (string, default: worlds/empty.world)
+        Gazebo world name.
+    cmd_timeout (double, default: 0.5)
+        Command timeout passed to the ackermann_controller node.
+    x (double, default: 0.0)
+    y (double, default: 0.0)
+    z (double, default: 0.1)
+    roll (double, default: 0.0)
+    pitch (double, default: 0.0)
+    yaw (double, default: 0.0)
+        Vehicle pose. x, y, and z are measured in meters. roll, pitch, and yaw
+        are measured in radians.
+-->
+
+<launch>
+  <include file="$(find ackermann_vehicle_gazebo)/launch/ackermann_vehicle_hokuyo.launch"/>
+  <include file="$(find teleop_twist_joy)/launch/teleop.launch"/>
+  <node pkg="ackermann_vehicle_gazebo" type="cmd_vel_to_ackermann_drive.py" name="cmd_vel_to_ackermann_drive" />
+</launch>

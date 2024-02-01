@@ -5,9 +5,9 @@ function grainfo() {
     # Show what device we are on
     echo -n "$(echoColor white "Device: ")"
     if [ "$DEV_ENV" == "0" ]; then
-        echoColor "blue" "$(echoStyle bold "RoboCapture Raspberry Pi")"
+        echoColor "blue" "$(echoStyle bold "Gryphon Raspberry Pi")"
     elif [ "$DEV_ENV" == "1" ]; then
-        echoColor "green" "$(echoStyle bold "RoboCapture Dev Environment")"
+        echoColor "green" "$(echoStyle bold "Gryphon Dev Environment")"
     else
         # if $DEV_ENV not set, echo Device: Unknown
         if [ -z "$DEV_ENV" ]; then
