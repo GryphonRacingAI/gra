@@ -30,8 +30,14 @@ services:
       # - /dev/astra_s:/dev/astra_s # Orbbec Astra S
       - /dev/dri
       - /dev/ttyUSB0:/dev/ttyUSB0
+      - /dev/media0
+      - /dev/media1
       - /dev/media2
       - /dev/media3
+      - /dev/video0
+      - /dev/video1
+      - /dev/video2
+      - /dev/video3
       - /dev/video4
       - /dev/video5
       - /dev/video6
