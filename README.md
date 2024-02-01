@@ -20,3 +20,5 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - `roslaunch rplidar_ros view_rplidar.launch` to test the RPlidar
 - `rostopic list`
 - `rostopic echo {topic name}` print out messages to topic
+- `rosbag record -o recordings/output_file.bag -a --duration 30` to record 30s of data
+- `rosbag replay --loop recordings/output_file.bag` to replay the recording in a loop
