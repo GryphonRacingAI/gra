@@ -75,6 +75,8 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-gmapping
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-explore-lite
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-hector-sensors-description
+
 
 RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dev
 RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dbg  
