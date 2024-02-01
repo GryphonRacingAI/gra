@@ -1,3 +1,4 @@
 .devcontainer/.ssh/known_hosts
 ros/gra_manager/scripts/states/__pycache__
 *.pyc
+recordings/
