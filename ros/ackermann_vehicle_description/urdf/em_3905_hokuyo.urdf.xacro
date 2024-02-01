@@ -313,7 +313,7 @@ measured in kilograms. All of these values are approximations.
 
   <!-- LiDAR -->
   
-  <link name="hokuyo_link"> 
+  <link name="laser"> 
     <visual> 
       <geometry> 
         <box size="0.02 0.035 0.002"/> 
@@ -330,7 +330,7 @@ measured in kilograms. All of these values are approximations.
   <joint name="laser_joint" type="fixed">
     <origin xyz="-0.065 0 0.075" rpy="0 0 0" />
     <parent link="base_link" />
-    <child link="hokuyo_link" />
+    <child link="laser" />
   </joint>
  
   <gazebo>
@@ -373,7 +373,7 @@ measured in kilograms. All of these values are approximations.
         </ray>
         <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
           <topicName>/ackermann_vehicle/scan</topicName>
-          <frameName>hokuyo_link</frameName>
+          <frameName>laser</frameName>
         </plugin>
       </sensor>
     </gazebo>
