@@ -328,7 +328,7 @@ measured in kilograms. All of these values are approximations.
   </link>
 
   <joint name="laser_joint" type="fixed">
-    <origin xyz="-0.065 0 0.075" rpy="0 0 0" />
+    <origin xyz="-0.065 0 0.075" rpy="0 0 ${pi}" />
     <parent link="base_link" />
     <child link="laser" />
   </joint>
