@@ -21,4 +21,6 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - `rostopic list`
 - `rostopic echo {topic name}` print out messages to topic
 - `rosbag record -o recordings/output_file.bag -a --duration 30` to record 30s of data
-- `rosbag replay --loop recordings/output_file.bag` to replay the recording in a loop
+- `rosbag play --loop recordings/output_file.bag` to replay the recording in a l
+oop
+- `roslaunch urdf_tutorial display.launch model:=ros/ackermann_vehicle_description/urdf/em_3905_hokuyo.urdf.xacro`
