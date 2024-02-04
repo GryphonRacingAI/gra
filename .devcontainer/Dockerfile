@@ -84,6 +84,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dkms
 RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-utils
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-realsense2-camera
 
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-foxglove-msgs
 
 
 # Configure it to run on port 2222
