@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 import rospy
-from foxglove_msgs.msg import SceneUpdate, SceneEntities, SceneEntity, SceneEntityDeletion, CylinderPrimitive, Color
+from foxglove_msgs.msg import SceneUpdate, SceneEntity, CylinderPrimitive, Color
 from sensor_msgs.msg import LaserScan
-from geometry_msgs.msg import PoseArray, Pose, Point, Quaternion, PoseWithCovariance, TwistWithCovariance, Twist, Vector3
-from nav_msgs.msg import Odometry
+from geometry_msgs.msg import Pose, Point, Quaternion, Vector3
 from dataclasses import dataclass
 from typing import List
 
