@@ -5,12 +5,12 @@ FILE="/var/cache/apt/pkgcache.bin"
 
 function update_packages()
  {
-    sudo mkdir -p /etc/apt/keyrings
+    # Add RealSense source
+    mkdir -p /etc/apt/keyrings
     curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
     echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" | \
-    sudo tee /etc/apt/sources.list.d/librealsense.list
-    sudo apt-get update
-
+    tee /etc/apt/sources.list.d/librealsense.list
+    
     apt-get update
 }
 
@@ -24,4 +24,4 @@ else
     fi
 fi
 
-apt-get "$@"
+apt-get install -y "$@"
