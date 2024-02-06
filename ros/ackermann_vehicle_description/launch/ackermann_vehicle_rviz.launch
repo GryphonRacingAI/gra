@@ -3,9 +3,7 @@
 <launch>
   <arg name="namespace" default="ackermann_vehicle"/>
 
-  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch">
-    <arg name="namespace" value="$(arg namespace)"/>
-  </include>
+  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch" />
 
   <!-- Read joint positions from a GUI, then publish them to joint_states. -->
   <node name="joint_state_publisher" pkg="joint_state_publisher"

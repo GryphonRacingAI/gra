@@ -9,7 +9,9 @@
 	"postStartCommand": "/bin/bash -c '/root/gra/.devcontainer/post_start.sh'",
 	"customizations": {
 		"vscode": {
-			"settings": {},
+			"settings": {
+				"remote.autoForwardPorts": false
+			},
 			"extensions": [
 				"ms-vscode.cpptools",
 				"ms-vscode.cpptools-extension-pack",
