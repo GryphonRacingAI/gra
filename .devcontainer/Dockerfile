@@ -40,7 +40,42 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-move-base
 # Install tkinter for python3
 RUN /usr/local/bin/apt-get-wrapper.sh install -y python3-tk
 
+# Install rplidar and gmapping
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-rplidar-ros
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-gmapping
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-navigation
+RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-move-base-flex
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-explore-lite
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-hector-sensors-description
+
+# Install realsense 
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dbg  
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dkms
+RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-utils
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-realsense2-camera
+
 # End of ROS dependencies
+
+# Install dependencies for Darknet and OpenCV
+RUN /usr/local/bin/apt-get-wrapper.sh install -y build-essential cmake pkg-config unzip yasm git checkinstall
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libjpeg-dev libpng-dev libtiff-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libavcodec-dev libavformat-dev libswscale-dev libavresample-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libgtk2.0-dev libtbb-dev qt5-default
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libatlas-base-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libfaac-dev libmp3lame-dev libtheora-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libvorbis-dev libxvidcore-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libopencore-amrnb-dev libopencore-amrwb-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libavutil-dev libavfilter-dev libavdevice-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libx264-dev libx265-dev libnuma-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libv4l-dev v4l-utils
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libprotobuf-dev protobuf-compiler
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libgoogle-glog-dev libgflags-dev
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libgphoto2-dev libeigen3-dev libhdf5-dev doxygen
+
+# Install OpenCV
+RUN /usr/local/bin/apt-get-wrapper.sh install -y libopencv-dev
 
 # Install OpenSSH for remote development
 RUN /usr/local/bin/apt-get-wrapper.sh install -y openssh-server
@@ -70,19 +105,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y sshfs
 RUN /usr/local/bin/apt-get-wrapper.sh install -y rsync
 
 RUN /usr/local/bin/apt-get-wrapper.sh install -y lsyncd
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-rplidar-ros
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-gmapping
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-navigation
-RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-move-base-flex
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-explore-lite
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-hector-sensors-description
 
 
-RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dev
-RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dbg  
-RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dkms
-RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-utils
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-realsense2-camera
+
 
 
 
