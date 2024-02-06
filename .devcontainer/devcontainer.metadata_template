@@ -1,0 +1,12 @@
+[{
+    "customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false
+			},
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	}
+}]
