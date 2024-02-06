@@ -42,7 +42,7 @@ def convert_cone_coords_to_foxglove_objects(coords_list: List[ConeCoords], times
 
 def listener():
 
-    pub = rospy.Publisher('poses', SceneUpdate, queue_size=10)
+    pub = rospy.Publisher('lidar_cones_foxglove', SceneUpdate, queue_size=10)
 
     # In ROS, nodes are uniquely named. If two nodes with the same
     # name are launched, the previous one is kicked off. The
@@ -51,7 +51,7 @@ def listener():
     # run simultaneously.
     rospy.init_node('listener', anonymous=True)
 
-    rospy.Subscriber("scan", LaserScan, callback, callback_args=pub)
+    rospy.Subscriber("scan", LaserScan, callback, callback_args=pub, queue_size=1)
 
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
