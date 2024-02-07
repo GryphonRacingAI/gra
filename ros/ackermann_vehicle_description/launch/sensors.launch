@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Run roslaunch rplidar_ros rplidar_a1.launch   -->
+    <include file="$(find rplidar_ros)/launch/rplidar_a1.launch" />
+
+    <!-- Run roslaunch realsense2_camera rs_aligned_depth.launch  -->
+    <include file="$(find realsense2_camera)/launch/rs_aligned_depth.launch" />
+
+    <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_rviz.launch" />
+
+</launch>

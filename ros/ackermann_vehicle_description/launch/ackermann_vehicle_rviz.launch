@@ -1,18 +1,9 @@
 <?xml version="1.0"?>
 
-<!-- ackermann_vehicle_rviz.launch
-
-Use RViz to visualize a vehicle with Ackermann steering.
-
-Arguments:
-    namespace (string, default: ackermann_vehicle)
-        Vehicle namespace.
--->
-
 <launch>
   <arg name="namespace" default="ackermann_vehicle"/>
 
-  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle.launch">
+  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch">
     <arg name="namespace" value="$(arg namespace)"/>
   </include>
 
@@ -23,7 +14,9 @@ Arguments:
     <param name="use_gui" value="true"/>
   </node>
 
-  <include file="$(find ackermann_vehicle_description)/launch/rviz.launch">
-    <arg name="namespace" value="$(arg namespace)"/>
-  </include>
+  <!-- Run node robot_state_publisher -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
+
 </launch>
