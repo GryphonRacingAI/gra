@@ -35,13 +35,6 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
 
 # RUN /usr/local/bin/apt-get-wrapper.sh rsync
 
-# RUN /usr/local/bin/apt-get-wrapper.sh lsyncd
-# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-gmapping
-# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
-# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
-# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
-# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
-
 # Install Intel RealSense camera libraries
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg  librealsense2-dkms librealsense2-utils ros-noetic-realsense2-camera
 
