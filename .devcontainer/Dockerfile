@@ -9,6 +9,11 @@ RUN chmod +x /usr/local/bin/apt-get-wrapper.sh
 RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git x11-apps
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rosserial-arduino ros-noetic-rqt-ez-publisher ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
 
+# # SMACH
+# RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-smach
+# RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-smach-msgs
+# RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-smach-ros
+
 # # Install slam_toolbox
 # RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-slam-toolbox
 
