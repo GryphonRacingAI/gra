@@ -22,6 +22,26 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
 
+# # Install scipy, numpy, matplotlib, pandas, scikit-learn, jupyterlab
+# RUN pip3 install --upgrade numpy matplotlib scipy pandas scikit-learn ipympl jupyterlab
+
+# # Install openssh-server
+# RUN /usr/local/bin/apt-get-wrapper.sh openssh-server
+
+# # Install sshpass
+# RUN /usr/local/bin/apt-get-wrapper.sh sshpass
+
+# RUN /usr/local/bin/apt-get-wrapper.sh sshfs
+
+# RUN /usr/local/bin/apt-get-wrapper.sh rsync
+
+# RUN /usr/local/bin/apt-get-wrapper.sh lsyncd
+# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-gmapping
+# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
+# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
+# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
+# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
+
 # Install Intel RealSense camera libraries
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg  librealsense2-dkms librealsense2-utils ros-noetic-realsense2-camera
 
