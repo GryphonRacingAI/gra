@@ -14,6 +14,12 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rosserial-
 RUN /usr/local/bin/apt-get-wrapper.sh python3-pip
 RUN pip3 install ipykernel
 
+# # Install scipy, numpy, matplotlib, pandas, scikit-learn, jupyterlab
+# RUN pip3 install --upgrade numpy matplotlib scipy pandas scikit-learn ipympl jupyterlab
+
+# # Install openssh-server
+# RUN /usr/local/bin/apt-get-wrapper.sh openssh-server
+
 RUN /usr/local/bin/apt-get-wrapper.sh lsyncd
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rplidar-ros
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-gmapping
@@ -21,12 +27,6 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
-
-# # Install scipy, numpy, matplotlib, pandas, scikit-learn, jupyterlab
-# RUN pip3 install --upgrade numpy matplotlib scipy pandas scikit-learn ipympl jupyterlab
-
-# # Install openssh-server
-# RUN /usr/local/bin/apt-get-wrapper.sh openssh-server
 
 # # Install sshpass
 # RUN /usr/local/bin/apt-get-wrapper.sh sshpass
