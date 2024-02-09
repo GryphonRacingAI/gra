@@ -8,8 +8,11 @@ ln -s ~/gra/ros ~/catkin_ws/src
 #     echo -e "\e[36mSSH keys generated.\e[0m"
 # fi
 
-# Add ssh keys to ssh-agent
-ssh-add ~/.ssh/id_rsa
+# Create devcontainer.metadata from template if it doesn't exist
+if [ ! -f ~/gra/.devcontainer/devcontainer.metadata ]; then
+    echo -e "\e[36mCreating devcontainer.metadata ...\e[0m"
+    cp ~/gra/.devcontainer/devcontainer.metadata_template ~/gra/.devcontainer/devcontainer.metadata
+fi
 
 # Run acm
 bash -ic "source ~/.bashrc && setdevmaster; cb && abl"
