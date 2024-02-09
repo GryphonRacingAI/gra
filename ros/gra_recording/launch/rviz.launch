@@ -3,7 +3,7 @@
 <launch>
   <arg name="model" default="$(find ackermann_vehicle_description)/urdf/em_3905_hokuyo.urdf.xacro"/>
   <arg name="gui" default="false" />
-  <arg name="rvizconfig" default="$(find gra_recording)/rviz/compressed_depth.rviz" />
+  <arg name="rvizconfig" default="$(find gra_recording)/rviz/lidar_compressedDepth.rviz" />
 
   <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
