@@ -28,6 +28,3 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - `rosbag play -l recordings/recording1__timestamp.bag` to play a recording in a loop
 - `roslaunch urdf_tutorial display.launch model:=ros/ackermann_vehicle_description/urdf/em_3905_hokuyo.urdf.xacro` to launch RViz with a basic setup (remember the X11 command above)
 - `roslaunch gra_recording rviz_compressed_depth_camera.launch` to display a recorded stream in RViz
-
-## Compressed images
-- RViz is buggy so you will have to set up an rviz configuration with the camera plugged in and set it up to show compressed images. (this is a TODO)
