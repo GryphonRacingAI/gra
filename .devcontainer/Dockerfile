@@ -64,6 +64,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-foxglove-msgs
 # Upstart
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-robot-upstart
 
+# Ackermann messages (needed by ackermann_vehicle_navigation)
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ackermann-msgs
+
 # Copying source code over
 # COPY .. /root/gra
 # COPY ./.bashrc /root/.bashrc
