@@ -2,9 +2,9 @@
 
 <launch>
   <arg name="output_name" default="compressed_sensor_data"/>
-  
-  <!-- Hacky solution for forwarding the duration argument -->
   <arg name="duration" default=""/>
+
+  <!-- Hacky solution for forwarding the duration argument -->
   <arg name="duration_evaluated" value=""/>
   <arg name="duration_evaluated" value="--duration $(arg duration)" if="$(eval duration != '')"/>
 
