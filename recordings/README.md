@@ -1,0 +1,1 @@
+This folder is used to store recordings (rosbag `.bag` files). These have a large file size and are not readable in a text editor, so please don't commit them to git. They will make the repo take up a lot of space even if you delete them later (because git retains all history). You can upload them to OneDrive and share a link if you want to send them to someone.

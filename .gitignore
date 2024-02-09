@@ -2,4 +2,6 @@
 .devcontainer/devcontainer.metadata
 ros/gra_manager/scripts/states/__pycache__
 *.pyc
-recordings/
+
+# rosbag files
+*.bag 

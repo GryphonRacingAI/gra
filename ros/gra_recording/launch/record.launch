@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="output_name" default="compressed_sensor_data"/>
+  <arg name="duration" default=""/>
+
+  <!-- Hacky solution for forwarding the duration argument -->
+  <arg name="duration_evaluated" value="" if="$(eval duration == '')"/>
+  <arg name="duration_evaluated" value="--duration $(arg duration)" unless="$(eval duration == '')"/>
+
+
+  <node name="sensor_recorder" pkg="rosbag" type="record" 
+  args=
+  "-o /root/gra/recordings/$(arg output_name)
+    $(arg duration_evaluated)
+    /scan
+    /camera/aligned_depth_to_color/camera_info
+    /camera/color/image_raw/compressed
+    /camera/aligned_depth_to_color/image_raw/compressedDepth
+    /tf_static
+    /tf"
+  />
+</launch>

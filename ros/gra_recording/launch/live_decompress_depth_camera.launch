@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+  <node name="republish_compressedDepth" pkg="image_transport" type="republish" args="compressedDepth in:=/camera/aligned_depth_to_color/image_raw out:=/camera/aligned_depth_to_color/image_raw" required="true" />
+  <node name="republish_compressed" pkg="image_transport" type="republish" args="compressed in:=/camera/color/image_raw out:=/camera/color/image_raw" required="true" />
+</launch>
