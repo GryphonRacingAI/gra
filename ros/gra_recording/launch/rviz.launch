@@ -5,7 +5,7 @@
   <arg name="gui" default="false" />
   <arg name="rvizconfig" default="$(find gra_recording)/rviz/compressed_depth.rviz" />
 
-  <!-- <param name="robot_description" command="$(find xacro)/xacro $(arg model)" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
   <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
   <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
