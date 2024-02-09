@@ -5,8 +5,8 @@
   <arg name="duration" default=""/>
 
   <!-- Hacky solution for forwarding the duration argument -->
-  <arg name="duration_evaluated" value=""/>
-  <arg name="duration_evaluated" value="--duration $(arg duration)" if="$(eval duration != '')"/>
+  <arg name="duration_evaluated" value="" if="$(eval duration == '')"/>
+  <arg name="duration_evaluated" value="--duration $(arg duration)" unless="$(eval duration == '')"/>
 
 
   <node name="sensor_recorder" pkg="rosbag" type="record" 
