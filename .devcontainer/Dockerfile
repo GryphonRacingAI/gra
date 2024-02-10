@@ -1,5 +1,15 @@
 FROM shiukaheng/ros-base:latest
 
+# Upgrade cmake to version 3.18
+RUN apt-get update && \
+    apt-get install -y wget && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Linux-x86_64.sh -O /tmp/cmake-install.sh && \
+    chmod +x /tmp/cmake-install.sh && \
+    /tmp/cmake-install.sh --skip-license --prefix=/usr/local && \
+    rm /tmp/cmake-install.sh && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 ENTRYPOINT [ "/usr/bin/env" ]
 
 # Copy in ./apt-get-wrapper.sh
@@ -47,6 +57,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-explore-lite
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-hector-sensors-description
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-ackermann-msgs
 
 # Install realsense 
 RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dev
