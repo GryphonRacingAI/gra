@@ -1,12 +1,11 @@
 #include "avgpool_layer.h"
-#include "dark_cuda.h"
-#include "utils.h"
+#include "cuda.h"
 #include <stdio.h>
 
 avgpool_layer make_avgpool_layer(int batch, int w, int h, int c)
 {
-    fprintf(stderr, "avg                          %4d x%4d x%4d ->   %4d\n",  w, h, c, c);
-    avgpool_layer l = { (LAYER_TYPE)0 };
+    fprintf(stderr, "avg                     %4d x%4d x%4d   ->  %4d\n",  w, h, c, c);
+    avgpool_layer l = {0};
     l.type = AVGPOOL;
     l.batch = batch;
     l.h = h;
@@ -18,8 +17,8 @@ avgpool_layer make_avgpool_layer(int batch, int w, int h, int c)
     l.outputs = l.out_c;
     l.inputs = h*w*c;
     int output_size = l.outputs * batch;
-    l.output = (float*)xcalloc(output_size, sizeof(float));
-    l.delta = (float*)xcalloc(output_size, sizeof(float));
+    l.output =  calloc(output_size, sizeof(float));
+    l.delta =   calloc(output_size, sizeof(float));
     l.forward = forward_avgpool_layer;
     l.backward = backward_avgpool_layer;
     #ifdef GPU
@@ -38,7 +37,7 @@ void resize_avgpool_layer(avgpool_layer *l, int w, int h)
     l->inputs = h*w*l->c;
 }
 
-void forward_avgpool_layer(const avgpool_layer l, network_state state)
+void forward_avgpool_layer(const avgpool_layer l, network net)
 {
     int b,i,k;
 
@@ -48,14 +47,14 @@ void forward_avgpool_layer(const avgpool_layer l, network_state state)
             l.output[out_index] = 0;
             for(i = 0; i < l.h*l.w; ++i){
                 int in_index = i + l.h*l.w*(k + b*l.c);
-                l.output[out_index] += state.input[in_index];
+                l.output[out_index] += net.input[in_index];
             }
             l.output[out_index] /= l.h*l.w;
         }
     }
 }
 
-void backward_avgpool_layer(const avgpool_layer l, network_state state)
+void backward_avgpool_layer(const avgpool_layer l, network net)
 {
     int b,i,k;
 
@@ -64,8 +63,9 @@ void backward_avgpool_layer(const avgpool_layer l, network_state state)
             int out_index = k + b*l.c;
             for(i = 0; i < l.h*l.w; ++i){
                 int in_index = i + l.h*l.w*(k + b*l.c);
-                state.delta[in_index] += l.delta[out_index] / (l.h*l.w);
+                net.delta[in_index] += l.delta[out_index] / (l.h*l.w);
             }
         }
     }
 }
+

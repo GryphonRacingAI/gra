@@ -21,9 +21,6 @@
 #include <actionlib/server/simple_action_server.h>
 #include <geometry_msgs/Point.h>
 #include <image_transport/image_transport.h>
-#include <image_transport/subscriber_filter.h>
-#include <message_filters/synchronizer.h>
-#include <message_filters/sync_policies/approximate_time.h>
 #include <ros/ros.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
@@ -49,11 +46,9 @@
 #endif
 
 extern "C" {
-#include "blas.h"
 #include <sys/time.h>
 #include "box.h"
 #include "cost_layer.h"
-#include "darknet_ros/image_interface.h"
 #include "detection_layer.h"
 #include "network.h"
 #include "parser.h"
@@ -61,9 +56,12 @@ extern "C" {
 #include "utils.h"
 }
 
-image ipl_to_image(IplImage* src);
-void ipl_into_image(IplImage* src, image im);
-// extern "C" void show_image_cv(image p, const char* name, IplImage* disp);
+// Image interface.
+#include "darknet_ros/image_interface.hpp"
+
+extern "C" cv::Mat image_to_mat(image im);
+extern "C" image mat_to_image(cv::Mat m);
+extern "C" int show_image(image p, const char* name, int ms);
 
 namespace darknet_ros {
 
@@ -74,9 +72,9 @@ typedef struct {
 } RosBox_;
 
 typedef struct {
-  IplImage* image;
+  cv::Mat image;
   std_msgs::Header header;
-} IplImageWithHeader_;
+} CvMatWithHeader_;
 
 class YoloObjectDetector {
  public:
@@ -178,12 +176,11 @@ class YoloObjectDetector {
   image buffLetter_[3];
   int buffId_[3];
   int buffIndex_ = 0;
-  IplImage* ipl_;
   float fps_ = 0;
   float demoThresh_ = 0;
   float demoHier_ = .5;
   int running_ = 0;
-
+  cv::Mat disp_;
   int demoDelay_ = 0;
   int demoFrame_ = 3;
   float** predictions_;
@@ -195,7 +192,7 @@ class YoloObjectDetector {
   int demoTotal_ = 0;
   double demoTime_;
 
-  RosBox_* roiBoxes_[3];
+  RosBox_* roiBoxes_;
   bool viewImage_;
   bool enableConsoleOutput_;
   int waitKeyDelay_;
@@ -238,7 +235,7 @@ class YoloObjectDetector {
 
   void yolo();
 
-  IplImageWithHeader_ getIplImageWithHeader();
+  CvMatWithHeader_ getCvMatWithHeader();
 
   bool getImageStatus(void);
 

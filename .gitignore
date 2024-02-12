@@ -2,3 +2,4 @@
 ros/gra_manager/scripts/states/__pycache__
 *.pyc
 recordings/
+*.bag

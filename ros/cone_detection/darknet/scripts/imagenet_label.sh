@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#wget http://www.image-net.org/challenges/LSVRC/2012/nnoupb/ILSVRC2012_bbox_val_v3.tgz
-#other downloads: http://www.image-net.org/challenges/LSVRC/2012/nonpub-downloads
-#read: https://pjreddie.com/darknet/imagenet/
-
 mkdir -p labelled
 wd=`pwd`
 
