@@ -13,17 +13,17 @@
 				"remote.autoForwardPorts": false
 			},
 			"extensions": [
-				"ms-vscode.cpptools",
-				"ms-vscode.cpptools-extension-pack",
-				"ms-iot.vscode-ros",
-				"vsciot-vscode.vscode-arduino",
-				"GitHub.copilot",
-				"hediet.vscode-drawio",
-				"tostc.vscl",
-				"ms-toolsai.jupyter",
-				"michelemelluso.gitignore",
-				"redhat.vscode-xml",
-				"dlech.chmod"
+				// "ms-vscode.cpptools",
+				// "ms-vscode.cpptools-extension-pack",
+				// "ms-iot.vscode-ros",
+				// "vsciot-vscode.vscode-arduino",
+				// "GitHub.copilot",
+				// "hediet.vscode-drawio",
+				// "tostc.vscl",
+				// "ms-toolsai.jupyter",
+				// "michelemelluso.gitignore",
+				// "redhat.vscode-xml",
+				// "dlech.chmod"
 			]
 		}
 	}
