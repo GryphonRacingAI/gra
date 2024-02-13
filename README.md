@@ -22,3 +22,4 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - `rostopic echo {topic name}` print out messages to topic
 - `rosbag record -o recordings/output_file.bag -a --duration 30` to record 30s of data
 - `rosbag replay --loop recordings/output_file.bag` to replay the recording in a loop
+- `rosbag record -o {name} --duration=30 /initialpose /joint_states /move_base_simple/goal /rosout /rosout_agg /tf /tf_static /camera/aligned_depth_to_color/camera_info /camera/aligned_depth_to_color/image_raw/compressedDepth /camera/color/camera_info /camera/color/image_raw/compressed` includes the essential topics for recording depth camera bags.
