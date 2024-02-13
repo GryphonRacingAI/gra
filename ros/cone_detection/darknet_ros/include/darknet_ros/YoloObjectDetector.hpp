@@ -61,7 +61,7 @@ extern "C" {
 
 extern "C" cv::Mat image_to_mat(image im);
 extern "C" image mat_to_image(cv::Mat m);
-extern "C" int show_image(image p, const char* name, int ms);
+// extern "C" int show_image(image p, const char* name, int ms);
 
 namespace darknet_ros {
 
