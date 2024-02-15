@@ -12,6 +12,8 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 
 ## Notes
 - Please make sure the permissions are correct before committing
+- Ubuntu problems: memory leak (the memory mysteriously gets full). Deleting the forwarded ports solves the problem some of the time.
+- Windows problems: Files marked my chmod may cause a problem. Also, windows might change the line endings to CRLF which causes a problem when you run the repo in linux.
 
 ## Commonly used commands
 ### Basic ROS
