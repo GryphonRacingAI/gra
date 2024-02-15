@@ -66,6 +66,10 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-dkms
 RUN /usr/local/bin/apt-get-wrapper.sh install -y librealsense2-utils
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-realsense2-camera
 
+# Install dependencies for ultralytics yolov8
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-vision-msgs
+
+
 # End of ROS dependencies
 
 # Install dependencies for Darknet and OpenCV
@@ -117,10 +121,13 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y rsync
 
 RUN /usr/local/bin/apt-get-wrapper.sh install -y lsyncd
 
-
-
-
-
+# Install Python packages for ultralytics yolov8
+RUN python3 -m pip install lap==0.4.0 \
+    onnx==1.14.0 \
+    urllib3==1.26.18 \
+    numpy==1.23.4 \
+    opencv-python==4.7.0.72 \
+    ultralytics
 
 # Configure it to run on port 2222
 RUN sed -i 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config
@@ -134,6 +141,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-robot-upstart
 RUN mkdir -p /root/catkin_ws
 WORKDIR /root/catkin_ws
 # RUN ln -s /root/gra/ros src
+
 
 # Set password for root to be gra
 RUN echo 'root:gra' | chpasswd
