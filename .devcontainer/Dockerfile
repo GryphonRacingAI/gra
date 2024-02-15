@@ -69,6 +69,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-realsense2-camera
 # Install dependencies for ultralytics yolov8
 RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-vision-msgs
 
+# Install velodyne 3D Lidar  package
+RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-velodyne
+
 
 # End of ROS dependencies
 
