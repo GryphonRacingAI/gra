@@ -1,7 +1,7 @@
 depends_func pexport
 
 function setdevmaster() {
-    pexport ROS_MASTER_URI "$DEV_MASTER_URI" && pexport ROS_HOSTNAME "$(hostname).local" && pexport GRA_MASTER 'local'
+    pexport ROS_MASTER_URI "$DEV_MASTER_URI" && pexport ROS_HOSTNAME $DEV_BOT_HOSTNAME && pexport GRA_MASTER 'local'
 }
 
 function sdm() {
