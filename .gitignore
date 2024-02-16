@@ -5,3 +5,4 @@ ros/gra_manager/scripts/states/__pycache__
 
 # rosbag files
 *.bag 
+installation_script_generated.sh
