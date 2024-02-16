@@ -25,8 +25,8 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - `rostopic list`
 - `rostopic echo {topic name}` print out messages to topic
 ### Sensors
-- `roslaunch rplidar_ros view_rplidar.launch` to test the RPidar
-- `roslaunch realsense2_camera rs_aligned_depth.launch` to test the Intel depth camera
+- `roslaunch rplidar_ros rplidar_a1.launch` to turn on the RPidar
+- `roslaunch realsense2_camera rs_aligned_depth.launch` to turn on the Intel depth camera
 ### Other
 - `roslaunch gra_recording record.launch output_name:=recording1 duration:=10s` to record 10s of data
 - `rosbag play -l recordings/recording1__timestamp.bag` to play a recording in a loop

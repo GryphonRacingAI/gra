@@ -14,9 +14,10 @@
   "-o /root/gra/recordings/$(arg output_name)
     $(arg duration_evaluated)
     /scan
+    /camera/aligned_depth_to_color/image_raw/compressedDepth
     /camera/aligned_depth_to_color/camera_info
     /camera/color/image_raw/compressed
-    /camera/aligned_depth_to_color/image_raw/compressedDepth
+    /camera/color/camera_info
     /tf_static
     /tf"
   />
