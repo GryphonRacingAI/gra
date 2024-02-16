@@ -14,6 +14,7 @@ if [ ! -f ~/gra/.devcontainer/devcontainer.metadata ]; then
     cp ~/gra/.devcontainer/devcontainer.metadata_template ~/gra/.devcontainer/devcontainer.metadata
 fi
 
-# Run acm
-bash -ic "source ~/.bashrc && setdevmaster; cb && abl"
+source ~/.bashrc -i
+setdevmaster
+cb
 # bash -ic "source ~/.bashrc && setbotmaster; acm"
