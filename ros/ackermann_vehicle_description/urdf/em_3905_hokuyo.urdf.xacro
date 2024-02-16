@@ -311,7 +311,7 @@ measured in kilograms. All of these values are approximations.
   <xacro:rear_wheel lr_prefix="right" fr_prefix="rear"
                     lr_reflect="-1" fr_reflect="-1"/>
 
-  <!-- LiDAR -->
+  <!-- 2D LiDAR -->
   
   <link name="laser"> 
     <visual> 
@@ -380,6 +380,31 @@ measured in kilograms. All of these values are approximations.
   </xacro:macro>
 
   <xacro:hokuyo_laser/>
+
+  <!-- 3D LiDAR (VLP-16) Frame -->
+  <link name="velodyne">
+    <visual>
+      <origin xyz="0 0 0.09" rpy="0 0 0"/> <!-- Adjust the z-offset as needed -->
+      <geometry>
+        <cylinder radius="0.05" length="0.07"/>
+      </geometry>
+      <material name="lidar_mat">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <inertial>
+      <mass value="0.1"/> <!-- Adjust the mass as needed -->
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0005"/>
+    </inertial>
+  </link>
+
+  <joint name="velodyne_joint" type="fixed">
+    <parent link="base_link"/> <!-- Ensure this is the correct parent link -->
+    <child link="velodyne"/>
+    <origin xyz="0 0 0.09" rpy="0 0 0"/> <!-- Adjust xyz for positioning, rpy for orientation -->
+  </joint>
+
 
   <!-- Depth Camera -->
   <joint name="camera_joint" type="fixed">
