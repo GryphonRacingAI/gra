@@ -17,7 +17,7 @@ function update_packages()
 if [ ! -f "$FILE" ] | [ ! "$(ls -A /var/lib/apt/lists)" ]; then
     update_packages
 else
-    CACHE_AGE=$($(date +%s) - $(stat -c %Y "$FILE"))
+    CACHE_AGE=$(($(date +%s) - $(stat -c %Y "$FILE")))
     
     if [ "$CACHE_AGE" -gt "$DAY_IN_SECONDS" ]; then
         update_packages
