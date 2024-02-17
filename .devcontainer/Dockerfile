@@ -111,13 +111,6 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
-
-
-# Add RealSense source
-RUN mkdir -p /etc/apt/keyrings
-RUN curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
-RUN echo "deb [signed-by=/etc/apt/keyrings/librealsense.pgp] https://librealsense.intel.com/Debian/apt-repo `lsb_release -cs` main" | \
-tee /etc/apt/sources.list.d/librealsense.list
     
 # Install Intel RealSense camera libraries
 RUN apt-get update && /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
