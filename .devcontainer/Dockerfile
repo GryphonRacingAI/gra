@@ -66,7 +66,7 @@ RUN chmod +x /usr/local/bin/apt-get-wrapper.sh
 RUN rm -rf /var/lib/apt/lists/* # for some reason this is needed when we switch to or from the apt-get-wrapper
 
 RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publisher --fix-missing
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publishe
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
 
 # # SMACH
@@ -113,7 +113,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-gmapping
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description --ignore-missing
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
     
 # Install Intel RealSense camera libraries
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
