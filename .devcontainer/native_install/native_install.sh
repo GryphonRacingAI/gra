@@ -18,6 +18,7 @@ fi
 #     sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 # fi
 
+sudo systemctl stop unattended-upgrades.service  # it can block the installation
 python3 .devcontainer/native_install/docker2sh.py --target gra-base .devcontainer/Dockerfile > installation_script_generated.sh
 sudo cp .devcontainer/apt-get-wrapper.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/apt-get-wrapper.sh
