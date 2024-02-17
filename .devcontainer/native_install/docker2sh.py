@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Dockerfile parser module
+Dockerfile parser module based on https://github.com/dyne/docker2sh
 """
 from argparse import ArgumentParser
 from base64 import b64encode
@@ -71,7 +71,7 @@ def parse_instruction(inst, dfile=None):
         while '`' in val:
             val = val.replace('`', '"$(', 1)
             val = val.replace('`', ')"', 1)
-        return '%s\n' % val.replace('$', '\\$')
+        return val + '\n'
 
     if ins == 'WORKDIR':
         return 'mkdir -p %s && cd %s\n' % (val, val)
