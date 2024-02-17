@@ -63,8 +63,6 @@ FROM ros-base AS gra-base
 COPY ./apt-get-wrapper.sh /usr/local/bin/apt-get-wrapper.sh
 RUN chmod +x /usr/local/bin/apt-get-wrapper.sh
 
-RUN rm -rf /var/lib/apt/lists/* # for some reason this is needed when we switch to or from the apt-get-wrapper
-
 RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publisher
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
@@ -132,10 +130,8 @@ FROM gra-base AS gra-dev
 # Set password for root to be gra
 RUN echo 'root:gra' | chpasswd
 
-RUN rm -rf /var/lib/apt/lists/* # for some reason this is needed when we switch to or from the apt-get-wrapper
-
 # install ros packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-desktop=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
