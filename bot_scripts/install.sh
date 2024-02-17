@@ -40,6 +40,7 @@ safe_symlink "$(realpath ../)" ~/gra
 safe_symlink "$(realpath ~/gra/ros/)" ~/catkin_ws/src
 safe_symlink "$(realpath ~/gra/.devcontainer/.bashrc)" ~/.bashrc
 safe_symlink "$(realpath ~/gra/.devcontainer/convenience.sh)" ~/convenience.sh
+safe_symlink "$(realpath ~/gra/.devcontainer/bash_profile.sh)" ~/bash_profile.sh
 
 # Dynamically create the roscore.service file
 echo "Generating roscore.service for user $USER..."
