@@ -21,6 +21,25 @@ def rstrip_backslash(line):
     return line
 
 
+def get_stages_to_target(data, target, stagere):
+    """
+    Find which steps we need to build the target
+    """
+    required_stages = [target]
+    MAX_DEPTH = 100
+
+    for _ in range(MAX_DEPTH):
+        parent_stage_found = False
+        for line in data:
+            if stages := stagere.match(line):
+                if stages.group("child") == required_stages[-1]:
+                    required_stages.append(stages["parent"])
+                    parent_stage_found = True
+                    break
+        if not parent_stage_found:
+            return required_stages[:-1]
+
+
 def parse_instruction(inst, dfile=None):
     """
     Method for translating Dockerfile instructions to shell script
@@ -77,6 +96,8 @@ def main():
                         help='output the data as a shell script (default)')
     parser.add_argument('--keeptabs', action='store_true',
                         help='do not replace \\t (tabs) in the strings')
+    parser.add_argument('--target', action='store',
+                        help='which target to build')
     parser.add_argument('Dockerfile')
     args = parser.parse_args()
 
@@ -89,14 +110,21 @@ def main():
     instre = re.compile(r'^\s*(\w+)\s+(.*)$')
     contre = re.compile(r'^.*\\\s*$')
     commentre = re.compile(r'^\s*#')
+    stagere = re.compile(r'^\s*FROM\s*(?P<parent>\S+)\s*AS\s*(?P<child>\S+)')
+
+    required_stages = get_stages_to_target(data, args.target, stagere)
+    
 
     instructions = []
     lineno = -1
     in_continuation = False
     cur_inst = {}
+    current_stage = ""
 
     for line in data:
         lineno += 1
+        if line_stages:=stagere.match(line):
+            current_stage = line_stages.group("child")
         if commentre.match(line):
             continue
         if not in_continuation:
@@ -114,7 +142,7 @@ def main():
                 cur_inst['value'] = rstrip_backslash(line.lstrip())
 
         in_continuation = contre.match(line)
-        if not in_continuation and cur_inst is not None:
+        if not in_continuation and cur_inst is not None and (current_stage in required_stages or args.target is None):
             if not args.keeptabs:
                 cur_inst['value'] = cur_inst['value'].replace('\t', '')
             instructions.append(cur_inst)
