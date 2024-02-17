@@ -5,6 +5,7 @@ export DOCKERFILE=$GRA_REPO/.devcontainer/Dockerfile
 
 # Default ROS environment variables (could be overriden by setdevmaster / setbotmaster)
 export DEV_MASTER_URI="http://localhost:11311"
+export DEV_MASTER_HOSTNAME="localhost"
 export DEV_BOT_HOSTNAME="gra.local"
 export DEV_BOT_USER="ubuntu"
 export DEV_BOT_MASTER_URI="http://$DEV_BOT_HOSTNAME:11311"
