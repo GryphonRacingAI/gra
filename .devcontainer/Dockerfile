@@ -66,7 +66,7 @@ RUN chmod +x /usr/local/bin/apt-get-wrapper.sh
 RUN rm -rf /var/lib/apt/lists/* # for some reason this is needed when we switch to or from the apt-get-wrapper
 
 RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publishe
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publisher
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
 
 # # SMACH
