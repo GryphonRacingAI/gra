@@ -38,9 +38,12 @@ echo "Setting up symlinks..."
 # Symlink operations
 safe_symlink "$(realpath ../)" ~/gra
 safe_symlink "$(realpath ~/gra/ros/)" ~/catkin_ws/src
+rm ~/.bashrc
 safe_symlink "$(realpath ~/gra/.devcontainer/.bashrc)" ~/.bashrc
 safe_symlink "$(realpath ~/gra/.devcontainer/convenience.sh)" ~/convenience.sh
 safe_symlink "$(realpath ~/gra/.devcontainer/bash_profile.sh)" ~/bash_profile.sh
+
+source ~/.bashrc
 
 # Dynamically create the roscore.service file
 echo "Generating roscore.service for user $USER..."
