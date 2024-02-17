@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e # exit on error
-export USERNAME=$USER
+
 if [ $EUID -eq 0 ]; then
     echo "This script needs to be run as a regular user, without sudo."
     exit 1
@@ -11,6 +11,7 @@ if ! sudo true; then
     exit 1
 fi
 
+export USERNAME=$USER
 # if sudo grep -q $USERNAME /etc/sudoers
 # then
 #     echo "$USERNAME is already registered as NOPASSWD"
