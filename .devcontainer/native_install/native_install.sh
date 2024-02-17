@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e # exit on error
 export USERNAME=$USER
 if [ $EUID -eq 0 ]; then
     echo "This script needs to be run as a regular user, without sudo."

@@ -152,7 +152,7 @@ def main():
         return
 
     # Default to shell script output
-    script = '#!/bin/sh\n'
+    script = '#!/bin/sh\nset -e\n'
     for i in instructions:
         script += parse_instruction(i, dfile=args.Dockerfile)
     print(script)
