@@ -18,10 +18,13 @@ fi
 #     sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 # fi
 
-sudo systemctl stop unattended-upgrades.service  # it can block the installation
-python3 .devcontainer/native_install/docker2sh.py --target gra-base .devcontainer/Dockerfile > installation_script_generated.sh
+echo "Stopping unattended-upgrades because it can block installation..."
+sudo systemctl stop unattended-upgrades.service
+
 sudo cp .devcontainer/apt-get-wrapper.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/apt-get-wrapper.sh
+
+python3 .devcontainer/native_install/docker2sh.py --target gra-base .devcontainer/Dockerfile > installation_script_generated.sh
 sudo chmod +x installation_script_generated.sh
 sudo ./installation_script_generated.sh
 
