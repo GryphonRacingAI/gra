@@ -25,3 +25,12 @@ else
 fi
 
 apt-get install -y "$@"
+
+# Retry once if failed
+result=$?
+echo "Result: " $result
+if [[ $result -ne 0 ]]; then
+    echo "Trying again..."
+    update_packages
+    apt-get install -y "$@"
+fi

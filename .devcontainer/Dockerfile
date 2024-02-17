@@ -64,7 +64,8 @@ COPY ./apt-get-wrapper.sh /usr/local/bin/apt-get-wrapper.sh
 RUN chmod +x /usr/local/bin/apt-get-wrapper.sh
 
 RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publisher ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publisher
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
 
 # # SMACH
 # RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-smach
@@ -130,7 +131,7 @@ FROM gra-base AS gra-dev
 RUN echo 'root:gra' | chpasswd
 
 # install ros packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-desktop=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
