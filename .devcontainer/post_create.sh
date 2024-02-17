@@ -1,5 +1,7 @@
 # Make link from ~/gra/ros to ~/catkin_ws/src
-ln -s ~/gra/ros ~/catkin_ws/src
+if [ ! -d "$HOME/catkin_ws/src" ]; then
+    ln -s ~/gra/ros ~/catkin_ws/src
+fi
 
 # # Generate ssh keys if they don't exist at ~/.ssh/id_rsa
 # if [ ! -f ~/.ssh/id_rsa ]; then
@@ -14,6 +16,7 @@ if [ ! -f ~/gra/.devcontainer/devcontainer.metadata ]; then
     cp ~/gra/.devcontainer/devcontainer.metadata_template ~/gra/.devcontainer/devcontainer.metadata
 fi
 
-# Run acm
-bash -ic "source ~/.bashrc && setdevmaster; cb && abl"
+source ~/convenience.sh -i
+setdevmaster
+cb
 # bash -ic "source ~/.bashrc && setbotmaster; acm"
