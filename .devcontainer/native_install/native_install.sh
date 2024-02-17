@@ -1,11 +1,11 @@
 #!/bin/bash
 export USERNAME=$USER
-if sudo grep $USERNAME /etc/sudoers
-then
-    echo "$USERNAME is already registered as NOPASSWD"
-else
-    sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-fi
+# if sudo grep -q $USERNAME /etc/sudoers
+# then
+#     echo "$USERNAME is already registered as NOPASSWD"
+# else
+#     sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# fi
 python3 .devcontainer/native_install/docker2sh.py --target gra-base .devcontainer/Dockerfile > installation_script_generated.sh
 cp .devcontainer/apt-get-wrapper.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/apt-get-wrapper.sh
