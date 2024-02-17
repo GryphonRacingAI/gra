@@ -11,7 +11,8 @@ if ! sudo true; then
     exit 1
 fi
 
-export USERNAME=$USER
+# # Do not ask user for password when sudoing ever agin (still needs pw to log in)
+#  export USERNAME=$USER
 # if sudo grep -q $USERNAME /etc/sudoers
 # then
 #     echo "$USERNAME is already registered as NOPASSWD"
