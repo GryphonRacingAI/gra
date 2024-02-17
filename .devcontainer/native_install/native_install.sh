@@ -12,12 +12,12 @@ if ! sudo true; then
 fi
 
 # Do not ask user for password when sudoing ever agin (still needs pw to log in)
- export USERNAME=$USER
+export USERNAME=$USER
 if sudo grep -q $USERNAME /etc/sudoers
 then
     echo "$USERNAME is already registered as NOPASSWD"
 else
-    sudo bash -c 'echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
+    sudo bash -c 'echo "${0} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers' "$USERNAME"
 fi
 
 echo "Stopping unattended-upgrades because it can block installation..."
