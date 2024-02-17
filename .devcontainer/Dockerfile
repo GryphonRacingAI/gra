@@ -139,5 +139,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-desktop-full=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-RUN usr/local/bin/apt-get-wrapper.sh librealsense2-dkms x11-apps
+RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dkms x11-apps
 ENV DEV_ENV=1

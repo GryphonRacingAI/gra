@@ -4,4 +4,4 @@ chmod +x /usr/local/bin/apt-get-wrapper.sh
 chmod +x installation_script_generated.sh
 ./installation_script_generated.sh
 mkdir $HOME/catkin_ws
-source bot_scripts/install.sh
+./bot_scripts/install.sh
