@@ -17,7 +17,7 @@ if sudo grep -q $USERNAME /etc/sudoers
 then
     echo "$USERNAME is already registered as NOPASSWD"
 else
-    sudo echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+    sudo bash -c 'echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers'
 fi
 
 echo "Stopping unattended-upgrades because it can block installation..."
