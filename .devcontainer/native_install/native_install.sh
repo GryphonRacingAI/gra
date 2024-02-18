@@ -20,8 +20,11 @@ else
     sudo bash -c 'echo "${0} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers' "$USERNAME"
 fi
 
-echo "Stopping unattended-upgrades because it can block installation..."
-sudo systemctl stop unattended-upgrades.service
+if systemctl list-units --full -all | grep -Fq "unattended-upgrades.service"
+then
+    echo "Stopping unattended-upgrades because it can block installation..."
+    sudo systemctl stop unattended-upgrades.service
+fi
 
 sudo cp .devcontainer/apt-get-wrapper.sh /usr/local/bin
 sudo chmod +x /usr/local/bin/apt-get-wrapper.sh
