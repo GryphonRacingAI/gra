@@ -32,3 +32,6 @@ sudo ./installation_script_generated.sh
 
 mkdir -p $HOME/catkin_ws
 ./bot_scripts/install.sh
+
+# Log out
+sudo pkill -KILL -u pi
