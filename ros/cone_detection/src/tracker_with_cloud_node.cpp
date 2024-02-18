@@ -35,7 +35,7 @@ TrackerWithCloudNode::TrackerWithCloudNode() : pnh_("~")
   camera_info_sub_.subscribe(nh_, camera_info_topic_, 10);
   lidar_sub_.subscribe(nh_, lidar_topic_, 10);
   yolo_result_sub_.subscribe(nh_, yolo_result_topic_, 10);
-  sync_ = boost::make_shared<message_filters::Synchronizer<ApproximateSyncPolicy>>(1);
+  sync_ = boost::make_shared<message_filters::Synchronizer<ApproximateSyncPolicy>>(10);
   sync_->connectInput(camera_info_sub_, lidar_sub_, yolo_result_sub_);
   sync_->registerCallback(boost::bind(&TrackerWithCloudNode::syncCallback, this, _1, _2, _3));
 
@@ -47,6 +47,7 @@ void TrackerWithCloudNode::syncCallback(const sensor_msgs::CameraInfo::ConstPtr&
                                         const sensor_msgs::PointCloud2ConstPtr& cloud_msg,
                                         const ultralytics_ros::YoloResultConstPtr& yolo_result_msg)
 {
+  ROS_INFO("HELLO!!");
   ros::Time current_call_time = ros::Time::now();
   ros::Duration callback_interval = current_call_time - last_call_time_;
   last_call_time_ = current_call_time;
