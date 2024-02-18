@@ -24,6 +24,7 @@ if systemctl list-units --full -all | grep -Fq "unattended-upgrades.service"
 then
     echo "Stopping unattended-upgrades because it can block installation..."
     sudo systemctl stop unattended-upgrades.service
+    sudo pkill --signal SIGKILL unattended-upgrades
 fi
 
 sudo cp .devcontainer/apt-get-wrapper.sh /usr/local/bin
