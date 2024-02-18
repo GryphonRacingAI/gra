@@ -34,4 +34,4 @@ mkdir -p $HOME/catkin_ws
 ./bot_scripts/install.sh
 
 # Log out
-sudo pkill -KILL -u pi
+sudo pkill -KILL -u $USERNAME
