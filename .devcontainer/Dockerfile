@@ -102,7 +102,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rosserial-
 # RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base
 
 # Install ipykernel and pip for python3
-RUN /usr/local/bin/apt-get-wrapper.sh install -y python3-pip
+RUN /usr/local/bin/apt-get-wrapper.sh python3-pip
 RUN pip3 install ipykernel
 
 # Install rplidar and gmapping
