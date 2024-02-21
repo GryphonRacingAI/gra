@@ -7,18 +7,12 @@ Ackermann steering.
 -->
 
 <launch>
-  <arg name="namespace" default="ackermann_vehicle"/>
 
-  <group ns="$(arg namespace)">
-    <!-- robot_description is used by nodes that publish to joint_states. -->
-    <param name="robot_description"
-           command="$(find xacro)/xacro '$(find ackermann_vehicle_description)/urdf/em_3905_hokuyo.urdf.xacro'"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find ackermann_vehicle_description)/urdf/em_3905_hokuyo.urdf.xacro"/>
 
     <!-- Read joint positions from joint_states, then publish the vehicle's
          state to tf. -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher"
-          type="robot_state_publisher">
-      <param name="publish_frequency" value="30.0"/>
-    </node>
-  </group>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <param name="publish_frequency" value="30.0"/>
+  </node>
 </launch>
