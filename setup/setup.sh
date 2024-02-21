@@ -4,4 +4,3 @@ if [ -f "$(dirname "$0")/../.devcontainer/devcontainer.json" ]; then
 fi
 cp "$(dirname "$0")/../.devcontainer/devcontainer_template.json" "$(dirname "$0")/../.devcontainer/devcontainer.json"
 echo "devcontainer.json" created
-
