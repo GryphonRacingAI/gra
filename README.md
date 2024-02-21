@@ -1,5 +1,8 @@
 # Development
 
+## Dev container setup
+Run `./setup/setup.sh` on Linux or `./setup/setup.bat` on Windows to create a `devcontainer.json`. After this, you will be able to open the folder with the Dev containers extension.
+
 ## MacOS
 On Mac, you may need to run `sudo chown -R $(whoami) ~/.docker` to allow docker to run without sudo.
 
