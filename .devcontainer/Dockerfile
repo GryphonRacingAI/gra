@@ -70,7 +70,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-desktop-full=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-
 # Upgrade cmake to version 3.18
 RUN apt-get update && \
     apt-get install -y wget && \
@@ -161,8 +160,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh libopencv-dev
 # Copy in sshd_config file
 # COPY ./sshd_config /etc/ssh/sshd_config
 
-# Install scipy, numpy, matplotlib, pandas, scikit-learn, jupyterlab
-RUN pip3 install --upgrade numpy matplotlib scipy pandas scikit-learn ipympl jupyterlab
+# # Install OpenSSH for remote development
+# RUN /usr/local/bin/apt-get-wrapper.sh install -y openssh-server
+# RUN service ssh start
 
 # Install openssh-server
 # RUN /usr/local/bin/apt-get-wrapper.sh openssh-server
