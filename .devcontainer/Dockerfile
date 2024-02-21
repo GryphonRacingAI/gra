@@ -70,16 +70,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-desktop-full=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-# Upgrade cmake to version 3.18
-RUN apt-get update && \
-    apt-get install -y wget && \
-    wget https://github.com/Kitware/CMake/releases/download/v3.18.0/cmake-3.18.0-Linux-x86_64.sh -O /tmp/cmake-install.sh && \
-    chmod +x /tmp/cmake-install.sh && \
-    /tmp/cmake-install.sh --skip-license --prefix=/usr/local && \
-    rm /tmp/cmake-install.sh && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 ENTRYPOINT [ "/usr/bin/env" ]
 
 # Copy in ./apt-get-wrapper.sh
