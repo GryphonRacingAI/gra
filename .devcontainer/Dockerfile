@@ -122,13 +122,13 @@ RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg  libre
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-foxglove-msgs ros-noetic-foxglove-bridge
 
 # Install dependencies for ultralytics yolov8
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-vision-msgs
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-vision-msgs
 
 # Install velodyne 3D Lidar  package
-RUN /usr/local/bin/apt-get-wrapper.sh install -y ros-noetic-velodyne
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-velodyne
 
 # Upstart
-RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-robot-upstart
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-robot-upstart
 
 
 # End of ROS dependencies
