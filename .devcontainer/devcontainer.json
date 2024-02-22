@@ -6,6 +6,16 @@
 	"service": "dev",
 	"workspaceFolder": "/root/gra",
 	"postCreateCommand": "/bin/bash -c '/root/gra/.devcontainer/post_create.sh'",
-	"postStartCommand": "/bin/bash -c '/root/gra/.devcontainer/post_start.sh'"
+	"postStartCommand": "/bin/bash -c '/root/gra/.devcontainer/post_start.sh'",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"remote.autoForwardPorts": false
+			},
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	}
 }
 
