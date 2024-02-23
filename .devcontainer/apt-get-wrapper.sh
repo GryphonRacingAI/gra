@@ -4,7 +4,7 @@ DAY_IN_SECONDS=86400
 FILE="/var/cache/apt/pkgcache.bin"
 
 function update_packages()
- {
+{   
     # Add RealSense source
     mkdir -p /etc/apt/keyrings
     curl -sSf https://librealsense.intel.com/Debian/librealsense.pgp | sudo tee /etc/apt/keyrings/librealsense.pgp > /dev/null
@@ -14,7 +14,7 @@ function update_packages()
     apt-get update
 }
 
-if [ ! -f "$FILE" ]; then
+if [ ! -f "$FILE" ] || [ ! "$(ls -A /var/lib/apt/lists)" ]; then
     update_packages
 else
     CACHE_AGE=$(($(date +%s) - $(stat -c %Y "$FILE")))
@@ -25,3 +25,12 @@ else
 fi
 
 apt-get install -y "$@"
+
+# Retry once if failed
+result=$?
+echo "Result: " $result
+if [[ $result -ne 0 ]]; then
+    echo "Trying again..."
+    update_packages
+    apt-get install -y "$@"
+fi

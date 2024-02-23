@@ -1,6 +1,6 @@
 # The first bit is an auto generated Dockerfile for ros:ros-core
 # generated from docker_images/create_ros_core_image.Dockerfile.em
-FROM ubuntu:focal
+FROM ubuntu:focal AS ros-base
 
 # setup timezone
 RUN echo 'Etc/UTC' > /etc/timezone && \
@@ -32,10 +32,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-ros-core=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-# setup entrypoint
-COPY ./ros_entrypoint.sh /
-
-ENTRYPOINT ["/ros_entrypoint.sh"]
 CMD ["bash"]
 
 # install bootstrap tools
@@ -60,24 +56,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-robot=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-# install ros packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-noetic-desktop=1.5.0-1* \
-    && rm -rf /var/lib/apt/lists/*
-
-# install ros packages
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ros-noetic-desktop-full=1.5.0-1* \
-    && rm -rf /var/lib/apt/lists/*
-
 ENTRYPOINT [ "/usr/bin/env" ]
 
-# Copy in ./apt-get-wrapper.sh
+
+FROM ros-base AS gra-base
 COPY ./apt-get-wrapper.sh /usr/local/bin/apt-get-wrapper.sh
 RUN chmod +x /usr/local/bin/apt-get-wrapper.sh
 
-RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git x11-apps
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rosserial-arduino ros-noetic-rqt-ez-publisher ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
+RUN /usr/local/bin/apt-get-wrapper.sh python3-catkin-tools nano curl git
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rosserial ros-noetic-rqt-ez-publisher
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ros-control ros-noetic-ros-controllers libeigen3-dev
 
 # # SMACH
 # RUN /usr/local/bin/apt-get-wrapper.sh -y install ros-noetic-smach
@@ -124,9 +112,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
-
+    
 # Install Intel RealSense camera libraries
-RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg  librealsense2-dkms librealsense2-utils ros-noetic-realsense2-camera
+RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
 
 # Install Foxglove message schemas
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-foxglove-msgs ros-noetic-foxglove-bridge
@@ -137,14 +125,20 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-robot-upstart
 # Ackermann messages (needed by ackermann_vehicle_navigation)
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ackermann-msgs
 
-# Copying source code over
-# COPY .. /root/gra
-# COPY ./.bashrc /root/.bashrc
-RUN mkdir -p /root/catkin_ws
-WORKDIR /root/catkin_ws
-# RUN ln -s /root/gra/ros src
 
+FROM gra-base AS gra-dev
 # Set password for root to be gra
 RUN echo 'root:gra' | chpasswd
 
+# install ros packages
+RUN rm -rf /var/lib/apt/lists/* && apt-get update && apt-get install -y --no-install-recommends \
+    ros-noetic-desktop=1.5.0-1* \
+    && rm -rf /var/lib/apt/lists/*
+
+# install ros packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-noetic-desktop-full=1.5.0-1* \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dkms x11-apps
 ENV DEV_ENV=1
