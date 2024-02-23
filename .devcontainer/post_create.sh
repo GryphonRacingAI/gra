@@ -1,3 +1,4 @@
+mkdir -p ~/catkin_ws
 # Make link from ~/gra/ros to ~/catkin_ws/src
 if [ ! -d "$HOME/catkin_ws/src" ]; then
     ln -s ~/gra/ros ~/catkin_ws/src
