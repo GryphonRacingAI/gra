@@ -1,21 +1,19 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="namespace" default="ackermann_vehicle"/>
+  <!-- <arg name="namespace" default="ackermann_vehicle"/> -->
 
-  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch">
-    <arg name="namespace" value="$(arg namespace)"/>
-  </include>
+  <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch" />
 
   <!-- Read joint positions from a GUI, then publish them to joint_states. -->
   <node name="joint_state_publisher" pkg="joint_state_publisher"
-        type="joint_state_publisher" ns="$(arg namespace)">
+        type="joint_state_publisher">
     <param name="rate" value="30"/>
     <param name="use_gui" value="true"/>
   </node>
 
   <!-- Run node robot_state_publisher -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> -->
 
   <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
 

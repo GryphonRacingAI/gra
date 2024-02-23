@@ -25,10 +25,11 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - `rostopic list`
 - `rostopic echo {topic name}` print out messages to topic
 ### Sensors
-- `roslaunch rplidar_ros rplidar_a1.launch` to turn on the RPidar
+- `roslaunch rplidar_ros rplidar_a1.launch` to launch the RPlidar
 - `roslaunch realsense2_camera rs_aligned_depth.launch` to turn on the Intel depth camera
 ### Other
 - `roslaunch gra_recording record.launch output_name:=recording1 duration:=10s` to record 10s of data
 - `rosbag play -l recordings/recording1__timestamp.bag` to play a recording in a loop
+- `rosbag record -o {name} --duration=30 /joint_states /rosout /rosout_agg /tf /tf_static /camera/aligned_depth_to_color/camera_info /camera/aligned_depth_to_color/image_raw/compressedDepth /camera/color/camera_info /camera/color/image_raw/compressed` includes the essential topics for recording depth camera rosbags.
 - `roslaunch urdf_tutorial display.launch model:=ros/ackermann_vehicle_description/urdf/em_3905_hokuyo.urdf.xacro` to launch RViz with a basic setup (remember the X11 command above)
 - `roslaunch gra_recording rviz.launch` to display a recorded stream in RViz
