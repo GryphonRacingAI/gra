@@ -5,27 +5,47 @@
     <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch" />
 
     <!-- Read joint positions from a GUI, then publish them to joint_states. -->
-    <node name="joint_state_publisher" pkg="joint_state_publisher"
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher"
         type="joint_state_publisher">
         <param name="rate" value="30"/>
         <param name="use_gui" value="true"/>
-    </node>
+    </node> -->
 
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
+    <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
 
     <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo" type="ackermann_controller">
         <param name="cmd_timeout" value="0.5"/>
         <rosparam file="$(find ackermann_vehicle_gazebo)/config/em_3905_ackermann_ctrlr_params.yaml" command="load"/>
+    </node> -->
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/>
+    </include>
+    <!-- Spawn the vehicle. -->
+    <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -param robot_description -model ackermann_vehicle
+                -gazebo_namespace /gazebo
+                -x -2.0 -y -2.0 -z 1.2
+                -R 0.0 -P 0.0 -Y 0.0"/>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
+
+    <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo"
+          type="ackermann_controller">
+      <param name="cmd_timeout" value="0.5"/>
+      <rosparam file="$(find ackermann_vehicle_gazebo)/config/em_3905_ackermann_ctrlr_params.yaml" command="load"/>
     </node>
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
+    <node name="tf_odom_publisher" pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" output="screen"/>
 
-    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_publisher" output="screen">
+    <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="world" />
-    </node>
+    </node> -->
 
-    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 1 ackermann_vehicle base_link" />
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 1 ackermann_vehicle base_link" /> -->
 
     <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
 
