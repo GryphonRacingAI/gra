@@ -25,7 +25,7 @@
     <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
           args="-urdf -param robot_description -model ackermann_vehicle
                 -gazebo_namespace /gazebo
-                -x -2.0 -y -2.0 -z 1.2
+                -x 0.0 -y 0.0 -z 1.2
                 -R 0.0 -P 0.0 -Y 0.0"/>
 
     <node name="controller_spawner" pkg="controller_manager" type="spawner"
