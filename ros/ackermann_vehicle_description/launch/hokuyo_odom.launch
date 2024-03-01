@@ -38,14 +38,11 @@
     </node>
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
-    <node name="tf_odom_publisher" pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" output="screen"/>
 
-    <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_publisher" output="screen">
+    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="world" />
-    </node> -->
-
-    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 1 ackermann_vehicle base_link" /> -->
+    </node>
 
     <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
 
