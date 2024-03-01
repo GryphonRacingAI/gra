@@ -15,7 +15,8 @@ def handle_vehicle_pose(msg, vehicle_name):
 
     t.header.stamp = rospy.Time.now()
     t.header.frame_id = global_frame_id
-    t.child_frame_id = vehicle_name
+    # t.child_frame_id = vehicle_name
+    t.child_frame_id = "base_link"
     #odom_msg.pose.pose = msg.pose[vehicle_index]
     t.transform.translation.x = msg.pose[vehicle_index].position.x + 1
     t.transform.translation.y = msg.pose[vehicle_index].position.y
@@ -26,7 +27,8 @@ def handle_vehicle_pose(msg, vehicle_name):
     odom_msg = Odometry()
     odom_msg.header.stamp = rospy.Time.now()
     odom_msg.header.frame_id = global_frame_id
-    odom_msg.child_frame_id = vehicle_name
+    # odom_msg.child_frame_id = vehicle_name
+    odom_msg.child_frame_id = "base_link"
     #odom_msg.pose.pose = msg.pose[vehicle_index]
     odom_msg.pose.pose.position.x = msg.pose[vehicle_index].position.x + 1
     odom_msg.pose.pose.position.y = msg.pose[vehicle_index].position.y
