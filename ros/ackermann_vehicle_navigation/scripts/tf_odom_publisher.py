@@ -14,6 +14,7 @@ def handle_vehicle_pose(msg, vehicle_name):
     t = geometry_msgs.msg.TransformStamped()
 
     t.header.stamp = rospy.Time.now()
+    # t.header.stamp = rospy.Time()
     t.header.frame_id = global_frame_id
     # t.child_frame_id = vehicle_name
     t.child_frame_id = "base_link"
@@ -26,6 +27,7 @@ def handle_vehicle_pose(msg, vehicle_name):
     br.sendTransform(t)
     odom_msg = Odometry()
     odom_msg.header.stamp = rospy.Time.now()
+    # odom_msg.header.stamp = rospy.Time()
     odom_msg.header.frame_id = global_frame_id
     # odom_msg.child_frame_id = vehicle_name
     odom_msg.child_frame_id = "base_link"

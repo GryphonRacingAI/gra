@@ -342,7 +342,7 @@ measured in kilograms. All of these values are approximations.
   </xacro:hokuyo_utm30lx_model>
 
   <xacro:macro name="hokuyo_laser">
-    <gazebo reference="hokuyo_laser_frame">
+    <!-- <gazebo reference="hokuyo_laser_frame">
       <sensor type="ray" name="hokuyo_laser">
         <pose>0 0 0 0 0 0</pose>
         <visualize>true</visualize>
@@ -363,10 +363,10 @@ measured in kilograms. All of these values are approximations.
           </range>
           <noise>
             <type>gaussian</type>
-            <!-- Noise parameters based on published spec for Hokuyo laser
+             Noise parameters based on published spec for Hokuyo laser
                 achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
                 stddev of 0.01m will put 99.7% of samples within 0.03m of the true
-                reading. -->
+                reading. 
             <mean>0.0</mean>
             <stddev>0.01</stddev>
           </noise>
@@ -376,7 +376,7 @@ measured in kilograms. All of these values are approximations.
           <frameName>laser</frameName>
         </plugin>
       </sensor>
-    </gazebo>
+    </gazebo> -->
   </xacro:macro>
 
   <xacro:hokuyo_laser/>
@@ -434,7 +434,7 @@ measured in kilograms. All of these values are approximations.
 
   <link name="camera_link_optical"></link>
 
-  <gazebo reference="camera_link">
+  <!-- <gazebo reference="camera_link">
     <material>Gazebo/Blue</material>
 
     <sensor name="camera" type="depth">
@@ -458,7 +458,7 @@ measured in kilograms. All of these values are approximations.
         <baseline>0.2</baseline>
         <alwaysOn>true</alwaysOn>
         <updateRate>30.0</updateRate>
-        <!-- <cameraName>ackermann_vehicle_ir</cameraName> -->
+        <cameraName>ackermann_vehicle_ir</cameraName>
         <imageTopicName>/ackermann_vehicle/color/image_raw</imageTopicName>
         <cameraInfoTopicName>/ackermann_vehicle/color/camera_info</cameraInfoTopicName>
         <depthImageTopicName>/ackermann_vehicle/depth/image_raw</depthImageTopicName>
@@ -478,6 +478,6 @@ measured in kilograms. All of these values are approximations.
         <hackBaseline>0</hackBaseline>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo> -->
 
 </robot>

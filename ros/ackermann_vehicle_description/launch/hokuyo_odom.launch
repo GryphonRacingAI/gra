@@ -2,6 +2,9 @@
 
 <launch>
 
+    <!-- Use simulation time -->
+    <param name="/use_sim_time" value="true"/>
+
     <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch" />
 
     <!-- Read joint positions from a GUI, then publish them to joint_states. -->
