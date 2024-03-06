@@ -2,7 +2,8 @@
 <launch>
   <arg name="debug" default="false"/>
   <arg name="yolo_model" default="conev8n_40.pt"/>
-  <arg name="input_topic" default="/camera/color/image_raw"/>
+  <!-- <arg name="input_topic" default="/camera/color/image_raw"/> -->
+  <arg name="input_topic" default="/ackermann_vehicle/color/image_raw"/>
   <arg name="result_topic" default="/yolo_result"/>
   <arg name="result_image_topic" default="/yolo_image"/>
   <arg name="conf_thres" default="0.25"/>
@@ -18,8 +19,10 @@
   <arg name="result_labels" default="true"/>
   <arg name="result_boxes" default="true"/>
 
-  <arg name="camera_info_topic" default="/camera/color/camera_info"/>
-  <arg name="lidar_topic" default="/velodyne_points"/>
+  <!-- <arg name="camera_info_topic" default="/camera/color/camera_info"/> -->
+  <arg name="camera_info_topic" default="/ackermann_vehicle/color/camera_info"/>
+  <!-- <arg name="lidar_topic" default="/velodyne_points"/> -->
+  <arg name="lidar_topic" default="/ackermann_vehicle/depth/points"/>
   <arg name="yolo_3d_result_topic" default="/yolo_3d_result"/>
   <arg name="cluster_tolerance" default="0.3"/>
   <arg name="voxel_leaf_size" default="0.1"/>
