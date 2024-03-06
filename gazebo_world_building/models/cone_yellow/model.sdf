@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="cone_blue">
+    <pose>0 0 0.15 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://cone_yellow/cone_yellow.dae</uri>
+     	      <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://cone_yellow/cone_yellow.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
