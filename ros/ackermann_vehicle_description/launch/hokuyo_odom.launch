@@ -25,6 +25,7 @@
 
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/>
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->
     </include>
     <!-- Spawn the vehicle. -->
     <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
