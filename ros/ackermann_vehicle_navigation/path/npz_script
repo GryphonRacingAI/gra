@@ -1,0 +1,52 @@
+# This script serves as a template for generating npz path for the path follower node
+import numpy as np
+
+# Original path array [x, y] in gazebo
+path = np.array([
+    [0, 0],
+    [1.855610, -0.066132],
+    [3.966940, -0.187842],
+    [6.183560, 0.179013],
+    [7.907890, 1.381850],
+    [9.116460, 2.819390],
+    [10.280700, 4.371920],
+    [11.645900, 5.974430],
+    [13.257100, 7.590500],
+    [15.372400, 7.750880],
+    [17.293700, 7.308280],
+    [19.021900, 6.136050],
+    [19.684800, 4.558770],
+    [19.594500, 2.759250],
+    [18.687300, 1.180000],
+    [17.558900, -0.365466],
+    [16.104900, -1.852380],
+    [14.631000, -3.404760],
+    [12.951700, -4.840720],
+    [10.955900, -5.682580],
+    [8.800380, -6.024180],
+    [6.375970, -6.279240],
+    [4.167030, -6.471160],
+    [2.194710, -7.087500],
+    [0.661097, -8.739940],
+    [-1.152950, -9.824210],
+    [-3.275150, -9.444020],
+    [-4.979920, -8.493420],
+    [-6.462880, -6.994650],
+    [-7.340270, -5.193070],
+    [-7.969020, -3.238540],
+    [-7.245610, -1.361010],
+    [-5.818930, -0.184068],
+    [-3.878620, 0.101181],
+    [-1.941900, 0.127794],
+    [0, 0]
+])
+
+# Correct the rotation and add 1 to the x-coordinate after rotation
+corrected_path = np.array([[y, -(x)] for x, y in path])
+
+# Nominal cost and time values for placeholder
+cost = np.array([0.0])  # Update this with your actual path's cost if available
+time = np.array([0.0])  # Update this with your actual computation time if available
+
+# Save to .npz file
+np.savez('custom_path.npz', path=corrected_path, cost=cost, time=time)
