@@ -9,20 +9,7 @@
 
     <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch" />
 
-    <!-- Read joint positions from a GUI, then publish them to joint_states. -->
-    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher"
-        type="joint_state_publisher">
-        <param name="rate" value="30"/>
-        <param name="use_gui" value="true"/>
-    </node> -->
-
-    <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
-
-    <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo" type="ackermann_controller">
-        <param name="cmd_timeout" value="0.5"/>
-        <rosparam file="$(find ackermann_vehicle_gazebo)/config/em_3905_ackermann_ctrlr_params.yaml" command="load"/>
-    </node> -->
-
+    <!-- Choose which gazebo world to spawn -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/cone_id.world"/> -->
