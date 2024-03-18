@@ -11,6 +11,7 @@
 
     <!-- Choose which gazebo world to spawn -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="gui" value="false"/>
       <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/cone_id.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->
@@ -33,7 +34,7 @@
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
 
-    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_publisher" output="screen">
+    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="world" />
     </node>
