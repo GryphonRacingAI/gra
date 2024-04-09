@@ -16,7 +16,7 @@ CONE_TYPES = {
 
 class ConeSorter:
     def __init__(self):
-        rospy.init_node('cone_sorter', anonymous=True)
+        rospy.init_node('cone_sorter', anonymous=False)
         
         self.cone_lists = {name: [] for name in CONE_TYPES.values()}  # Initialize lists for each cone type
         

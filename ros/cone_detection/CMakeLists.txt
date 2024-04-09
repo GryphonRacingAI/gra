@@ -81,6 +81,7 @@ add_dependencies(tracker_with_cloud_node ultralytics_ros_generate_messages_cpp)
 install(PROGRAMS
   script/tracker_node.py
   script/cone_sorter.py 
+  script/bounding_box_transformer.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
