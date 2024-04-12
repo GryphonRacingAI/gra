@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+
+# This node transforms the cone coordinates, which are projected and therefore attached to the camera frame, to the global frame (i.e. the true coodinate of the cones).
+
 import rospy
 import tf
 import tf2_ros
