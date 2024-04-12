@@ -82,6 +82,7 @@ install(PROGRAMS
   script/tracker_node.py
   script/cone_sorter.py 
   script/bounding_box_transformer.py
+  script/cone_marker.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

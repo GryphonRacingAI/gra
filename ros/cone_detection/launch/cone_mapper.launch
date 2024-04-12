@@ -11,6 +11,9 @@
     <!-- Making note of cones that come into view -->
     <node name="cone_sorter" pkg="ultralytics_ros" type="cone_sorter.py" output="screen"/>
 
+    <!-- Publishes rviz cone visulisation topic -->
+    <node name="cone_marker" pkg="ultralytics_ros" type="cone_marker.py" output="screen"/>
+
     <!-- Command robot to follow series of waypoints -->
     <!-- <include file="$(find ackermann_vehicle_navigation)/launch/path_follower.launch" /> -->
 
