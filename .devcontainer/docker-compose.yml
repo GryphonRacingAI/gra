@@ -48,7 +48,7 @@ services:
       - QT_X11_NO_MITSHM=1
       - HOST_OS=linux
     entrypoint: tail -f /dev/null
-    # Uncomment the following if device is cuda compatible to allow gpu acceleration
+    # Comment the following if device is not cuda compatible (ie has no nvidia gpu)
 
     # deploy:
     #   resources:
