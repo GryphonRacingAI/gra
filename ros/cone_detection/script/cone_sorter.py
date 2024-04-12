@@ -18,7 +18,7 @@ class ConeSorter:
     def __init__(self):
         rospy.init_node('cone_sorter', anonymous=False)
         
-        self.cone_lists = {name: [] for name in CONE_TYPES.values()}  # Initialize lists for each cone type
+        self.cone_lists = {name: [] for name in CONE_TYPES.values()}  
         
         self.sub = rospy.Subscriber("/transformed_yolo_3d_result", Detection3DArray, self.callback)
         self.pub = rospy.Publisher("/cone_list", ConeDetection, queue_size=10)
