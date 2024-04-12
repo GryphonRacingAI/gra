@@ -50,10 +50,10 @@ services:
     entrypoint: tail -f /dev/null
     # Comment the following if device is not cuda compatible (ie has no nvidia gpu)
 
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
