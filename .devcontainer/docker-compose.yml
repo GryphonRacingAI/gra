@@ -50,10 +50,10 @@ services:
     entrypoint: tail -f /dev/null
     # Uncomment the following if device is cuda compatible to allow gpu acceleration
 
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: 1
-    #           capabilities: [gpu]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
