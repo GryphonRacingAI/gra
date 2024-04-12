@@ -7,7 +7,7 @@ from visualization_msgs.msg import Marker, MarkerArray
 from geometry_msgs.msg import Point
 from ultralytics_ros.msg import ConeDetection
 
-def create_marker(x, y, color, diameter, height, marker_id):
+def create_marker(x, y, color, diameter, height, marker_id):    # Defines the shape and appearance of the markers
     marker = Marker()
     marker.header.frame_id = "world"
     marker.id = marker_id
@@ -31,7 +31,7 @@ def create_marker(x, y, color, diameter, height, marker_id):
 
 def callback(data):
     marker_array = MarkerArray()
-    marker_id = 0  # Initialize marker ID
+    marker_id = 0 
     colors = {
         'blue_cones': {'r': 0, 'g': 0, 'b': 1},
         'yellow_cones': {'r': 1, 'g': 1, 'b': 0},
@@ -53,7 +53,7 @@ def callback(data):
             marker_array.markers.append(marker)
             marker_id += 1  # Increment the marker ID for each new marker
 
-    pub.publish(marker_array)  # Publish the MarkerArray
+    pub.publish(marker_array) 
 
 if __name__ == '__main__':
     rospy.init_node('cone_marker')
