@@ -13,7 +13,6 @@ RUN echo 'Etc/UTC' > /etc/timezone && \
 RUN apt-get update && apt-get install -q -y --no-install-recommends \
     dirmngr \
     gnupg2 \
-    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
 # setup sources.list
@@ -21,18 +20,6 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu focal main" > /etc/apt/sources.
 
 # setup keys
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
-
-# Add Deadsnakes PPA for Python 3.9
-RUN add-apt-repository ppa:deadsnakes/ppa
-
-# Install Python 3.9
-RUN apt-get update && apt-get install -y python3.9 python3.9-dev python3.9-distutils python3.9-venv && \
-    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 1
-
-# Install and upgrade pip and ipykernel for python3
-RUN apt-get update && apt-get install -y python3-pip && \
-    python3 -m pip install --upgrade pip && \
-    pip3 install ipykernel
 
 # setup environment
 ENV LANG C.UTF-8
@@ -45,7 +32,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-noetic-ros-core=1.5.0-1* \
     && rm -rf /var/lib/apt/lists/*
 
-CMD ["bash"]    
+CMD ["bash"]
 
 # install bootstrap tools
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -90,6 +77,10 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ros-control ros-noetic-ros-cont
 
 # Install move_base_flex
 # RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base
+
+# Install ipykernel and pip for python3
+RUN /usr/local/bin/apt-get-wrapper.sh python3-pip
+RUN pip3 install ipykernel
 
 # Install rplidar and gmapping
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rplidar-ros
@@ -171,7 +162,6 @@ RUN python3 -m pip install urllib3==1.26.18
 RUN python3 -m pip install opencv-python==4.7.0.72
 RUN python3 -m pip install ultralytics
 
-
 # Install Python packages for path planning module fsd_path_planning
 RUN python3 -m pip install icecream numba numpy scipy typing_extensions scikit-learn 
 
@@ -181,7 +171,7 @@ RUN python3 -m pip install --upgrade pip setuptools wheel setuptools-scm
 # Clone and install the ft-fsd-path-planning package
 RUN mkdir -p /opt/fsd_path_planning
 WORKDIR /opt/fsd_path_planning
-RUN git clone https://github.com/papalotis/ft-fsd-path-planning.git .
+RUN git clone https://github.com/ugsfume/ft-fsd-path-planning.git .
 RUN python3 -m pip install .
 
 # Cleanup
