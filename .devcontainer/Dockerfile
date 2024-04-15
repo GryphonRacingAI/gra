@@ -162,6 +162,9 @@ RUN python3 -m pip install lap==0.4.0 \
     opencv-python==4.7.0.72 \
     ultralytics
 
+# Install Python packages for path planning module fsd_path_planning
+RUN python3 -m pip install icecream numba numpy scipy typing_extensions scikit-learn    
+
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rplidar-ros
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-gmapping
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
