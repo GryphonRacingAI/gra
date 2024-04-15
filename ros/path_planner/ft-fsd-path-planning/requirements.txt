@@ -1,0 +1,9 @@
+# This is only used for streamlit
+numpy
+numba
+scipy
+icecream
+streamlit
+plotly
+matplotlib
+scikit-learn
