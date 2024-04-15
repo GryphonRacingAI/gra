@@ -164,13 +164,6 @@ RUN python3 -m pip install lap==0.4.0 \
 
 # Install Python packages for path planning module fsd_path_planning
 RUN python3 -m pip install icecream numba numpy scipy typing_extensions scikit-learn    
-
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-rplidar-ros
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-gmapping
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-navigation
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
-RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
     
 # Install Intel RealSense camera libraries
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
