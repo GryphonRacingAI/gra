@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# This node listens to /cone_list and creater marker array for visualisation on rviz
+# This node listens to /cone_list and creates a marker array for visualisation on rviz
 
 import rospy
 from visualization_msgs.msg import Marker, MarkerArray
