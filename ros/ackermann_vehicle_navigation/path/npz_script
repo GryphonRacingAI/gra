@@ -41,7 +41,7 @@ path = np.array([
     [0, 0]
 ])
 
-# Correct the rotation and add 1 to the x-coordinate after rotation
+# Correct the rotation
 corrected_path = np.array([[y, -(x)] for x, y in path])
 
 # Nominal cost and time values for placeholder
