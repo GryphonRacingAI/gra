@@ -163,7 +163,22 @@ RUN python3 -m pip install lap==0.4.0 \
     ultralytics
 
 # Install Python packages for path planning module fsd_path_planning
-RUN python3 -m pip install icecream numba numpy scipy typing_extensions scikit-learn    
+RUN python3 -m pip install icecream numba numpy scipy typing_extensions scikit-learn 
+
+# Install necessary tools for handling 'pyproject.toml'
+RUN python3 -m pip install --upgrade pip setuptools wheel setuptools-scm
+
+# Clone and install the ft-fsd-path-planning package
+RUN mkdir -p /opt/fsd_path_planning
+WORKDIR /opt/fsd_path_planning
+RUN git clone https://github.com/papalotis/ft-fsd-path-planning.git .
+RUN python3 -m pip install .
+
+# Cleanup
+RUN rm -rf /var/lib/apt/lists/* && apt-get clean
+
+# Re-set working directory for any following commands (if necessary)
+WORKDIR /root
     
 # Install Intel RealSense camera libraries
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
