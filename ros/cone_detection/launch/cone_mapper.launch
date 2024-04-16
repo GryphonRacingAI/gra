@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start YOLO and 3D clustering -->
+    <!-- <include file="$(find ultralytics_ros)/launch/tracker_with_cloud.launch" /> -->
+
+    <!-- tf change cone reference frame from the camera to the global frame -->
+    <node name="bounding_box_transformer" pkg="ultralytics_ros" type="bounding_box_transformer.py" output="screen"/>
+
+    <!-- Making note of cones that come into view -->
+    <node name="cone_sorter" pkg="ultralytics_ros" type="cone_sorter.py" output="screen"/>
+
+    <!-- Publishes rviz cone visulisation topic -->
+    <node name="cone_marker" pkg="ultralytics_ros" type="cone_marker.py" output="screen"/>
+
+    <!-- Command robot to follow series of waypoints -->
+    <!-- <include file="$(find ackermann_vehicle_navigation)/launch/path_follower.launch" /> -->
+
+</launch>

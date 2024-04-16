@@ -47,7 +47,7 @@ void TrackerWithCloudNode::syncCallback(const sensor_msgs::CameraInfo::ConstPtr&
                                         const sensor_msgs::PointCloud2ConstPtr& cloud_msg,
                                         const ultralytics_ros::YoloResultConstPtr& yolo_result_msg)
 {
-  ROS_INFO("HELLO!!");
+  // ROS_INFO("HELLO!!");
   ros::Time current_call_time = ros::Time::now();
   ros::Duration callback_interval = current_call_time - last_call_time_;
   last_call_time_ = current_call_time;

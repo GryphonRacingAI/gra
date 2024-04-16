@@ -31,6 +31,7 @@ find_package(PCL REQUIRED)
 add_message_files(
   FILES
   YoloResult.msg
+  ConeDetection.msg
 )
 
 generate_messages(
@@ -38,6 +39,7 @@ generate_messages(
   sensor_msgs
   std_msgs
   vision_msgs
+  geometry_msgs
 )
 
 catkin_package(
@@ -78,6 +80,9 @@ add_dependencies(tracker_with_cloud_node ultralytics_ros_generate_messages_cpp)
 
 install(PROGRAMS
   script/tracker_node.py
+  script/cone_sorter.py 
+  script/bounding_box_transformer.py
+  script/cone_marker.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

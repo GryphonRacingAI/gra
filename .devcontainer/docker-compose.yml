@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   dev:
     build:
@@ -18,8 +18,7 @@ services:
       - /root/catkin_ws/logs
       - /root/.dev
       - /root/.bash_history
-      - ./.ssh:/root/.ssh # So that we can use ssh keys, initialized automatically in post_create.sh
-      # The following are optional for Linux hosts for better integration, and is optional
+      - ./.ssh:/root/.ssh
       - ./sshd_config:/etc/ssh/sshd_config
       - '/tmp/.X11-unix:/tmp/.X11-unix:rw'
       - '$HOME/.Xauthority:/root/.Xauthority:rw'
@@ -27,8 +26,7 @@ services:
       - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
       - /root/.penv
     devices:
-      - /dev/ttyACM0:/dev/ttyACM0 # Arduino motor controller
-      # - /dev/astra_s:/dev/astra_s # Orbbec Astra S
+      - /dev/ttyACM0:/dev/ttyACM0
       - /dev/dri
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/media0
@@ -45,10 +43,17 @@ services:
       - /dev/video7
       - /dev/video8
       - /dev/video9
-
     environment:
       - DISPLAY
       - QT_X11_NO_MITSHM=1
       - HOST_OS=linux
-    # Keep alive entrypoint
     entrypoint: tail -f /dev/null
+    # Comment the following if device is not cuda compatible (ie has no nvidia gpu)
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]

@@ -24,9 +24,10 @@ Arguments:
 <launch>
   <arg name="namespace" default="/"/>
   <arg name="cmd_timeout" default="0.5"/>
-  <arg name="world_name" default="$(find ackermann_vehicle_gazebo)/worlds/parking_lot.world"/>
+  <!-- <arg name="world_name" default="$(find ackermann_vehicle_gazebo)/worlds/parking_lot.world"/> -->
   <!-- <arg name="world_name" default="$(find fssim_gazebo)/worlds/cyberzoo.world"/> -->
   <!-- <arg name="world_name" default="$(find fssim_gazebo)/worlds/track.world"/> -->
+  <arg name="world_name" default="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/>
 
   <!-- Vehicle pose -->
   <arg name="x" default="-2.0"/>
@@ -37,7 +38,7 @@ Arguments:
   <arg name="yaw" default="0.0"/>
 
   <include file="$(find ackermann_vehicle_description)/launch/ackermann_vehicle_hokuyo.launch">
-    <arg name="namespace" value="$(arg namespace)"/>
+    <!-- <arg name="namespace" value="$(arg namespace)"/> -->
   </include>
 
   <group ns="$(arg namespace)">
