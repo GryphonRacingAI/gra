@@ -1,4 +1,4 @@
-1. run 'rosrus gazebo_ros gazebo' to launch an empty world
+1. run 'rosrun gazebo_ros gazebo' to launch an empty world
 2. In gazebo, go into "Insert" and choose "Add Path"
 3. Select gazebo_world_building -> models
 4. Design track as desire (the first object placed will take awhile to load)
