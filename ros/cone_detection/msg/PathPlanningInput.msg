@@ -1,9 +1,0 @@
-# PathPlanningInput.msg
-std_msgs/Header header
-geometry_msgs/Point car_position
-geometry_msgs/Point car_direction
-geometry_msgs/Point[] yellow_cones
-geometry_msgs/Point[] blue_cones
-geometry_msgs/Point[] orange_small_cones
-geometry_msgs/Point[] orange_big_cones
-geometry_msgs/Point[] unknown_cones

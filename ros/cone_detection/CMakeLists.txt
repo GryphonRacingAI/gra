@@ -32,8 +32,7 @@ add_message_files(
   FILES
   YoloResult.msg
   ConeDetection.msg
-  PathPlanningInput.msg
-  Point2D.msg
+  ExtendedConeDetection.msg
 )
 
 generate_messages(
