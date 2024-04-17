@@ -40,7 +40,7 @@ class TrackPathfinder:
         # Calculate the path
         path = self.path_planner.calculate_path_in_global_frame(global_cones, car_position, car_direction)
 
-        # Publish the path, skipping the first three waypoints
+        # Publish the path, skipping the first three waypoints to create some lead space
         self.publish_path(path, msg.header)
 
     def publish_path(self, path, header):
