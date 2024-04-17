@@ -9,6 +9,8 @@ from tf.transformations import euler_from_quaternion
 from ultralytics_ros.msg import ExtendedConeDetection
 from fsd_path_planning import PathPlanner, MissionTypes, ConeTypes
 
+print("fsd loaded")
+
 class TrackPathfinder:
     def __init__(self):
         rospy.init_node('track_pathfinder', anonymous=True)
@@ -18,6 +20,7 @@ class TrackPathfinder:
         rospy.Subscriber('/filtered_cone_list', ExtendedConeDetection, self.path_callback)
 
         self.rate = rospy.Rate(10)  # 10 Hz
+        print("node initialised")
 
     def path_callback(self, msg):
         # Convert orientation quaternion to Euler angles to get the yaw
