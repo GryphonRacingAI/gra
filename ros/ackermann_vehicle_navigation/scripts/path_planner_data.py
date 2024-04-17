@@ -46,7 +46,7 @@ class PathPlannerData:
         for i, cones in enumerate(cone_lists):
             for cone in cones:
                 cone_array = np.array([cone.x, cone.y, cone.z])
-                if np.linalg.norm(cone_array - car_pos_array) <= 10.0:
+                if np.linalg.norm(cone_array - car_pos_array) <= 20.0:      # Cones more than 20 meters away from car are ignored
                     filtered_lists[i].append(cone)
 
         # Assign filtered lists back to the message

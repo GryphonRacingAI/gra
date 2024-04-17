@@ -11,7 +11,7 @@ from fsd_path_planning import PathPlanner, MissionTypes, ConeTypes
 
 class TrackPathfinder:
     def __init__(self):
-        rospy.init_node('track_pathfinder', anonymous=False)
+        rospy.init_node('track_pathfinder', anonymous=True)
 
         self.path_planner = PathPlanner(MissionTypes.trackdrive)
         self.path_pub = rospy.Publisher('/path', Path, queue_size=10)
@@ -40,15 +40,15 @@ class TrackPathfinder:
         # Calculate the path
         path = self.path_planner.calculate_path_in_global_frame(global_cones, car_position, car_direction)
 
-        # Publish the path
+        # Publish the path, skipping the first three waypoints
         self.publish_path(path, msg.header)
 
     def publish_path(self, path, header):
         ros_path = Path()
-        # Set frame_id to "world"
         ros_path.header = Header(stamp=rospy.Time.now(), frame_id='world')
 
-        for point in path:
+        # Start from the 4th waypoint, skipping the first three
+        for point in path[3:]:
             pose = PoseStamped()
             pose.header = ros_path.header  # Use updated header for consistency across poses
             pose.pose.position.x = point[1]  # path_x
