@@ -17,6 +17,13 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - Ubuntu: memory leak (the memory mysteriously gets full). Deleting the forwarded ports solves the problem some of the time.
 - Windows: VSCode on Windows might change the line endings to CRLF which causes a problem when you build the repo.
 
+## Autonomous System Launch Sequence
+1) `roscore`
+2) `roslaunch ackermann_vehicle_description hokuyo_odom.launch`
+3) `roslaunch ultralytics_ros tracker_with_cloud.launch`
+4) `roslaunch ultralytics_ros cone_mapper.launch`
+5) `roslaunch ackermann_vehicle_navigation track_follower.launch`
+
 ## Commonly used commands
 ### Basic ROS
 - `roscore` to launch ros
