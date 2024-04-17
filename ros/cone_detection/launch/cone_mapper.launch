@@ -14,7 +14,7 @@
     <!-- Publishes rviz cone visulisation topic -->
     <node name="cone_marker" pkg="ultralytics_ros" type="cone_marker.py" output="screen"/>
 
-    <!-- Command robot to follow series of waypoints -->
-    <!-- <include file="$(find ackermann_vehicle_navigation)/launch/path_follower.launch" /> -->
+    <!-- Data preprocess for path planning algo by combining /odom and /cone_list, and filtering out remote cones -->
+    <node name="path_planner_data" pkg="ackermann_vehicle_navigation" type="path_planner_data.py" output="screen"/>
 
 </launch>
