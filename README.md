@@ -14,6 +14,7 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 - Please make sure the permissions are correct before committing
 - To limit Gazebo CPU usage, decrease the update rate in the .world file
     ``` <real_time_update_rate>1000</real_time_update_rate> ```
+    e.g. 1000 -> 250
 
 ## Known issues
 - Ubuntu: memory leak (the memory mysteriously gets full). Deleting the forwarded ports solves the problem some of the time.
