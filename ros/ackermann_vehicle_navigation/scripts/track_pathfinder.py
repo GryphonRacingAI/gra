@@ -9,18 +9,18 @@ from tf.transformations import euler_from_quaternion
 from ultralytics_ros.msg import ExtendedConeDetection
 from fsd_path_planning import PathPlanner, MissionTypes, ConeTypes
 
-print("fsd loaded")
-
 class TrackPathfinder:
     def __init__(self):
         rospy.init_node('track_pathfinder', anonymous=True)
 
+        # Initialize the path planner
         self.path_planner = PathPlanner(MissionTypes.trackdrive)
         self.path_pub = rospy.Publisher('/path', Path, queue_size=10)
         rospy.Subscriber('/filtered_cone_list', ExtendedConeDetection, self.path_callback)
 
-        self.rate = rospy.Rate(10)  # 10 Hz
-        print("node initialised")
+        # Control flag for initial warm-up
+        self.initial_run = True
+        print("Node initialised")
 
     def path_callback(self, msg):
         # Convert orientation quaternion to Euler angles to get the yaw
@@ -31,7 +31,7 @@ class TrackPathfinder:
         car_position = np.array([msg.car_position.x, msg.car_position.y])
         car_direction = np.array([np.cos(yaw), np.sin(yaw)])
 
-        # Organize cones by type
+        # Organise cones by type
         global_cones = [
             np.array([[cone.x, cone.y] for cone in msg.unknown_cones]),  # Index 0
             np.array([[cone.x, cone.y] for cone in msg.yellow_cones]),  # Index 1
@@ -43,8 +43,15 @@ class TrackPathfinder:
         # Calculate the path
         path = self.path_planner.calculate_path_in_global_frame(global_cones, car_position, car_direction)
 
-        # Publish the path, skipping the first three waypoints to create some lead space
-        self.publish_path(path, msg.header)
+        # Check if this is the initial run
+        if self.initial_run:
+            # Do not publish, just process to "warm up"
+            print("Initial path calculation completed, delaying 5 seconds before becoming fully functional.")
+            rospy.sleep(30)  # Delay 5 seconds to allow system to stabilse
+            self.initial_run = False
+        else:
+            # Publish the path, skipping the first three waypoints to create some lead space
+            self.publish_path(path, msg.header)
 
     def publish_path(self, path, header):
         ros_path = Path()
