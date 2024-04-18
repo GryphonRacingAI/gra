@@ -183,10 +183,8 @@ WORKDIR /root
 # Install Intel RealSense camera libraries
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
 
-
 # Configure it to run on port 2222
 # RUN sed -i 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config
-
 
 FROM gra-base AS gra-dev
 
@@ -205,3 +203,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dkms x11-apps
 ENV DEV_ENV=1
+
+# Set an environment variable for Numba cache
+ENV NUMBA_CACHE_DIR=/opt/numba_cache
+
+# Create the cache directory to ensure it exists
+RUN mkdir -p $NUMBA_CACHE_DIR

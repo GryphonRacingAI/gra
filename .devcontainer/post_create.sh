@@ -20,4 +20,7 @@ fi
 source ~/convenience.sh -i
 setdevmaster
 cb
+
 # bash -ic "source ~/.bashrc && setbotmaster; acm"
+
+python3 /root/gra/ros/ackermann_vehicle_navigation/scripts/numba_precompile.py
