@@ -186,6 +186,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librea
 # Configure it to run on port 2222
 # RUN sed -i 's/#Port 22/Port 2222/g' /etc/ssh/sshd_config
 
+# Install libraries for ultralytics
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-image-geometry ros-noetic-pcl-ros
+
 FROM gra-base AS gra-dev
 
 # Set password for root to be gra
