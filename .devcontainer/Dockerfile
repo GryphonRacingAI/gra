@@ -25,6 +25,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys C1CF6E31E6
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
+ENV DEBIAN_FRONTEND=noninteractive
 ENV ROS_DISTRO noetic
 
 # install ros packages
