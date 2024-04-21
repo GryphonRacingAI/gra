@@ -91,6 +91,9 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-move-base-flex
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-explore-lite
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
 
+# Install landmark-based slam
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-mrpt-slam
+
 # Ackermann messages (needed by ackermann_vehicle_navigation)
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ackermann-msgs
 
