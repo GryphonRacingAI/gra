@@ -12,10 +12,10 @@
     <!-- Choose which gazebo world to spawn -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="gui" value="false"/>
-      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/>
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/skidpad.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/acceleration.world"/> -->
-      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/> -->
+      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_big.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/sparse_spaced_cones.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->

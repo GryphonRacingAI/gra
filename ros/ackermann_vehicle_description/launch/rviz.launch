@@ -2,6 +2,6 @@
 
 <launch>
   <!-- Launch rviz with ackermann_vehicle_description/scripts/sensors.rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ackermann_vehicle_description)/scripts/sensors.rviz" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ackermann_vehicle_description)/scripts/sensors_3rdP.rviz" />
   
 </launch>
