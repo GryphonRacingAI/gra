@@ -16,6 +16,8 @@ def convert_trans_rot_vel_to_steering_angle(v, omega, wheelbase):
     return 0
 
   radius = v / omega
+  assert not math.isnan(radius)
+  assert not math.isinf(radius)
   return math.atan(wheelbase / radius)
 
 
@@ -37,7 +39,7 @@ def cmd_callback(data):
     pub.publish(msg)
 
   else:
-    v = data.linear.x
+    v = data.linear.x # Otherwise, we assume it's AckermannDriveStamped
     steering = convert_trans_rot_vel_to_steering_angle(v, data.angular.z, wheelbase)
     
     msg = AckermannDriveStamped()
