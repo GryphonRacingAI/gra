@@ -21,7 +21,7 @@ start_time = rospy.Time()
 end_time = rospy.Time()
 
 yaw_rate_limit = False
-vx_limit = False
+vx_limit = True
 
 def get_distance(p1, p2):
     return math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
@@ -83,15 +83,16 @@ def odom_callback(odom_msg):
     
         # yaw_rate = beta*1.0 + cte*1.00 + beta_dot*1.0 + cte_dot*0.05
         # yaw_rate = beta*0.7 + cte*0.5 + heading_error*1.0
-        yaw_rate = beta*0.9 + cte*1.0 + heading_error*1.2  # Adjusted for more responsiveness
+        yaw_rate = beta*0.9 + cte*1.2 + heading_error*1.2  # Adjusted for more responsiveness
         # yaw_rate = beta*0.8 + cte*0.6
         if yaw_rate_limit is True:
             yaw_rate = max(min(yaw_rate, 0.5), -0.5)
 
         # vx = 0.6
-        vx = 2.5 - abs(beta*0.7 + cte*0.7 + heading_error*0.7)
+        vx = 1.3 - abs(beta*0.7 + cte*0.7 + heading_error*0.7)
         if vx_limit is True:
-            vx = max(min(vx, 0.7), 0.1)
+            # vx = max(min(vx, 0.7), 0.1)
+            vx = max(vx, 0.1)
         rospy.loginfo(vx)
         # rospy.loginfo("wp_index:{} heading_error:{} heading:{} wp_heading:{} beta:{} cte:{} yaw_rate:{} vx:{}".format(subscribed_path.poses[wp_index-1], heading_error, current_heading, wp_heading, np.degrees(beta), cte, yaw_rate, vx))
         pre_beta = beta
