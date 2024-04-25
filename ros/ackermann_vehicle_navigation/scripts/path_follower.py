@@ -71,7 +71,7 @@ def odom_callback(odom_msg):
         cte = position*np.linalg.norm(np.cross(bc, -ba))/np.linalg.norm(bc)
     
         current_time = rospy.Time.now()
-        if seq is 0:
+        if seq == 0:
             start_time = current_time
             pre_time = rospy.Time.now() - rospy.Duration(0.001)
 
@@ -89,7 +89,7 @@ def odom_callback(odom_msg):
             yaw_rate = max(min(yaw_rate, 0.5), -0.5)
 
         # vx = 0.6
-        vx = 1.3 - abs(beta*0.7 + cte*0.7 + heading_error*0.7)
+        vx = 1.0 - abs(beta*0.7 + cte*0.7 + heading_error*0.7)
         if vx_limit is True:
             # vx = max(min(vx, 0.7), 0.1)
             vx = max(vx, 0.1)
