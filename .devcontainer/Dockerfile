@@ -95,7 +95,7 @@ RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-hector-sensors-description
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-ackermann-msgs
 
 # Install Intel RealSense camera libraries
-RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg  librealsense2-dkms librealsense2-utils ros-noetic-realsense2-camera
+RUN /usr/local/bin/apt-get-wrapper.sh librealsense2-dev librealsense2-dbg librealsense2-utils ros-noetic-realsense2-camera
 
 # Install Foxglove message schemas
 RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-foxglove-msgs ros-noetic-foxglove-bridge
