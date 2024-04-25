@@ -450,7 +450,8 @@ measured in kilograms. All of these values are approximations.
         </image>
         <clip>
           <near>0.05</near>
-          <far>10.0</far>
+          <!-- <far>10.0</far> -->
+          <far>6.0</far>
         </clip>
       </camera>
       <plugin name="camera_controller" filename="libgazebo_ros_openni_kinect.so">
@@ -465,7 +466,7 @@ measured in kilograms. All of these values are approximations.
         <depthImageInfoTopicName>/ackermann_vehicle/depth/camera_info</depthImageInfoTopicName>
         <pointCloudTopicName>/ackermann_vehicle/depth/points</pointCloudTopicName>
         <pointCloudCutoff>0.1</pointCloudCutoff>
-        <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
+        <pointCloudCutoffMax>6.0</pointCloudCutoffMax>
         <distortionK1>0.00000001</distortionK1>
         <distortionK2>0.00000001</distortionK2>
         <distortionK3>0.00000001</distortionK3>
