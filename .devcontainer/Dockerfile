@@ -161,6 +161,9 @@ RUN python3 -m pip install .
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/* && apt-get clean
 
+# Install 3D pointcloud SLAM dependencies and package
+RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-geodesy ros-noetic-nmea-msgs ros-noetic-libg2o
+
 # Re-set working directory for any following commands (if necessary)
 WORKDIR /root
     

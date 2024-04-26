@@ -4,6 +4,11 @@ if [ ! -d "$HOME/catkin_ws/src" ]; then
     ln -s ~/gra/ros ~/catkin_ws/src
 fi
 
+cd ~/catkin_ws/src
+git clone https://github.com/koide3/ndt_omp.git
+git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
+git clone https://github.com/koide3/hdl_graph_slam
+
 # # Generate ssh keys if they don't exist at ~/.ssh/id_rsa
 # if [ ! -f ~/.ssh/id_rsa ]; then
 #     echo -e "\e[36mGenerating ssh keys...\e[0m"
