@@ -7,3 +7,6 @@ ros/gra_manager/scripts/states/__pycache__
 *.bag 
 installation_script_generated.sh
 
+ros/fast_gicp/
+ros/hdl_graph_slam/
+ros/ndt_omp/
