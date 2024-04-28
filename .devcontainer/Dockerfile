@@ -158,6 +158,25 @@ WORKDIR /opt/fsd_path_planning
 RUN git clone https://github.com/ugsfume/ft-fsd-path-planning.git .
 RUN python3 -m pip install .
 
+# VSLAM dependencies and software
+# Install g2o (Graph Optimization)
+WORKDIR /root
+RUN git clone https://github.com/RainerKuemmerle/g2o.git
+WORKDIR /root/g2o
+RUN mkdir build
+WORKDIR /root/g2o/build
+RUN cmake ..
+RUN make -j$(nproc)
+
+# Install FBoW (Fast Bag of Words)
+WORKDIR /root
+RUN git clone https://github.com/stella-cv/FBoW.git
+WORKDIR /root/FBoW
+RUN mkdir build
+WORKDIR /root/FBoW/build
+RUN cmake .. -DBUILD_TESTS=ON -DBUILD_UTILS=ON 
+RUN make -j$(nproc)
+
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/* && apt-get clean
 
