@@ -26,8 +26,8 @@ def handle_vehicle_pose(msg, vehicle_name):
     t.header.stamp = rospy.Time.now()
     # t.header.stamp = rospy.Time()
     t.header.frame_id = global_frame_id
-    t.child_frame_id = "odom"
-    # t.child_frame_id = "base_link"
+    # t.child_frame_id = "odom"
+    t.child_frame_id = "base_link"
     #odom_msg.pose.pose = msg.pose[vehicle_index]
     t.transform.translation.x = msg.pose[vehicle_index].position.x
     t.transform.translation.y = msg.pose[vehicle_index].position.y
@@ -39,8 +39,8 @@ def handle_vehicle_pose(msg, vehicle_name):
     odom_msg.header.stamp = rospy.Time.now()
     # odom_msg.header.stamp = rospy.Time()
     odom_msg.header.frame_id = global_frame_id
-    odom_msg.child_frame_id = "odom"
-    # odom_msg.child_frame_id = "base_link"
+    # odom_msg.child_frame_id = "odom"
+    odom_msg.child_frame_id = "base_link"
     #odom_msg.pose.pose = msg.pose[vehicle_index]
     odom_msg.pose.pose.position.x = msg.pose[vehicle_index].position.x
     odom_msg.pose.pose.position.y = msg.pose[vehicle_index].position.y
@@ -51,7 +51,7 @@ def handle_vehicle_pose(msg, vehicle_name):
 
 if __name__ == '__main__':
     rospy.init_node('tf_odom_publisher')
-    # vehicle_name = rospy.get_param('~vehicle_name', 'ackermann_vehicle')
+    vehicle_name = rospy.get_param('~vehicle_name', 'ackermann_vehicle')
     global_frame_id = rospy.get_param('~global_frame_id', 'world')
     odom_publisher = rospy.Publisher('/odom', Odometry, queue_size=1)
     rospy.Subscriber('/gazebo/model_states',
