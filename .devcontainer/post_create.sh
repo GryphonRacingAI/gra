@@ -4,46 +4,35 @@ if [ ! -d "$HOME/catkin_ws/src" ]; then
     ln -s ~/gra/ros ~/catkin_ws/src
 fi
 
-# 3D pointcloud slam
-# cd ~/catkin_ws/src
-# git clone https://github.com/koide3/ndt_omp.git
-# git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
-# git clone https://github.com/koide3/hdl_graph_slam
+# ov2slam
+# cd ~/catkin_ws/src/
+# git clone https://github.com/ov2slam/ov2slam.git
+# cd ~/catkin_ws/src/ov2slam
+# chmod +x build_thirdparty.sh
+# ./build_thirdparty.sh
 
-# # VSLAM
-# cd ~
-# git clone https://github.com/RainerKuemmerle/g2o.git
-# cd g2o
-# mkdir build
-# cd build
-# cmake ..
-# make
+# stereo_slam: viso2
+# cd ~/catkin_ws/src/
+# git clone https://github.com/srv/viso2.git
+# cd ~/catkin_ws/src/viso2
+# chmod +x ./*
+# # stereo_slam
+# cd ~/catkin_ws/src/
+# git clone https://github.com/srv/stereo_slam.git
+# cd ~/catkin_ws/src/stereo_slam
+# chmod +x ./*
 
-# cd ~
-# git clone https://github.com/stella-cv/FBoW.git
-# cd FBoW && mkdir build && cd build
-# cmake .. -DBUILD_TESTS=ON -DBUILD_UTILS=ON
-# make
+# # RGBD SLAM
+# cd ~/catkin_ws/src/
+# git clone https://github.com/felixendres/rgbdslam_v2.git
+# cd ~/catkin_ws/src/rgbdslam_v2
+# chmod +x ./*
+# # rosdep install rgbdslam
 
-mkdir -p ~/lib
-cd ~/lib
-git clone --recursive --depth 1 https://github.com/stella-cv/stella_vslam.git
-rosdep install -y -i --from-paths ~/lib
-cd ~/lib/stella_vslam
-mkdir -p ~/lib/stella_vslam/build
-cd ~/lib/stella_vslam/build
-source /opt/ros/${ROS_DISTRO}/setup.bash
-cmake -DCMAKE_BUILD_TYPE=RelWithDebInfo ..
-make -j
-sudo make install
-
-cd ~
-git clone --recursive -b ros https://github.com/stella-cv/stella_vslam_ros.git
-cd stella_vslam_ros
-git submodule update --init --recursive
-ln -s ~/stella_vslam_ros ~/catkin_ws/src/stella_vslam_ros
-
-
+cd ~/catkin_ws/src
+git clone https://github.com/koide3/ndt_omp.git
+git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
+git clone https://github.com/koide3/hdl_graph_slam
 
 # # Generate ssh keys if they don't exist at ~/.ssh/id_rsa
 # if [ ! -f ~/.ssh/id_rsa ]; then

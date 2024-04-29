@@ -89,7 +89,7 @@ def odom_callback(odom_msg):
             yaw_rate = max(min(yaw_rate, 0.5), -0.5)
 
         # vx = 0.6
-        vx = 1.0 - abs(beta*0.7 + cte*0.7 + heading_error*0.7)
+        vx = 0.7 - abs(beta*0.7 + cte*0.7 + heading_error*0.7)
         if vx_limit is True:
             # vx = max(min(vx, 0.7), 0.1)
             vx = max(vx, 0.1)

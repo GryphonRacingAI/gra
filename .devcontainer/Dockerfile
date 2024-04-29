@@ -158,24 +158,36 @@ WORKDIR /opt/fsd_path_planning
 RUN git clone https://github.com/ugsfume/ft-fsd-path-planning.git .
 RUN python3 -m pip install .
 
-# VSLAM dependencies and software
-# Install g2o (Graph Optimization)
-WORKDIR /root
-RUN git clone https://github.com/RainerKuemmerle/g2o.git
-WORKDIR /root/g2o
-RUN mkdir build
-WORKDIR /root/g2o/build
-RUN cmake ..
-RUN make -j$(nproc)
+# # VSLAM dependencies and software
+# WORKDIR /opt
+# RUN git clone https://github.com/laurentkneip/opengv
+# WORKDIR /opt/opengv
+# RUN mkdir build
+# WORKDIR /opt/opengv/build
+# RUN cmake ..
+# RUN sudo make -j4 install
 
-# Install FBoW (Fast Bag of Words)
-WORKDIR /root
-RUN git clone https://github.com/stella-cv/FBoW.git
-WORKDIR /root/FBoW
-RUN mkdir build
-WORKDIR /root/FBoW/build
-RUN cmake .. -DBUILD_TESTS=ON -DBUILD_UTILS=ON 
-RUN make -j$(nproc)
+# # google-glog + gflags
+# RUN /usr/local/bin/apt-get-wrapper.sh libgoogle-glog-dev libgflags-dev
+# # Use ATLAS for BLAS & LAPACK
+# RUN /usr/local/bin/apt-get-wrapper.sh libatlas-base-dev
+# # SuiteSparse (optional)
+# RUN /usr/local/bin/apt-get-wrapper.sh libsuitesparse-dev
+
+# VSLAM2
+# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-libg2o
+# RUN /usr/local/bin/apt-get-wrapper.sh libceres-dev
+
+# # RGBD SLAM
+# WORKDIR /opt
+# RUN git clone https://github.com/felixendres/g2o.git
+# WORKDIR /opt/g2o
+# RUN mkdir build
+# WORKDIR /opt/g2o/build
+# RUN cmake ..
+# RUN sudo make -j4 install
+# # Set G2O_DIR environment variable
+# ENV G2O_DIR /opt/g2o/build
 
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/* && apt-get clean
