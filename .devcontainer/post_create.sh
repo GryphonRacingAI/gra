@@ -11,24 +11,7 @@ fi
 # chmod +x build_thirdparty.sh
 # ./build_thirdparty.sh
 
-# stereo_slam: viso2
-# cd ~/catkin_ws/src/
-# git clone https://github.com/srv/viso2.git
-# cd ~/catkin_ws/src/viso2
-# chmod +x ./*
-# # stereo_slam
-# cd ~/catkin_ws/src/
-# git clone https://github.com/srv/stereo_slam.git
-# cd ~/catkin_ws/src/stereo_slam
-# chmod +x ./*
-
-# # RGBD SLAM
-# cd ~/catkin_ws/src/
-# git clone https://github.com/felixendres/rgbdslam_v2.git
-# cd ~/catkin_ws/src/rgbdslam_v2
-# chmod +x ./*
-# # rosdep install rgbdslam
-
+# 3D pointcloud SLAM
 cd ~/catkin_ws/src
 git clone https://github.com/koide3/ndt_omp.git
 git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive

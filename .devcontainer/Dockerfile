@@ -174,21 +174,6 @@ RUN python3 -m pip install .
 # # SuiteSparse (optional)
 # RUN /usr/local/bin/apt-get-wrapper.sh libsuitesparse-dev
 
-# VSLAM2
-# RUN /usr/local/bin/apt-get-wrapper.sh ros-noetic-libg2o
-# RUN /usr/local/bin/apt-get-wrapper.sh libceres-dev
-
-# # RGBD SLAM
-# WORKDIR /opt
-# RUN git clone https://github.com/felixendres/g2o.git
-# WORKDIR /opt/g2o
-# RUN mkdir build
-# WORKDIR /opt/g2o/build
-# RUN cmake ..
-# RUN sudo make -j4 install
-# # Set G2O_DIR environment variable
-# ENV G2O_DIR /opt/g2o/build
-
 # Cleanup
 RUN rm -rf /var/lib/apt/lists/* && apt-get clean
 
