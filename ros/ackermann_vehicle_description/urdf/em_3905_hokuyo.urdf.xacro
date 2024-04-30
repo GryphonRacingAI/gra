@@ -409,11 +409,11 @@ measured in kilograms. All of these values are approximations.
     <sensor type="ray" name="$velodyne-VLP16">
       <pose>0 0 0 0 0 0</pose>
       <visualize>false</visualize>
-      <update_rate>8</update_rate>
+      <update_rate>5</update_rate>
       <ray>
         <scan>
           <horizontal>
-            <samples>700</samples>
+            <samples>600</samples>
             <resolution>1</resolution>
             <min_angle>-${M_PI}</min_angle>
             <max_angle>${M_PI}</max_angle>
@@ -427,7 +427,7 @@ measured in kilograms. All of these values are approximations.
         </scan>
         <range>
           <min>0.3</min>
-          <max>26</max>
+          <max>81</max>
           <resolution>0.01</resolution>
         </range>
         <noise>
@@ -440,7 +440,7 @@ measured in kilograms. All of these values are approximations.
         <topicName>/velodyne_points</topicName>
         <frameName>velodyne</frameName>
         <min_range>0.9</min_range>
-        <max_range>25.0</max_range>
+        <max_range>80.0</max_range>
         <!-- <gaussianNoise>0.008</gaussianNoise> -->
         <gaussianNoise>0</gaussianNoise>
       </plugin>
