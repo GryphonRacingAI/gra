@@ -13,5 +13,6 @@ Ackermann steering.
   <!-- Read joint positions from joint_states, then publish the vehicle's state to tf. -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
     <param name="publish_frequency" value="30.0"/>
+    <param name="ignore_timestamp" value="true"/>
   </node>
 </launch>
