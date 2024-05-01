@@ -55,9 +55,9 @@
   </node>
 
   <!-- scan_matching_odometry_nodelet -->
+  <!-- ICP, GICP, NDT, GICP_OMP, NDT_OMP, FAST_GICP(recommended), or FAST_VGICP -->
   <node pkg="nodelet" type="nodelet" name="scan_matching_odometry_nodelet" args="load hdl_graph_slam/ScanMatchingOdometryNodelet $(arg nodelet_manager)">
     <param name="points_topic" value="$(arg points_topic)" />
-    <!-- published_odom_topic -->
     <param name="published_odom_topic" value="$(arg published_odom_topic)" />
     <param name="odom_frame_id" value="$(arg lidar_odom_frame_id)" />
     <param name="robot_odom_frame_id" value="$(arg robot_odom_frame_id)" />
@@ -70,7 +70,6 @@
     <param name="max_acceptable_angle" value="1.0" />
     <param name="downsample_method" value="NONE" />
     <param name="downsample_resolution" value="0.1" />
-    <!-- ICP, GICP, NDT, GICP_OMP, NDT_OMP, FAST_GICP(recommended), or FAST_VGICP -->
     <param name="registration_method" value="FAST_GICP" />
     <param name="reg_num_threads" value="0" />
     <param name="reg_transformation_epsilon" value="0.01"/>
