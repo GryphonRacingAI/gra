@@ -9,6 +9,7 @@ from nav_msgs.msg import Odometry
 from scipy.spatial.transform import Rotation as R
 from std_msgs.msg import Header
 from ackermann_vehicle_description.msg import AckermannFeedback 
+import tf
 
 class AckermannState:
     def __init__(self, position, orientation, left_wheel_speed, right_wheel_speed, steering_angle, time):
@@ -29,41 +30,35 @@ class OdomPublisher:
         self.wheel_radius = rospy.get_param('~wheel_radius')
         self.center_of_mass_offset = rospy.get_param('~center_of_mass_offset', 0.0)
         self.damping_factor = rospy.get_param('~damping_factor', 1)
-
         # Publishers
         self.publisher = rospy.Publisher('odom', Odometry, queue_size=10)
-
         # Subscribers
         self.subscriber = rospy.Subscriber('ackermann_feedback', AckermannFeedback, self.feedback_callback)
-
         self.state = AckermannState(
             position=np.array([0, 0, 0]),
             orientation=R.from_euler('xyz', [0, 0, 0]),
-            left_wheel_speed=0.0, 
+            left_wheel_speed=0.0,
             right_wheel_speed=0.0,
             steering_angle=0.0,
             time=rospy.Time.now()
         )
-
-
+        self.br = tf.TransformBroadcaster()
 
     def feedback_callback(self, msg):
         self.state = self.state_update(self.state, msg)
         output = self.output(self.state)
         self.publisher.publish(output)
+        self.send_transform()
 
     def state_update(self, state, feedback):
         average_wheel_speed = (feedback.left_wheel_speed + feedback.right_wheel_speed) / 2
         linear_speed = average_wheel_speed * self.wheel_radius
         turn_radius = self.turn_radius(feedback.steering_angle)
         angular_speed = linear_speed / turn_radius
-
         time_delta = (rospy.Time.now() - state.time).to_sec()
         heading_delta = angular_speed * time_delta
-
         orientation_delta = R.from_euler('xyz', [0, 0, heading_delta])
         position_delta = state.orientation.apply([linear_speed * time_delta, 0, 0])
-
         return AckermannState(
             position=state.position + self.damping_factor * position_delta,
             orientation=orientation_delta * state.orientation,
@@ -77,12 +72,12 @@ class OdomPublisher:
         quaternion = state.orientation.as_quat()
         linear_velocity = state.orientation.apply([self.wheel_radius * (state.left_wheel_speed + state.right_wheel_speed) / 2, 0, 0])
         angular_speed = linear_velocity[0] / self.turn_radius(state.steering_angle)
-
         return Odometry(
             header=Header(
                 stamp=state.time,
                 frame_id='odom'
             ),
+            child_frame_id='base_link',
             pose=PoseWithCovariance(
                 pose=Pose(
                     position=Point(x=state.position[0], y=state.position[1], z=state.position[2]),
@@ -95,6 +90,17 @@ class OdomPublisher:
                     angular=Vector3(z=angular_speed)
                 )
             )
+        )
+
+    def send_transform(self):
+        # Broadcast the transform
+        q = self.state.orientation.as_quat()
+        self.br.sendTransform(
+            (self.state.position[0], self.state.position[1], self.state.position[2]),
+            (q[0], q[1], q[2], q[3]),
+            rospy.Time.now(),
+            "base_link",
+            "odom"
         )
 
     def turn_radius(self, steering_angle):
