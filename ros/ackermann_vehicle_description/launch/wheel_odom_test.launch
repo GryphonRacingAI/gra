@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<launch>
+    <!-- OdomPublisher node launch file -->
+
+    <!-- Node -->
+    <node name="odom_publisher" pkg="ackermann_vehicle_description" type="odom_publisher.py" output="screen">
+        <!-- Parameters -->
+        <param name="axle_length" value="1.2"/>
+        <param name="wheelbase_length" value="2.5"/>
+        <param name="wheel_radius" value="0.35"/>
+        <param name="center_of_mass_offset" value="0.1"/>
+        <param name="damping_factor" value="0.9"/>
+
+        <!-- Other possible parameters or configurations can go here -->
+    </node>
+</launch>
