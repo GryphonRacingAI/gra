@@ -6,3 +6,6 @@ ros/gra_manager/scripts/states/__pycache__
 # rosbag files
 *.bag 
 installation_script_generated.sh
+ros/ndt_omp/
+ros/hdl_graph_slam/
+ros/fast_gicp/
