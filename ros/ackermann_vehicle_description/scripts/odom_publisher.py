@@ -39,7 +39,7 @@ class OdomPublisher:
         self.state = AckermannState(
             position=np.array([0, 0, 0]),
             orientation=R.from_euler('xyz', [0, 0, 0]),
-            left_wheel_speed=0.0,  # This was missing
+            left_wheel_speed=0.0, 
             right_wheel_speed=0.0,
             steering_angle=0.0,
             time=rospy.Time.now()

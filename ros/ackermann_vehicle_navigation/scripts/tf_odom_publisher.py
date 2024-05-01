@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# This node takes the ABSOLUTE robot state directly from gazebo and take that as /odom
+
 import rospy
 import tf2_ros
 import geometry_msgs.msg
