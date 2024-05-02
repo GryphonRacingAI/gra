@@ -63,7 +63,7 @@
     <param name="robot_odom_frame_id" value="$(arg robot_odom_frame_id)" />
     <param name="keyframe_delta_trans" value="1.0" />
     <param name="keyframe_delta_angle" value="1.0" />
-    <param name="keyframe_delta_time" value="10000.0" />
+    <param name="keyframe_delta_time" value="7000.0" />
     <param name="transform_thresholding" value="false" />
     <param name="enable_robot_odometry_init_guess" value="$(arg enable_robot_odometry_init_guess)" />
     <param name="max_acceptable_trans" value="1.0" />
