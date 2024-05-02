@@ -80,10 +80,13 @@ def odom_callback(odom_msg):
         beta_dot = (beta - pre_beta) / dt
         cte_dot = (cte - pre_cte) / dt
         pre_tiem = current_time
-    
+
+        # beta is the angle between the vehicle's heading and the line connecting the vehicle's current position to the next waypoint in the path. This angle helps determine how sharply the vehicle needs to turn towards the waypoint.
+        # cte(Cross Track Error) is the shortest perpendicular distance from the vehicle to the path line between the current waypoint and the next waypoint. This error indicates how far off the path the vehicle is.
+        # Heading Error is the difference between the vehicle's current heading and the desired heading, which is the direction from the current waypoint to the next waypoint. 
         # yaw_rate = beta*1.0 + cte*1.00 + beta_dot*1.0 + cte_dot*0.05
         # yaw_rate = beta*0.7 + cte*0.5 + heading_error*1.0
-        yaw_rate = beta*0.9 + cte*1.2 + heading_error*1.2  # Adjusted for more responsiveness
+        yaw_rate = beta*0.7 + cte*1.2 + heading_error*0.8  # Adjusted for more responsiveness
         # yaw_rate = beta*0.8 + cte*0.6
         if yaw_rate_limit is True:
             yaw_rate = max(min(yaw_rate, 0.5), -0.5)
