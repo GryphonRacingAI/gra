@@ -25,7 +25,7 @@
     <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
           args="-urdf -param robot_description -model ackermann_vehicle
                 -gazebo_namespace /gazebo
-                -x 0.0 -y 0.0 -z 1.2
+                -x 0.0 -y 0.0 -z 0.5
                 -R 0.0 -P 0.0 -Y 0.0"/>
 
     <node name="controller_spawner" pkg="controller_manager" type="spawner"
@@ -39,9 +39,22 @@
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
 
-    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
+    <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="odom" />
+    </node> -->
+
+    <node pkg="tf" type="static_transform_publisher" name="world2odom_publisher" args="0 0 0 0 0 0 1 world odom 50" />
+
+    <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+      <param name="laser_scan_topic" value="/scan"/>        # topic where the lidar scans are being published
+      <param name="odom_topic" value="/odom" />              # topic where tu publish the odometry estimations
+      <param name="publish_tf" value="true" />                   # wheter or not to publish the tf::transform (base->odom)
+      <param name="base_frame_id" value="/base_link"/>            # frame_id (tf) of the mobile robot base. A tf transform from the laser_frame to the base_frame is mandatory
+      <param name="odom_frame_id" value="/odom" />                # frame_id (tf) to publish the odometry estimations    
+      <param name="init_pose_from_topic" value="" /> # (Odom topic) Leave empty to start at point (0,0)
+      <param name="freq" value="50.0"/>                            # Execution frequency.
+      <param name="verbose" value="true" />                       # verbose
     </node>
 
     <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />

@@ -19,7 +19,7 @@ git clone https://github.com/koide3/hdl_graph_slam
 
 # 2D Laser Odometry and SLAM
 cd ~/catkin_ws/src
-git clone -b ros1 https://github.com/MAPIRlab/rf2o_laser_odometry.git
+git clone https://github.com/tianb03/rf2o_laser_odometry.git
 
 # # Generate ssh keys if they don't exist at ~/.ssh/id_rsa
 # if [ ! -f ~/.ssh/id_rsa ]; then
