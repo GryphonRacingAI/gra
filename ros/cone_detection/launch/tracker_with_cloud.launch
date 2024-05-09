@@ -25,6 +25,7 @@
   <!-- <arg name="camera_info_topic" default="/camera/color/camera_info"/> -->
   <arg name="camera_info_topic" default="/ackermann_vehicle/color/camera_info"/>
   <!-- <arg name="lidar_topic" default="/velodyne_points"/> -->
+  <!-- <arg name="lidar_topic" default="/camera/depth/color/points"/>   -->
   <arg name="lidar_topic" default="/ackermann_vehicle/depth/points"/>
   <arg name="yolo_3d_result_topic" default="/yolo_3d_result"/>
   <arg name="cluster_tolerance" default="0.1"/>
