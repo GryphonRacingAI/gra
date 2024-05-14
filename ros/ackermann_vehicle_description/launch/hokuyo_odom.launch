@@ -39,9 +39,6 @@
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>#
 
-    <!-- Only in Sim for calibrating laser odometry initial pose -->
-    <!-- <node name="odom_init_publisher" pkg="ackermann_vehicle_description" type="odom_init_publisher.py" output="screen"/> -->
-
     <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="odom" />
@@ -58,6 +55,11 @@
       <param name="init_pose_from_topic" value="" /> # (Odom topic) Leave empty to start at point (0,0)
       <param name="freq" value="50.0"/>                            # Execution frequency.
       <param name="verbose" value="true" />                       # verbose
+    </node> -->
+
+    <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
+      <param name="vehicle_name" value="ackermann_vehicle" />
+      <param name="global_frame_id" value="world" />
     </node> -->
 
     <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
