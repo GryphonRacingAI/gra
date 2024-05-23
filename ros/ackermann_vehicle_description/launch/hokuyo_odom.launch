@@ -12,11 +12,11 @@
     <!-- Choose which gazebo world to spawn -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="gui" value="false"/>
-      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track_features.world"/> -->
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/skidpad.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/acceleration.world"/> -->
-      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/> -->
-      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/>
+      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/>
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_big.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/sparse_spaced_cones.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->
@@ -39,12 +39,12 @@
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>#
 
-    <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
+    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="odom" />
-    </node> -->
+    </node>
 
-    <!-- <node pkg="tf" type="static_transform_publisher" name="world2odom_publisher" args="0 0 0 0 0 0 1 world odom 50" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="world2odom_publisher" args="0 0 0 0 0 0 1 world odom 50" />
 
     <!-- <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
       <param name="laser_scan_topic" value="/scan"/>        # topic where the lidar scans are being published
