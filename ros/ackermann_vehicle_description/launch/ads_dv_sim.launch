@@ -15,8 +15,8 @@
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track_features.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/skidpad.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/acceleration.world"/> -->
-      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/>
-      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/> -->
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/> -->
+      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_big.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/sparse_spaced_cones.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->
@@ -38,17 +38,17 @@
     </node>
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
-
-    <!-- <node name="gazebo_tf_publisher" pkg="ackermann_vehicle_gazebo" type="gazebo_tf_publisher.py" output="screen"/> -->
     
     <!-- decrease damping factor to reduce encoder noise -->
     <!-- <node name="odom_publisher" pkg="ackermann_vehicle_description" type="odom_publisher.py" output="screen">
         <param name="axle_length" value="1.2"/>
-        <param name="wheelbase_length" value="2.1975"/>
+        <param name="wheelbase_length" value="2"/>
         <param name="wheel_radius" value="0.2575"/>
         <param name="center_of_mass_offset" value="0.0"/>
         <param name="damping_factor" value="1.0"/>  
-    </node> -->
+    </node>
+    <node name="gazebo_tf_publisher" pkg="ackermann_vehicle_gazebo" type="gazebo_tf_publisher.py" output="screen"/> -->
+    
 
     <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />

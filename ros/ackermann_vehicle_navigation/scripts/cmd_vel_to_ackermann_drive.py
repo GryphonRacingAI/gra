@@ -57,8 +57,8 @@ if __name__ == '__main__':
         
     twist_cmd_topic = rospy.get_param('~twist_cmd_topic', '/cmd_vel') 
     ackermann_cmd_topic = rospy.get_param('~ackermann_cmd_topic', '/ackermann_cmd')
-    wheelbase = rospy.get_param('~wheelbase', 0.335)
-    # wheelbase = rospy.get_param('~wheelbase', 1.534)
+    # wheelbase = rospy.get_param('~wheelbase', 0.335)
+    wheelbase = rospy.get_param('~wheelbase', 1.534)
     frame_id = rospy.get_param('~frame_id', 'odom')
     message_type = rospy.get_param('~message_type', 'ackermann_drive') # ackermann_drive or ackermann_drive_stamped
     
