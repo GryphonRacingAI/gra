@@ -36,7 +36,14 @@ fi
 
 source ~/convenience.sh -i
 setdevmaster
-cb
+CMAKE_ARGS=""
+# ndt_omp tries to compile with SSE optimisations, which are only available on x86, unless
+# the following option is set.
+CMAKE_ARGS+="-DBUILD_WITH_MARCH_NATIVE=ON"
+# The CMake version installed by the Dockerfile has a bug in its FindOpenMP.cmake.  Work
+# around this by avoiding having to find OpenMP manually at all.
+CMAKE_ARGS+=" -DOPENMP_C_FLAGS=-fopenmp -DOPENMP_CXX_FLAGS=-fopenmp"
+cb --cmake-args $CMAKE_ARGS
 
 # bash -ic "source ~/.bashrc && setbotmaster; acm"
 
