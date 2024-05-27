@@ -1,0 +1,1 @@
+This folder contains patches for dependencies.  These are used to make minor modifications without requiring us to redistribute software.  Patches can be created by modifying the file as desired, then using `git diff`.  Patches can be applied using `git apply` or `git am`.
