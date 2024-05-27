@@ -16,6 +16,7 @@ cd ~/catkin_ws/src
 git clone https://github.com/koide3/ndt_omp.git
 git clone https://github.com/SMRT-AIST/fast_gicp.git --recursive
 git clone https://github.com/koide3/hdl_graph_slam
+git -C hdl_graph_slam apply ~/gra/.devcontainer/patches/hdl_graph_slam.patch
 
 # 2D Laser Odometry and SLAM
 cd ~/catkin_ws/src
