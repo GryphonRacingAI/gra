@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: gra-dev
+      network: host
     network_mode: host
     privileged: true
     volumes:
