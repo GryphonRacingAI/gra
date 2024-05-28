@@ -87,7 +87,7 @@ class BoundingBoxTransformer:
                     dy = transformed_pose_stamped.pose.position.y - self.robot_position.y
                     distance = math.sqrt(dx**2 + dy**2)
                     
-                    # Only add the detection if it is within 8 meters
+                    # Only add the detection if it is within 10 meters
                     if distance < 10.0:
                         detection.bbox.center = transformed_pose_stamped.pose
                         transformed_data.detections.append(detection)
