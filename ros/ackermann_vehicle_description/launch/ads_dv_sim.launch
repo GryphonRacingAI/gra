@@ -12,10 +12,11 @@
     <!-- Choose which gazebo world to spawn -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="gui" value="false"/>
-      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/> -->
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track_features.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/skidpad.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/acceleration.world"/> -->
-      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/>
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/> -->
+      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_big.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/sparse_spaced_cones.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->
@@ -24,7 +25,7 @@
     <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
           args="-urdf -param robot_description -model ackermann_vehicle
                 -gazebo_namespace /gazebo
-                -x 0.0 -y 0.0 -z 1.2
+                -x 0.0 -y 0.0 -z 0.6
                 -R 0.0 -P 0.0 -Y 0.0"/>
 
     <node name="controller_spawner" pkg="controller_manager" type="spawner"
@@ -37,6 +38,17 @@
     </node>
 
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
+    
+    <!-- decrease damping factor to reduce encoder noise -->
+    <!-- <node name="odom_publisher" pkg="ackermann_vehicle_description" type="odom_publisher.py" output="screen">
+        <param name="axle_length" value="1.2"/>
+        <param name="wheelbase_length" value="2"/>
+        <param name="wheel_radius" value="0.2575"/>
+        <param name="center_of_mass_offset" value="0.0"/>
+        <param name="damping_factor" value="1.0"/>  
+    </node>
+    <node name="gazebo_tf_publisher" pkg="ackermann_vehicle_gazebo" type="gazebo_tf_publisher.py" output="screen"/> -->
+    
 
     <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />

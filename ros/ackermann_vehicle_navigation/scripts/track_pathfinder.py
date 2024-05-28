@@ -51,7 +51,7 @@ class TrackPathfinder:
         ros_path.header = Header(stamp=rospy.Time.now(), frame_id='world')
 
         # Start from the 4th waypoint, skipping the first three
-        for point in path[3:]:
+        for point in path[4:]:
             pose = PoseStamped()
             pose.header = ros_path.header  # Use updated header for consistency across poses
             pose.pose.position.x = point[1]  # path_x

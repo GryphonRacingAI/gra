@@ -73,7 +73,7 @@
     <physics type='ode'>
       <max_step_size>0.001</max_step_size>
       <real_time_factor>1</real_time_factor>
-      <real_time_update_rate>500</real_time_update_rate>
+      <real_time_update_rate>1000</real_time_update_rate>
     </physics>
     <scene>
       <ambient>0.4 0.4 0.4 1</ambient>
@@ -88,9 +88,9 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='skidpad'>
-      <link name='link1'>
-        <pose>-1.637 0 1 0 -0 0</pose>
+    <model name='small_track'>
+      <link name='link_0'>
+        <pose>-17.0129 9.72719 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -135,8 +135,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link2'>
-        <pose>-2.216 2.9131 1 0 -0 0</pose>
+      <link name='link_0_clone'>
+        <pose>-12.7541 12.8712 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -181,8 +181,100 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link3'>
-        <pose>-3.867 5.3828 1 0 -0 0</pose>
+      <link name='link_0_clone_0_clone'>
+        <pose>-12.2686 6.61784 0.070966 -0.001555 0.00019 -5.2e-05</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_0_clone_clone'>
+        <pose>-9.65737 7.2378 0.083534 0.001019 -0.000437 -0.000128</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_1'>
+        <pose>-8.31569 13.0924 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -227,8 +319,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link4'>
-        <pose>-6.336 7.033 1 0 -0 0</pose>
+      <link name='link_0_clone_10'>
+        <pose>7.33516 9.03961 0.083556 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_11'>
+        <pose>9.62956 15.8379 0.084236 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -273,8 +411,100 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link5'>
-        <pose>-9.25 7.6125 1 0 -0 0</pose>
+      <link name='link_0_clone_12'>
+        <pose>10.548 10.5892 0.085274 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_13'>
+        <pose>13.1479 11.1316 0.08476 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_14'>
+        <pose>12.492 17.0404 0.083705 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -319,8 +549,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link6'>
-        <pose>-12.16 7.033 1 0 -0 0</pose>
+      <link name='link_0_clone_15'>
+        <pose>15.1389 16.5025 0.082223 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -365,8 +595,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link7'>
-        <pose>-14.63 5.3828 1 0 -0 0</pose>
+      <link name='link_0_clone_16'>
+        <pose>15.2725 10.0791 0.08035 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_17'>
+        <pose>19.5034 13.6361 0.079669 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -411,8 +687,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link8'>
-        <pose>-16.28 2.9131 1 0 -0 0</pose>
+      <link name='link_0_clone_17_clone'>
+        <pose>20.8922 11.7012 0.056623 -0.001555 0.00019 -5.2e-05</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -457,8 +733,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link9'>
-        <pose>-16.86 0 1 0 -0 0</pose>
+      <link name='link_0_clone_17_clone_0'>
+        <pose>17.5221 15.3812 0.082077 -0.001555 0.00019 -5.2e-05</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -503,8 +779,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link10'>
-        <pose>-16.28 -2.913 1 0 -0 0</pose>
+      <link name='link_0_clone_18'>
+        <pose>16.8037 8.23821 0.079433 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_19'>
+        <pose>21.4761 8.79574 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -549,8 +871,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link11'>
-        <pose>-14.63 -5.382 1 0 -0 0</pose>
+      <link name='link_0_clone_2'>
+        <pose>-6.90273 7.20128 0.080073 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_20'>
+        <pose>20.9992 5.27662 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -595,8 +963,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link12'>
-        <pose>-12.16 -7.033 1 0 -0 0</pose>
+      <link name='link_0_clone_21'>
+        <pose>16.7063 6.10772 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_22'>
+        <pose>19.9925 2.24053 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -641,8 +1055,100 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link13'>
-        <pose>-9.25 -7.612 1 0 -0 0</pose>
+      <link name='link_0_clone_23'>
+        <pose>15.876 3.47906 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_24'>
+        <pose>15.106 1.5027 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_25'>
+        <pose>19.0983 -0.671871 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -687,8 +1193,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link14'>
-        <pose>-6.336 -7.033 1 0 -0 0</pose>
+      <link name='link_0_clone_26'>
+        <pose>13.6765 -0.472612 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_27'>
+        <pose>17.1824 -3.23994 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -733,8 +1285,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link15'>
-        <pose>-3.867 -5.382 1 0 -0 0</pose>
+      <link name='link_0_clone_28'>
+        <pose>9.41953 -2.84739 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_29'>
+        <pose>11.114 -6.74408 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -779,8 +1377,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link16'>
-        <pose>-2.216 -2.913 1 0 -0 0</pose>
+      <link name='link_0_clone_3'>
+        <pose>-4.06552 13.3637 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -825,8 +1423,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link17'>
-        <pose>19.862 0 1 0 -0 0</pose>
+      <link name='link_0_clone_30'>
+        <pose>12.0732 -1.43122 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_31'>
+        <pose>14.2831 -5.26437 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -871,8 +1515,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link18'>
-        <pose>19.054 4.0612 1 0 -0 0</pose>
+      <link name='link_0_clone_32'>
+        <pose>7.26282 -3.9408 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_33'>
+        <pose>8.25363 -8.53889 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -917,8 +1607,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link19'>
-        <pose>16.754 7.5041 1 0 -0 0</pose>
+      <link name='link_0_clone_34'>
+        <pose>4.65159 -5.15509 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_35'>
+        <pose>5.06185 -10.1551 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -963,8 +1699,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link20'>
-        <pose>13.311 9.8046 1 0 -0 0</pose>
+      <link name='link_0_clone_36'>
+        <pose>1.78774 -6.66723 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_37'>
+        <pose>1.42086 -11.9634 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1009,8 +1791,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link21'>
-        <pose>9.25 10.612 1 0 -0 0</pose>
+      <link name='link_0_clone_38'>
+        <pose>-1.97969 -8.56329 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_39'>
+        <pose>-2.4975 -14.0305 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1055,8 +1883,100 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link22'>
-        <pose>5.1887 9.8046 1 0 -0 0</pose>
+      <link name='link_0_clone_4'>
+        <pose>-3.80615 7.33616 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_40'>
+        <pose>-5.18123 -10.5555 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_41'>
+        <pose>-5.74864 -16.1217 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1101,8 +2021,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link23'>
-        <pose>1.7458 7.5041 1 0 -0 0</pose>
+      <link name='link_0_clone_42'>
+        <pose>-8.34841 -12.1551 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_43'>
+        <pose>-9.34841 -17.1551 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1147,8 +2113,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link24'>
-        <pose>1.7458 -7.504 1 0 -0 0</pose>
+      <link name='link_0_clone_44'>
+        <pose>-9.78487 -11.8592 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_45'>
+        <pose>-12.2114 -16.6459 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1193,8 +2205,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link25'>
-        <pose>5.1887 -9.804 1 0 -0 0</pose>
+      <link name='link_0_clone_46'>
+        <pose>-11.3484 -11.1551 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_47'>
+        <pose>-14.4625 -14.9249 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1239,8 +2297,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link26'>
-        <pose>9.25 -10.61 1 0 -0 0</pose>
+      <link name='link_0_clone_48'>
+        <pose>-16.2427 -13.276 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1285,8 +2343,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link27'>
-        <pose>13.311 -9.804 1 0 -0 0</pose>
+      <link name='link_0_clone_49'>
+        <pose>-13.2946 -8.64709 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_5'>
+        <pose>-0.131239 13.3125 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1331,8 +2435,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link28'>
-        <pose>16.754 -7.504 1 0 -0 0</pose>
+      <link name='link_0_clone_50'>
+        <pose>-17.8615 -11.5349 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1377,8 +2481,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link29'>
-        <pose>19.054 -4.061 1 0 -0 0</pose>
+      <link name='link_0_clone_51'>
+        <pose>-14.2998 -6.05581 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_52'>
+        <pose>-19.1945 -8.52656 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1423,8 +2573,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link30'>
-        <pose>16.862 0 1 0 -0 0</pose>
+      <link name='link_0_clone_53'>
+        <pose>-18.9382 -5.15509 -4.97705 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_54'>
+        <pose>-14.0528 -3.05427 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1469,8 +2665,100 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link31'>
-        <pose>16.283 2.9131 1 0 -0 0</pose>
+      <link name='link_0_clone_55'>
+        <pose>-18.8625 -4.02997 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_56'>
+        <pose>-18.6872 -0.45783 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_57'>
+        <pose>-13.6807 -0.101053 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1515,8 +2803,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link32'>
-        <pose>14.632 5.3828 1 0 -0 0</pose>
+      <link name='link_0_clone_58'>
+        <pose>-18.1384 2.83132 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_59'>
+        <pose>-13.3484 2.84491 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1561,8 +2895,8 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link33'>
-        <pose>12.163 7.033 1 0 -0 0</pose>
+      <link name='link_0_clone_6'>
+        <pose>-0.595997 7.27843 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1607,8 +2941,54 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link34'>
-        <pose>9.25 7.6125 1 0 -0 0</pose>
+      <link name='link_0_clone_60'>
+        <pose>-17.8432 6.27091 0.079001 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_61'>
+        <pose>-13.3484 4.84491 0.079001 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1653,8 +3033,100 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link35'>
-        <pose>6.3368 7.033 1 0 -0 0</pose>
+      <link name='link_0_clone_62'>
+        <pose>-15.5443 12.0063 0.063291 -0.001555 0.00019 -5.2e-05</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_7'>
+        <pose>3.50416 13.7245 0.080395 0 -0 0</pose>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <inertial>
+          <pose>0 0 0 0 -0 0</pose>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+          <mass>1</mass>
+        </inertial>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+        <static>1</static>
+      </link>
+      <link name='link_0_clone_8'>
+        <pose>2.90884 7.57594 0.07997 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
@@ -1699,12 +3171,12 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link36'>
-        <pose>3.8671 5.3828 1 0 -0 0</pose>
+      <link name='link_0_clone_9'>
+        <pose>7.13676 14.727 0.083062 0 -0 0</pose>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -1724,7 +3196,7 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
+              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_blue/cone_blue.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -1745,2175 +3217,15 @@
         <kinematic>0</kinematic>
         <static>1</static>
       </link>
-      <link name='link37'>
-        <pose>2.2169 2.9131 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link38'>
-        <pose>1.6375 0 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link39'>
-        <pose>2.2169 -2.913 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link40'>
-        <pose>3.8671 -5.382 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link41'>
-        <pose>6.3368 -7.033 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link42'>
-        <pose>9.25 -7.612 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link43'>
-        <pose>12.163 -7.033 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link44'>
-        <pose>-3.867 -5.382 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link45'>
-        <pose>14.632 -5.382 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link46'>
-        <pose>16.283 -2.913 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link47'>
-        <pose>-1.745 7.5041 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link48'>
-        <pose>-5.188 9.8046 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link49'>
-        <pose>-9.25 10.612 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link50'>
-        <pose>-13.31 9.8046 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link51'>
-        <pose>-16.75 7.5041 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link52'>
-        <pose>-19.05 4.0612 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link53'>
-        <pose>-19.86 0 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link54'>
-        <pose>-19.05 -4.061 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link55'>
-        <pose>-16.75 -7.504 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link56'>
-        <pose>-13.31 -9.8 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link57'>
-        <pose>-9.25 -10.61 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link58'>
-        <pose>-5.188 -9.804 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link59'>
-        <pose>-1.745 -7.504 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_yellow/cone_yellow.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link60'>
-        <pose>-1.637 -9 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link61'>
-        <pose>-1.637 -11 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link62'>
-        <pose>1.6375 -9 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link63'>
-        <pose>1.6375 -11 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link64'>
-        <pose>-1.637 9 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link65'>
-        <pose>-1.637 11 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link66'>
-        <pose>-1.637 13 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link67'>
-        <pose>-1.637 15 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link68'>
-        <pose>-1.637 17 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link69'>
-        <pose>-1.637 19 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link70'>
-        <pose>1.6375 9 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link71'>
-        <pose>1.6375 11 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link72'>
-        <pose>1.6375 13 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link73'>
-        <pose>1.6375 15 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link74'>
-        <pose>1.6375 17 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link75'>
-        <pose>1.6375 19 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link76'>
-        <pose>-1.637 21 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link77'>
-        <pose>1.6375 21 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link78'>
-        <pose>-0.55 21 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link79'>
-        <pose>0.55 21 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange/cone_orange.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link80'>
-        <pose>-1.783 1.4851 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link81'>
-        <pose>-1.783 -1.485 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link82'>
-        <pose>1.7837 1.4851 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <link name='link83'>
-        <pose>1.7837 -1.485 1 0 -0 0</pose>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///root/gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/models/cone_orange_big/cone_orange_big.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <inertial>
-          <pose>0 0 0 0 -0 0</pose>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-          <mass>1</mass>
-        </inertial>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-        <static>1</static>
-      </link>
-      <pose>-0.044512 12.1656 0 0 -0 0</pose>
+      <static>0</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose>-0.267984 -10.383 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>169 261000000</sim_time>
-      <real_time>21 684819955</real_time>
-      <wall_time>1713879075 450070860</wall_time>
-      <iterations>21462</iterations>
+      <sim_time>796 824000000</sim_time>
+      <real_time>349 466589671</real_time>
+      <wall_time>1714488793 534644364</wall_time>
+      <iterations>209079</iterations>
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -3924,506 +3236,486 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='skidpad'>
-        <pose>12.7175 -0.040858 -0.848405 -5e-06 -0 -1.57653</pose>
+      <model name='small_track'>
+        <pose>-0.266019 -10.3795 0.072738 -3e-06 -3e-06 0.000204</pose>
         <scale>1 1 1</scale>
-        <link name='link1'>
-          <pose>12.7269 1.59611 0.151594 -5e-06 -0 -1.57653</pose>
+        <link name='link_0'>
+          <pose>-17.2809 -0.655811 0.151664 -3e-06 -3e-06 0.000204</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link10'>
-          <pose>9.89762 16.2555 0.151535 -7e-06 -9e-06 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.274512 -0.219024 19.0705 -1.69202 -1.3366 3.13215</acceleration>
-          <wrench>-0.274512 -0.219024 19.0705 0 -0 0</wrench>
-        </link>
-        <link name='link11'>
-          <pose>7.41922 14.6197 0.151548 -5e-06 2e-06 -1.57653</pose>
+        <link name='link_0_clone'>
+          <pose>-13.0221 2.48819 0.151664 -6e-06 1e-06 0.000254</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link12'>
-          <pose>5.75412 12.1591 0.151569 -8e-06 -1e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 -0 -0 -0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
-        </link>
-        <link name='link13'>
-          <pose>5.15849 9.25252 0.151589 -5e-06 2e-06 -1.57653</pose>
+        <link name='link_0_clone_0_clone'>
+          <pose>-12.5366 -3.76539 0.151664 0 -2e-06 -9.8e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link14'>
-          <pose>5.72081 6.33526 0.151611 -4e-06 -2e-06 -1.57654</pose>
+        <link name='link_0_clone_0_clone_clone'>
+          <pose>-9.92529 -3.14505 0.151674 -2e-06 6e-06 -3.8e-05</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.458451 -0.372121 18.2805 -0.687904 -0.118773 -3.14159</acceleration>
+          <wrench>-0.458451 -0.372121 18.2805 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_1'>
+          <pose>-8.58367 2.7094 0.151673 2e-06 -1e-06 0.000205</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link15'>
-          <pose>7.35767 3.85686 0.151616 -7e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_10'>
+          <pose>7.06718 -1.3434 0.151664 -2e-06 2e-06 0.000269</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link16'>
-          <pose>9.81719 2.19177 0.151615 -4e-06 -1.4e-05 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.43626 -0.111298 18.5417 -2.39967 0.250061 -3.12776</acceleration>
-          <wrench>0.43626 -0.111298 18.5417 0 -0 0</wrench>
-        </link>
-        <link name='link17'>
-          <pose>12.6039 -19.9026 0.151715 -7e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_11'>
+          <pose>9.36158 5.4549 0.151664 -5e-06 -0 0.000384</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link18'>
-          <pose>16.6696 -19.1178 0.151699 -5e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_12'>
+          <pose>10.28 0.2062 0.151673 -4e-06 -2e-06 0.000199</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.44339 -0.397693 18.8176 -0.520309 -0.217591 -3.14049</acceleration>
+          <wrench>-0.44339 -0.397693 18.8176 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_13'>
+          <pose>12.8799 0.7486 0.151673 -4e-06 -3e-06 0.000192</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.442576 -0.399283 18.8546 -0.510049 -0.222754 -3.14017</acceleration>
+          <wrench>-0.442576 -0.399283 18.8546 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_14'>
+          <pose>12.224 6.6574 0.151673 -1e-06 -0 0.000237</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.463267 -0.380145 18.7272 -0.637242 -0.085416 -3.13869</acceleration>
+          <wrench>-0.463267 -0.380145 18.7272 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_15'>
+          <pose>14.871 6.1195 0.151673 -2e-06 3e-06 0.000357</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link19'>
-          <pose>20.1256 -16.8375 0.151671 -1e-05 -9e-06 -1.57653</pose>
+        <link name='link_0_clone_16'>
+          <pose>15.0046 -0.303899 0.151674 -1e-06 -9e-06 0.000541</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.463378 -0.37617 18.5815 -0.661471 0.086506 3.14159</acceleration>
-          <wrench>0.463378 -0.37617 18.5815 0 -0 0</wrench>
+          <acceleration>0.440313 0.378594 18.641 0.650268 0.227554 -3.13387</acceleration>
+          <wrench>0.440313 0.378594 18.641 0 -0 0</wrench>
         </link>
-        <link name='link2'>
-          <pose>15.6432 2.15845 0.151587 -4e-06 -1.4e-05 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.43626 -0.111298 18.5417 -2.39967 0.250061 -3.12776</acceleration>
-          <wrench>0.43626 -0.111298 18.5417 0 -0 0</wrench>
-        </link>
-        <link name='link20'>
-          <pose>22.4458 -13.4077 0.15164 -3e-06 -6e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.138367 0.165332 0.37828 -1.09027 0.913552 -1.8e-05</acceleration>
-          <wrench>0.138367 0.165332 0.37828 0 -0 0</wrench>
-        </link>
-        <link name='link21'>
-          <pose>23.2764 -9.3514 0.151604 -6e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_17'>
+          <pose>19.2354 3.2531 0.151664 1e-06 6e-06 0.00022</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link22'>
-          <pose>22.4923 -5.28554 0.151594 -7e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_17_clone'>
+          <pose>20.6242 1.31797 0.151673 3e-06 -1e-06 -0.000193</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link23'>
-          <pose>20.2115 -1.82954 0.151587 -4e-06 -1.4e-05 -1.57653</pose>
+        <link name='link_0_clone_17_clone_0'>
+          <pose>17.2541 4.99797 0.151674 -2e-06 -6e-06 2.6e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.438088 -0.114751 18.5402 -2.37122 0.24781 -3.12057</acceleration>
-          <wrench>0.438088 -0.114751 18.5402 0 -0 0</wrench>
+          <acceleration>0.429978 0.403306 18.8502 0.485499 0.301282 -3.13694</acceleration>
+          <wrench>0.429978 0.403306 18.8502 0 -0 0</wrench>
         </link>
-        <link name='link24'>
-          <pose>5.20361 -1.74371 0.151658 -6e-06 -6e-06 -1.57654</pose>
+        <link name='link_0_clone_18'>
+          <pose>16.5357 -2.1448 0.151673 -2e-06 -1e-06 0.000378</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
+          <acceleration>0.125519 -0.174619 0.734805 1.15676 0.827069 -7.3e-05</acceleration>
+          <wrench>0.125519 -0.174619 0.734805 0 -0 0</wrench>
         </link>
-        <link name='link25'>
-          <pose>2.88395 -5.17341 0.151689 -3e-06 -3e-06 -1.57654</pose>
+        <link name='link_0_clone_19'>
+          <pose>21.2082 -1.58726 0.151673 0 -0 0.000205</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.164808 0.113701 0.092352 -0.749624 -1.08983 3.8e-05</acceleration>
-          <wrench>-0.164808 0.113701 0.092352 0 -0 0</wrench>
+          <acceleration>0.069444 0.423514 19.3507 -2.79543 0.458963 0.004063</acceleration>
+          <wrench>0.069444 0.423514 19.3507 0 -0 0</wrench>
         </link>
-        <link name='link26'>
-          <pose>2.05474 -9.23003 0.151715 -4e-06 -6e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
-        </link>
-        <link name='link27'>
-          <pose>2.8375 -13.2956 0.151734 -5e-06 -9e-06 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.440581 -0.104884 18.82 -2.45002 0.227067 -3.14033</acceleration>
-          <wrench>0.440581 -0.104884 18.82 0 -0 0</wrench>
-        </link>
-        <link name='link28'>
-          <pose>5.11777 -16.7517 0.151742 -4e-06 -2e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.153548 -0.125072 -0.424473 0.819139 -1.00917 -4.7e-05</acceleration>
-          <wrench>-0.153548 -0.125072 -0.424473 0 -0 0</wrench>
-        </link>
-        <link name='link29'>
-          <pose>8.54757 -19.0713 0.15174 -5e-06 8e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.169177 0.111915 -0.058882 -0.738165 -1.07211 -0.000502</acceleration>
-          <wrench>-0.169177 0.111915 -0.058882 0 -0 0</wrench>
-        </link>
-        <link name='link3'>
-          <pose>18.1223 3.79529 0.151565 -6e-06 -7e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.465776 -0.385578 19.0285 -0.599691 -0.067863 -3.13897</acceleration>
-          <wrench>-0.465776 -0.385578 19.0285 0 -0 0</wrench>
-        </link>
-        <link name='link30'>
-          <pose>12.621 -16.9026 0.151698 -7e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_2'>
+          <pose>-7.17071 -3.18172 0.151664 -1e-06 -4e-06 0.000251</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link31'>
-          <pose>15.5374 -16.3403 0.15169 -6e-06 -8e-06 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.339967 -0.475835 18.7664 -0.004337 0.900138 -3.14159</acceleration>
-          <wrench>0.339967 -0.475835 18.7664 0 -0 0</wrench>
-        </link>
-        <link name='link32'>
-          <pose>18.0165 -14.7034 0.151659 -6e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_20'>
+          <pose>20.7312 -5.10639 0.151674 -7e-06 4e-06 0.000196</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link33'>
-          <pose>19.6808 -12.2439 0.151637 -6e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_21'>
+          <pose>16.4383 -4.27528 0.151675 -3e-06 -1.4e-05 0.000221</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.449157 -0.364458 17.7056 -0.738696 0.180249 -3.14159</acceleration>
+          <wrench>0.449157 -0.364458 17.7056 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_22'>
+          <pose>19.7245 -8.14247 0.151673 -2e-06 -0 0.000191</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link34'>
-          <pose>20.2769 -9.33424 0.151618 -6e-06 -7e-06 -1.57654</pose>
+        <link name='link_0_clone_23'>
+          <pose>15.608 -6.90394 0.151673 0 -0 0.000217</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.014285 -0.011603 -8.92584 0.076406 -0.09408 0</acceleration>
+          <wrench>-0.014285 -0.011603 -8.92584 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_24'>
+          <pose>14.838 -8.8803 0.151664 3e-06 -2e-06 0.000162</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link35'>
-          <pose>19.7141 -6.41777 0.151613 -8e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_25'>
+          <pose>18.8303 -11.0549 0.151665 -1.3e-05 5e-06 0.000205</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link36'>
-          <pose>18.0781 -3.93868 0.151599 -1e-05 -3e-06 -1.57653</pose>
+        <link name='link_0_clone_26'>
+          <pose>13.4085 -10.8556 0.151673 1e-06 1e-06 0.000226</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.1172 -0.166042 0.049208 1.08154 -0.772599 -0.000155</acceleration>
+          <wrench>-0.1172 -0.166042 0.049208 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_27'>
+          <pose>16.9144 -13.623 0.151673 -1e-06 -0 0.00024</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.026579 0.123462 19.558 -0.812899 0.171623 -0.00527</acceleration>
+          <wrench>0.026579 0.123462 19.558 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_28'>
+          <pose>9.15155 -13.2304 0.151673 -1e-06 -1e-06 0.000186</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link37'>
-          <pose>15.6178 -2.27438 0.151611 -4e-06 -1.4e-05 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.43626 -0.111298 18.5417 -2.39967 0.250061 -3.12776</acceleration>
-          <wrench>0.43626 -0.111298 18.5417 0 -0 0</wrench>
-        </link>
-        <link name='link38'>
-          <pose>12.7082 -1.67833 0.151612 -1e-05 -7e-06 -1.57653</pose>
+        <link name='link_0_clone_29'>
+          <pose>10.846 -17.127 0.151673 -2e-06 0 0.00023</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link39'>
-          <pose>9.79184 -2.24106 0.151639 -4e-06 -1.4e-05 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.43626 -0.111298 18.5417 -2.39967 0.250061 -3.12776</acceleration>
-          <wrench>0.43626 -0.111298 18.5417 0 -0 0</wrench>
-        </link>
-        <link name='link4'>
-          <pose>19.7866 6.25482 0.151543 -7e-06 -7e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.465408 -0.385898 19.0287 -0.597694 -0.070432 -3.13902</acceleration>
-          <wrench>-0.465408 -0.385898 19.0287 0 -0 0</wrench>
-        </link>
-        <link name='link40'>
-          <pose>7.31344 -3.87712 0.15166 -5e-06 -6e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.195121 0.444809 19.0373 -2.93657 1.29343 0.015694</acceleration>
-          <wrench>0.195121 0.444809 19.0373 0 -0 0</wrench>
-        </link>
-        <link name='link41'>
-          <pose>5.64834 -6.33733 0.151682 -5e-06 -1e-05 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.409801 0.42794 18.6578 0.320223 0.439653 -3.14147</acceleration>
-          <wrench>0.409801 0.42794 18.6578 0 -0 0</wrench>
-        </link>
-        <link name='link42'>
-          <pose>5.05269 -9.24718 0.151692 -5e-06 2e-06 -1.57653</pose>
+        <link name='link_0_clone_3'>
+          <pose>-4.3335 2.98069 0.151664 5e-06 -2e-06 0.00021</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link43'>
-          <pose>5.61502 -12.1635 0.151713 -5e-06 -4e-06 -1.57653</pose>
+        <link name='link_0_clone_30'>
+          <pose>11.8052 -11.8143 0.151673 -3e-06 0 0.00024</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.161324 -0.154529 1.92488 1.02444 1.0732 -0.002367</acceleration>
+          <wrench>0.161324 -0.154529 1.92488 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_31'>
+          <pose>14.0151 -15.6474 0.151673 -1e-06 -0 0.000237</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.130584 -0.020137 19.4005 0.126635 -0.862014 -2e-05</acceleration>
+          <wrench>-0.130584 -0.020137 19.4005 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_32'>
+          <pose>6.99484 -14.3238 0.151673 -1e-06 3e-06 0.000204</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.48922 -0.270638 19.838 -1.37879 0.060689 3.11809</acceleration>
+          <wrench>-0.48922 -0.270638 19.838 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_33'>
+          <pose>7.98564 -18.9219 0.151673 0 -0 0.000235</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.000764 -0.000443 -9.7987 7.9e-05 0.00022 0.000121</acceleration>
+          <wrench>-0.000764 -0.000443 -9.7987 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_34'>
+          <pose>4.38361 -15.5381 0.151665 0 9e-06 0.000232</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link44'>
-          <pose>7.35767 3.85686 0.151616 -7e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_35'>
+          <pose>4.79387 -20.5381 0.151673 -1e-06 -2e-06 0.000244</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link45'>
-          <pose>7.25188 -14.6419 0.151712 -5e-06 2e-06 -1.57653</pose>
+        <link name='link_0_clone_36'>
+          <pose>1.51976 -17.0503 0.151673 -2e-06 1e-06 0.000218</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.108698 -0.152036 -0.682853 1.00108 0.715596 -2e-06</acceleration>
+          <wrench>0.108698 -0.152036 -0.682853 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_37'>
+          <pose>1.15288 -22.3464 0.151673 -2e-06 1e-06 0.000216</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link46'>
-          <pose>9.7114 -16.307 0.151718 -6e-06 -8e-06 -1.57654</pose>
+        <link name='link_0_clone_38'>
+          <pose>-2.24767 -18.9463 0.151673 -1e-06 -1e-06 0.000222</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.339967 -0.475835 18.7664 -0.004337 0.900138 -3.14159</acceleration>
-          <wrench>0.339967 -0.475835 18.7664 0 -0 0</wrench>
+          <acceleration>-0.136831 -0.127946 -0.759351 0.845038 -0.901742 -0.001329</acceleration>
+          <wrench>-0.136831 -0.127946 -0.759351 0 -0 0</wrench>
         </link>
-        <link name='link47'>
-          <pose>20.2314 1.6612 0.151566 -6e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_39'>
+          <pose>-2.76548 -24.4135 0.151664 1e-06 -0 0.000209</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link48'>
-          <pose>22.5516 5.09099 0.151537 -1.1e-05 -5e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.145272 -0.197444 2.13912 1.31141 0.936333 -0.000472</acceleration>
-          <wrench>0.145272 -0.197444 2.13912 0 -0 0</wrench>
-        </link>
-        <link name='link49'>
-          <pose>23.3822 9.1483 0.1515 -6e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_4'>
+          <pose>-4.07413 -3.04685 0.151664 0 2e-06 0.00022</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link5'>
-          <pose>20.3827 9.16546 0.151514 -6e-06 -7e-06 -1.57654</pose>
+        <link name='link_0_clone_40'>
+          <pose>-5.44921 -20.9385 0.151664 1e-06 3e-06 0.000185</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link50'>
-          <pose>22.598 13.2128 0.151481 -6e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_41'>
+          <pose>-6.01662 -26.5047 0.151673 -1e-06 -2e-06 0.000244</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link51'>
-          <pose>20.3173 16.6659 0.151482 -4e-06 -7e-06 -1.57653</pose>
+        <link name='link_0_clone_42'>
+          <pose>-8.61639 -22.5381 0.151673 -2e-06 0 0.000226</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link52'>
-          <pose>16.8875 18.9856 0.151485 -5e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_43'>
+          <pose>-9.61639 -27.5381 0.151673 -2e-06 0 0.000226</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link53'>
-          <pose>12.831 19.8188 0.151501 -7e-06 -9e-06 -1.57654</pose>
+        <link name='link_0_clone_44'>
+          <pose>-10.0528 -22.2422 0.151673 -3e-06 -0 0.000204</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.274512 -0.219024 19.0705 -1.69202 -1.3366 3.13215</acceleration>
-          <wrench>-0.274512 -0.219024 19.0705 0 -0 0</wrench>
+          <acceleration>0.127633 -0.18303 1.1077 1.19752 0.856484 0.000359</acceleration>
+          <wrench>0.127633 -0.18303 1.1077 0 -0 0</wrench>
         </link>
-        <link name='link54'>
-          <pose>8.76548 19.032 0.151527 -5e-06 8e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.169177 0.111915 -0.058882 -0.738165 -1.07211 -0.000502</acceleration>
-          <wrench>-0.169177 0.111915 -0.058882 0 -0 0</wrench>
-        </link>
-        <link name='link55'>
-          <pose>5.30938 16.7518 0.151555 -6e-06 -7e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.117917 -0.158384 0.063737 1.08416 0.773892 -0.000534</acceleration>
-          <wrench>0.117917 -0.158384 0.063737 0 -0 0</wrench>
-        </link>
-        <link name='link56'>
-          <pose>2.99374 13.3249 0.151576 -0 -7e-06 -1.57653</pose>
+        <link name='link_0_clone_45'>
+          <pose>-12.4793 -27.0289 0.151673 -2e-06 0 0.000226</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link57'>
-          <pose>2.16054 9.26967 0.151612 -4e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_46'>
+          <pose>-11.6163 -21.5381 0.151673 -2e-06 0 0.000226</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link58'>
-          <pose>2.94329 5.20312 0.151621 -8e-06 -6e-06 -1.57653</pose>
+        <link name='link_0_clone_47'>
+          <pose>-14.7304 -25.3079 0.151664 0 2e-06 0.000237</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link59'>
-          <pose>5.22357 1.74703 0.151639 -5e-06 -6e-06 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.430964 -0.160694 18.4211 -2.08293 -0.288578 3.13162</acceleration>
-          <wrench>-0.430964 -0.160694 18.4211 0 -0 0</wrench>
-        </link>
-        <link name='link6'>
-          <pose>19.8199 12.0787 0.15151 -3e-06 -6e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.138367 0.165332 0.37828 -1.09027 0.913552 -1.8e-05</acceleration>
-          <wrench>0.138367 0.165332 0.37828 0 -0 0</wrench>
-        </link>
-        <link name='link60'>
-          <pose>3.72697 1.64759 0.151646 -4e-06 -6e-06 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.380898 0.454581 18.1801 0.144477 0.630291 -3.14159</acceleration>
-          <wrench>0.380898 0.454581 18.1801 0 -0 0</wrench>
-        </link>
-        <link name='link61'>
-          <pose>1.72701 1.65902 0.151647 -9e-06 -7e-06 -1.57654</pose>
+        <link name='link_0_clone_48'>
+          <pose>-16.5107 -23.659 0.151673 6e-06 1e-06 0.000221</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link62'>
-          <pose>3.70825 -1.62686 0.151665 -6e-06 -7e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.275236 -0.19139 19.2988 -1.88102 -1.32435 3.14035</acceleration>
-          <wrench>-0.275236 -0.19139 19.2988 0 -0 0</wrench>
-        </link>
-        <link name='link63'>
-          <pose>1.70828 -1.61542 0.151675 -3e-06 -1e-06 -1.57652</pose>
+        <link name='link_0_clone_49'>
+          <pose>-13.5625 -19.0301 0.151664 0 2e-06 0.000237</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link64'>
-          <pose>21.7267 1.54465 0.15156 1e-06 -5e-06 -1.57653</pose>
+        <link name='link_0_clone_5'>
+          <pose>-0.399222 2.9295 0.151673 -1e-06 -0 0.000216</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.150413 0.136251 0.111495 -0.903029 0.992948 0.001379</acceleration>
+          <wrench>0.150413 0.136251 0.111495 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_50'>
+          <pose>-18.1295 -21.9179 0.151663 -1e-06 -1e-06 0.000212</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link65'>
-          <pose>23.7267 1.53321 0.15155 1e-06 -5e-06 -1.57653</pose>
+        <link name='link_0_clone_51'>
+          <pose>-14.5677 -16.4388 0.151664 7e-06 -1e-06 0.000215</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link66'>
-          <pose>25.7266 1.52177 0.151541 1e-06 -5e-06 -1.57653</pose>
+        <link name='link_0_clone_52'>
+          <pose>-19.4625 -18.9096 0.151673 2e-06 -1e-06 0.000242</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 -1e-06 -9.79983 1.5e-05 1.8e-05 0</acceleration>
+          <wrench>0 -1e-06 -9.79983 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_53'>
+          <pose>-19.2056 -15.5379 0.151664 3e-06 -1e-06 -0.002319</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link67'>
-          <pose>27.7266 1.51033 0.151531 1e-06 -5e-06 -1.57653</pose>
+        <link name='link_0_clone_54'>
+          <pose>-14.3208 -13.4373 0.151674 2e-06 -3e-06 0.000237</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.008164 0.006114 -9.259 -0.041025 0.05972 -5.6e-05</acceleration>
+          <wrench>0.008164 0.006114 -9.259 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_55'>
+          <pose>-19.1305 -14.413 0.151664 3e-06 -1e-06 0.000195</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link68'>
-          <pose>29.7266 1.4989 0.151521 1e-06 -5e-06 -1.57653</pose>
+        <link name='link_0_clone_56'>
+          <pose>-18.9552 -10.8408 0.151674 -4e-06 3e-06 0.000241</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link69'>
-          <pose>31.7265 1.48746 0.151512 1e-06 -5e-06 -1.57653</pose>
+        <link name='link_0_clone_57'>
+          <pose>-13.9487 -10.4841 0.151664 -3e-06 0 0.000209</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link7'>
-          <pose>18.1839 14.5581 0.151495 -6e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_58'>
+          <pose>-18.4064 -7.55168 0.151664 2e-06 3e-06 0.000238</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link70'>
-          <pose>21.7079 -1.7298 0.151569 1e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_59'>
+          <pose>-13.6164 -7.53809 0.151673 -3e-06 -2e-06 0.000192</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0.185762 -0.155734 1.77643 1.01101 1.24684 0.00055</acceleration>
+          <wrench>0.185762 -0.155734 1.77643 0 -0 0</wrench>
+        </link>
+        <link name='link_0_clone_6'>
+          <pose>-0.863982 -3.10457 0.151664 -2e-06 1e-06 0.000228</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link71'>
-          <pose>23.7079 -1.74124 0.151559 1e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_60'>
+          <pose>-18.1112 -4.11209 0.151664 -6e-06 0 0.00016</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link72'>
-          <pose>25.7078 -1.75268 0.15155 1e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_61'>
+          <pose>-13.6164 -5.53809 0.151673 -3e-06 0 0.000209</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link73'>
-          <pose>27.7078 -1.76412 0.15154 1e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_62'>
+          <pose>-15.8123 1.62307 0.151664 -2e-06 -2e-06 -8.1e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link74'>
-          <pose>29.7078 -1.77555 0.151531 1e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_7'>
+          <pose>3.23618 3.3415 0.151663 -1e-06 -1e-06 0.000466</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link75'>
-          <pose>31.7077 -1.78699 0.151521 1e-06 -5e-06 -1.57652</pose>
+        <link name='link_0_clone_8'>
+          <pose>2.64086 -2.80706 0.151673 -2e-06 0 0.000305</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link76'>
-          <pose>33.7264 1.47602 0.151493 -0 -7e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 -0 -0 -0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
-        </link>
-        <link name='link77'>
-          <pose>33.7078 -1.79843 0.15152 -5e-06 -7e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.144786 0.076281 0.250473 -0.50466 -0.954659 0.001835</acceleration>
-          <wrench>-0.144786 0.076281 0.250473 0 -0 0</wrench>
-        </link>
-        <link name='link78'>
-          <pose>33.7202 0.389037 0.151508 -7e-06 -2e-06 -1.57653</pose>
+        <link name='link_0_clone_9'>
+          <pose>6.86878 4.344 0.151673 -1e-06 2e-06 0.000192</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link79'>
-          <pose>33.714 -0.710943 0.151514 -6e-06 -6e-06 -1.57653</pose>
+      </model>
+      <model name='unit_box'>
+        <pose>-2.20765 6.47566 0.499995 -1e-05 -0 0.42474</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>-2.20765 6.47566 0.499995 -1e-05 -0 0.42474</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.045739 0.137481 19.1363 -0.906507 0.301702 -0.001528</acceleration>
-          <wrench>0.045739 0.137481 19.1363 0 -0 0</wrench>
+          <acceleration>-0.009038 0.008346 -9.78128 -0.01651 -0.01729 0.000558</acceleration>
+          <wrench>-0.009038 0.008346 -9.78128 0 -0 0</wrench>
         </link>
-        <link name='link8'>
-          <pose>15.7236 16.2222 0.151507 -7e-06 -9e-06 -1.57654</pose>
+      </model>
+      <model name='unit_box_0'>
+        <pose>-18.3247 -29.0914 0.641531 4e-06 -0 -0.001397</pose>
+        <scale>3.69267 2.04725 1.28307</scale>
+        <link name='link'>
+          <pose>-18.3247 -29.0914 0.641531 4e-06 -0 -0.001397</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.274512 -0.219024 19.0705 -1.69202 -1.3366 3.13215</acceleration>
-          <wrench>-0.274512 -0.219024 19.0705 0 -0 0</wrench>
+          <acceleration>-0.169692 -0.663076 -9.13692 1.51876 -0.326865 0.060026</acceleration>
+          <wrench>-0.169692 -0.663076 -9.13692 0 -0 0</wrench>
         </link>
-        <link name='link80'>
-          <pose>14.2127 1.73361 0.032704 -5e-06 -1e-05 -1.57653</pose>
+      </model>
+      <model name='unit_box_1'>
+        <pose>27.2644 -1.46897 1.21032 -3e-06 -0 0.531916</pose>
+        <scale>3.42992 3.33147 2.42066</scale>
+        <link name='link'>
+          <pose>27.2644 -1.46897 1.21032 -3e-06 -0 0.531916</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>-0.272552 0.303459 -9.46822 -0.362332 -0.198257 0.033227</acceleration>
+          <wrench>-0.272552 0.303459 -9.46822 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_box_2'>
+        <pose>-6.78548 -13.3018 2.08055 0 -1e-06 0.000739</pose>
+        <scale>1.98064 1 4.16112</scale>
+        <link name='link'>
+          <pose>-6.78548 -13.3018 2.08055 0 -1e-06 0.000739</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>4.49237 0.876417 2.34371 2.89444 1.00121 2.71285</acceleration>
+          <wrench>4.49237 0.876417 2.34371 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='unit_cylinder'>
+        <pose>8.15435 -8.61483 1.51382 0 -0 1e-06</pose>
+        <scale>2.36315 2.36315 3.02766</scale>
+        <link name='link'>
+          <pose>8.15435 -8.61483 1.51382 0 -0 1e-06</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 -9.8 0 -0 0</acceleration>
           <wrench>0 0 -9.8 0 -0 0</wrench>
         </link>
-        <link name='link81'>
-          <pose>11.2427 1.7506 0.032721 7e-06 2e-06 -1.57653</pose>
+      </model>
+      <model name='unit_cylinder_0'>
+        <pose>-6.99534 -10.6819 1.11774 1.5706 -0 0</pose>
+        <scale>2.23629 2.23629 4.1146</scale>
+        <link name='link'>
+          <pose>-6.99534 -10.6819 1.11774 1.5706 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
+          <acceleration>-0 9.8 0 -0.238799 -0 0</acceleration>
+          <wrench>-0 9.8 0 0 -0 0</wrench>
         </link>
-        <link name='link82'>
-          <pose>14.1923 -1.83303 0.032734 -5e-06 -6e-06 -1.57653</pose>
+      </model>
+      <model name='unit_sphere_0'>
+        <pose>-18.4891 5.90059 2.56543 0 -0 0</pose>
+        <scale>5.13085 5.13085 5.13085</scale>
+        <link name='link'>
+          <pose>-18.4891 5.90059 2.56543 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0.040627 -0.027399 -0.025066 0.834781 1.23914 -0.000211</acceleration>
-          <wrench>0.040627 -0.027399 -0.025066 0 -0 0</wrench>
-        </link>
-        <link name='link83'>
-          <pose>11.2223 -1.81604 0.032741 7e-06 2e-06 -1.57653</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 -9.8 0 -0 0</acceleration>
-          <wrench>0 0 -9.8 0 -0 0</wrench>
-        </link>
-        <link name='link9'>
-          <pose>12.8139 16.8188 0.151518 -7e-06 -9e-06 -1.57654</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-0.274512 -0.219024 19.0705 -1.69202 -1.3366 3.13215</acceleration>
-          <wrench>-0.274512 -0.219024 19.0705 0 -0 0</wrench>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
       <light name='sun'>
@@ -4432,10 +3724,385 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose>-24.0711 -1.12159 54.4698 0 1.09729 0.044315</pose>
+        <pose>-25.3081 -24.2373 12.8122 0 0.633797 0.503704</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
+    <model name='unit_box'>
+      <pose>3.24631 6.44808 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='unit_cylinder'>
+      <pose>11.4096 -6.68911 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.500002</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.500002</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='unit_sphere_0'>
+      <pose>-20.1085 2.95337 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.1</iyy>
+            <iyz>0</iyz>
+            <izz>0.1</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.500001</radius>
+            </sphere>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <sphere>
+              <radius>0.500001</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='unit_box_0'>
+      <pose>-0.326476 -13.4663 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='unit_box_1'>
+      <pose>27.843 -5.50289 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='unit_cylinder_0'>
+      <pose>-6.99534 -10.7296 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.499999</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.499999</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <model name='unit_box_2'>
+      <pose>-6.78532 -13.3018 0.5 0 -0 0</pose>
+      <link name='link'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>0.999999 1 0.999998</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.999999 1 0.999998</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <name>Gazebo/Grey</name>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
   </world>
 </sdf>
