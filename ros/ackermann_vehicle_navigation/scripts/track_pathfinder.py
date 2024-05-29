@@ -43,14 +43,14 @@ class TrackPathfinder:
         # Calculate the path
         path = self.path_planner.calculate_path_in_global_frame(global_cones, car_position, car_direction)
 
-        # Publish the path, skipping the first three waypoints to create some lead space
+        # Publish the path, skipping the first four waypoints to create some lead space
         self.publish_path(path, msg.header)
 
     def publish_path(self, path, header):
         ros_path = Path()
         ros_path.header = Header(stamp=rospy.Time.now(), frame_id='world')
 
-        # Start from the 4th waypoint, skipping the first three
+        # Start from the 5th waypoint, skipping the first three
         for point in path[4:]:
             pose = PoseStamped()
             pose.header = ros_path.header  # Use updated header for consistency across poses
