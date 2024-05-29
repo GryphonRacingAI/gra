@@ -34,7 +34,7 @@ To enable X11 forwarding, run `xhost +local:docker` on host computer
 Go to gra/ros/ackermann_vehicle_gazebo/worlds/gazebo_world_building/track_small_features.world\
 Line 76: <real_time_update_rate>700</real_time_update_rate>\
 Reduce the value to reduce CPU load. 1000 is the default value where the simulation time unit = real time unit. When the value is 500, 1 simulation second = 2 real time second.\
-Start with 700 and reduce gradually if the cone recognition process is unable to stablise. Unstable process can be observed by the cones swerving in Rviz when the car is steering.\
+Start with 700 and reduce gradually if the cone recognition process is unable to stablise. Unstable process can be observed by the cones swerving in Rviz when the car is steering.
 
 ## Commonly used commands
 ### Basic ROS
