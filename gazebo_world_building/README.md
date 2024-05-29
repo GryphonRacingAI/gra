@@ -1,4 +1,4 @@
-Instructions for constructing gazebo cone track worlds in this workspace
+## Instructions for constructing gazebo cone track worlds in this workspace
 
 1. run 'rosrus gazebo_ros gazebo' to launch an empty world
 2. In gazebo, go into "Insert" and choose "Add Path"
