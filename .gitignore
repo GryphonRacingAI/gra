@@ -1,5 +1,5 @@
 .devcontainer/.ssh/known_hosts
-.devcontainer/devcontainer.metadata
+.devcontainer/devcontainer.json
 ros/gra_manager/scripts/states/__pycache__
 *.pyc
 

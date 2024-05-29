@@ -11,12 +11,6 @@ fi
 #     echo -e "\e[36mSSH keys generated.\e[0m"
 # fi
 
-# Create devcontainer.metadata from template if it doesn't exist
-if [ ! -f ~/gra/.devcontainer/devcontainer.metadata ]; then
-    echo -e "\e[36mCreating devcontainer.metadata ...\e[0m"
-    cp ~/gra/.devcontainer/devcontainer.metadata_template ~/gra/.devcontainer/devcontainer.metadata
-fi
-
 source ~/convenience.sh -i
 setdevmaster
 cb
