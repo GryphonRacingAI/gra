@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 
-# This node transforms the cone coordinates, which are projected and therefore attached to the camera frame, to the global frame (i.e. the true coodinate of the cones).
+# This node transforms the cone coordinates, which are projected and therefore attached to the camera frame, to the global frame (i.e. the true coordinates of the cones).
 
 import rospy
 import tf
 import tf2_ros
 import tf2_geometry_msgs
 from geometry_msgs.msg import PoseStamped
+from nav_msgs.msg import Odometry
 from vision_msgs.msg import Detection3DArray
+import math
 
 class BoundingBoxTransformer:
     def __init__(self):
@@ -19,9 +21,18 @@ class BoundingBoxTransformer:
         # The publisher for the transformed bounding boxes
         self.pub = rospy.Publisher("/transformed_yolo_3d_result", Detection3DArray, queue_size=10)
         
+        # The subscriber to the robot's odometry to get its current position
+        self.odom_sub = rospy.Subscriber("/odom", Odometry, self.odom_callback)
+        
         # TF2 listener setup
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer)
+        
+        # Current robot position
+        self.robot_position = None
+
+    def odom_callback(self, data):
+        self.robot_position = data.pose.pose.position
 
     def transform_pose(self, pose, target_frame):
         """
@@ -43,13 +54,17 @@ class BoundingBoxTransformer:
             rospy.logwarn("Received an empty detections array.")
             return
 
+        if self.robot_position is None:
+            rospy.logwarn("Robot position is not available yet.")
+            return
+
         transformed_data = Detection3DArray()
         transformed_data.header = data.header
         transformed_data.header.frame_id = "world"
 
         for detection in data.detections:
             if detection.header.frame_id == "":
-                rospy.logwarn("Detection header frame_id is empty. Setting it to 'camera_link_optical'.")
+                # rospy.logwarn("Detection header frame_id is empty. Setting it to 'camera_link_optical'.")
                 detection.header.frame_id = "camera_link_optical"
 
             for result in detection.results:
@@ -67,8 +82,15 @@ class BoundingBoxTransformer:
                 transformed_pose_stamped = self.transform_pose(pose_stamped, "world")
                 
                 if transformed_pose_stamped:
-                    detection.bbox.center = transformed_pose_stamped.pose
-                    transformed_data.detections.append(detection)
+                    # Calculate distance from the robot to the cone
+                    dx = transformed_pose_stamped.pose.position.x - self.robot_position.x
+                    dy = transformed_pose_stamped.pose.position.y - self.robot_position.y
+                    distance = math.sqrt(dx**2 + dy**2)
+                    
+                    # Only add the detection if it is within 10 meters
+                    if distance < 10.0:
+                        detection.bbox.center = transformed_pose_stamped.pose
+                        transformed_data.detections.append(detection)
 
         if transformed_data.detections:
             self.pub.publish(transformed_data)

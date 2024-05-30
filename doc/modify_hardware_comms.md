@@ -1,4 +1,0 @@
-- Change the motor_state.h under controller code if necessary.
-- Change rbc messages
-- Change hardware_parameter_server
-- Change RobotHW (If impacted setpoint)

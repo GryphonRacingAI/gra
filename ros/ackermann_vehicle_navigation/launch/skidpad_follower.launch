@@ -1,0 +1,9 @@
+<launch>
+  
+  <!-- This node computes the path for the car to follow based on position of cones and car position + direction -->
+  <node name="skidpad_pathfinder" pkg="ackermann_vehicle_navigation" type="skidpad_pathfinder.py" output="screen"/>
+
+  <!-- This node compute the transformation required for the car to achieve poses in /path. Output is /cmd_vel -->
+  <node name="path_follower" pkg="ackermann_vehicle_navigation" type="path_follower.py" output="screen"/>
+
+</launch>
