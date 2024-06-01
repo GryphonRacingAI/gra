@@ -57,7 +57,7 @@ class SkidpadPathfinder:
         ros_path.header = Header(stamp=rospy.Time.now(), frame_id='world')
 
         # Publish the path as before but consider any skidpad-specific adjustments
-        for point in path[4:6]:
+        for point in path[2:4]:
             pose = PoseStamped()
             pose.header = ros_path.header
             pose.pose.position.x = point[1]  # path_x
