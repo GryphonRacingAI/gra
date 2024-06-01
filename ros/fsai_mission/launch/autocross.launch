@@ -5,7 +5,10 @@
     <!-- Start track follower -->
     <include file="$(find ackermann_vehicle_navigation)/launch/track_follower.launch" />
 
-    <!-- Start Lap counter -->
+    <!-- Start lap counter -->
     <node name="lap_counter" pkg="fsai_mission" type="lap_counter.py" output="screen"/>
+
+    <!-- Start autocross supervisor for run completion logics -->
+    <node name="autocross_supervisor" pkg="fsai_mission" type="autocross_supervisor.py" output="screen"/>
 
 </launch>
