@@ -62,7 +62,7 @@ class SkidpadPathfinder:
             pose.header = ros_path.header
             pose.pose.position.x = point[1]  # path_x
             pose.pose.position.y = point[2]  # path_y
-            pose.pose.position.z = 0  # Assuming the path is essentially 2D
+            pose.pose.position.z = 0  
             ros_path.poses.append(pose)
 
         self.path_pub.publish(ros_path)
