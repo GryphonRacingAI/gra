@@ -25,9 +25,12 @@ class LapCounter:
         self.cone_positions = []
         self.previous_position = None
         self.lap_count = 0  # Lap count
+        self.in_cooldown = False
 
         # Timer for periodic publishing
         self.publish_timer = rospy.Timer(rospy.Duration(1), self.publish_lap_count)
+
+        rospy.loginfo("Lap Counter node initialised")
 
     def cone_callback(self, msg):
         self.cone_positions = msg.large_orange_cones
@@ -35,7 +38,7 @@ class LapCounter:
     def odom_callback(self, msg):
         self.car_position = msg.pose.pose.position
 
-        if self.previous_position is not None and len(self.cone_positions) >= 2:
+        if self.previous_position is not None and len(self.cone_positions) >= 2 and not self.in_cooldown:
             first_cone = self.cone_positions[0]
             second_cone = self.cone_positions[1]
 
@@ -52,6 +55,7 @@ class LapCounter:
                 if self.is_near_finish_line(first_cone, second_cone, self.car_position):
                     self.lap_count += 1
                     rospy.loginfo("Lap completed! Total laps: %d", self.lap_count)
+                    self.initiate_cooldown()
 
         self.previous_position = self.car_position
 
@@ -71,6 +75,15 @@ class LapCounter:
         distance = point_line_distance(car_position.x, car_position.y, first_cone.x, first_cone.y, second_cone.x, second_cone.y)
         rospy.loginfo(f"Distance from car to finish line: {distance}")
         return distance <= threshold
+
+    def initiate_cooldown(self):
+        self.in_cooldown = True
+        rospy.loginfo("Cooldown initiated.")
+        rospy.Timer(rospy.Duration(10), self.end_cooldown, oneshot=True)  # 10 second cooldown period
+
+    def end_cooldown(self, event):
+        self.in_cooldown = False
+        rospy.loginfo("Cooldown ended. Ready to detect laps again.")
 
     def publish_lap_count(self, event):
         self.lap_counter_pub.publish(self.lap_count)
