@@ -63,14 +63,14 @@ class LapCounter:
         """Check if the car is near the line segment formed by the first and second cone."""
         def point_line_distance(px, py, x1, y1, x2, y2):
             # Calculate the distance from point (px, py) to the line segment (x1, y1) - (x2, y2)
-            line_mag = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+            line_mag = math.dist((x2, x1), (y2, y1))
             if line_mag < 1e-6:
                 return float('inf')  # Line segment too small, effectively a point
             u1 = ((px - x1) * (x2 - x1) + (py - y1) * (y2 - y1)) / (line_mag**2)
             u = max(min(u1, 1), 0)
             ix = x1 + u * (x2 - x1)
             iy = y1 + u * (y2 - y1)
-            return math.sqrt((px - ix)**2 + (py - iy)**2)
+            return math.dist((px, py), (ix, iy))
 
         distance = point_line_distance(car_position.x, car_position.y, first_cone.x, first_cone.y, second_cone.x, second_cone.y)
         rospy.loginfo(f"Distance from car to finish line: {distance}")
