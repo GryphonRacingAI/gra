@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start track follower -->
+    <include file="$(find ackermann_vehicle_navigation)/launch/track_follower.launch" />
+
+    <!-- Start lap counter (detects when large orange cone pair finish line has been crossed) -->
+    <node name="lap_counter" pkg="fsai_mission" type="lap_counter.py" output="screen"/>
+
+    <!-- Start acceleration supervisor for run completion logics -->
+    <node name="acceleration_supervisor" pkg="fsai_mission" type="acceleration_supervisor.py" output="screen"/>
+
+</launch>

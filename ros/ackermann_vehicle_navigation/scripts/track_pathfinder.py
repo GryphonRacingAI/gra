@@ -108,8 +108,8 @@ class TrackPathfinder:
         ros_path = Path()
         ros_path.header = Header(stamp=rospy.Time.now(), frame_id='world')
 
-        # Publish only the path from index 2 to 4
-        for point in path[2:4]:
+        # Publish only the path from index 4 to 6
+        for point in path[4:6]:
             pose = PoseStamped()
             pose.header = ros_path.header  
             pose.pose.position.x = point[1]  # path_x
