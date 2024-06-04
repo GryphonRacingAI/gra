@@ -1,0 +1,3 @@
+[submodule "FS-AI_API"]
+	path = FS-AI_API
+	url = https://github.com/FS-AI/FS-AI_API.git
