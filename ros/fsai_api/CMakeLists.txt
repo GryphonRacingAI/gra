@@ -10,7 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES fsai_api
+  LIBRARIES fs_ai_api
   CATKIN_DEPENDS roscpp ackermann_msgs rospy std_msgs
 )
 
@@ -31,9 +31,18 @@ configure_file(${FS_AI_API_DIR}/FS-AI_API/can.h ${CMAKE_CURRENT_BINARY_DIR}/can.
 add_library(fs_ai_api STATIC ${CMAKE_CURRENT_BINARY_DIR}/fs-ai_api.c ${CMAKE_CURRENT_BINARY_DIR}/can.c)
 target_include_directories(fs_ai_api PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
 
+# Add the ackermann_can node
 add_executable(ackermann_can src/ackermann_can.cpp)
 add_dependencies(ackermann_can ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(ackermann_can
+  fs_ai_api
+  ${catkin_LIBRARIES}
+)
+
+# Add the handshake_can node
+add_executable(handshake_can src/handshake_can.cpp)
+add_dependencies(handshake_can ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(handshake_can
   fs_ai_api
   ${catkin_LIBRARIES}
 )

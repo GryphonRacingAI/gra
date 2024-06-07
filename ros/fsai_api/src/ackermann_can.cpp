@@ -32,21 +32,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
 }
 
 void* loop_thread(void*) {
-    fs_ai_api_vcu2ai vcu2ai_data;
-
     while (ros::ok()) {
-        // Get data from VCU
-        fs_ai_api_vcu2ai_get_data(&vcu2ai_data);
-
-        // Handshake logic
-        if (vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT == HANDSHAKE_RECEIVE_BIT_OFF) {
-            ai2vcu_data.AI2VCU_HANDSHAKE_SEND_BIT = HANDSHAKE_SEND_BIT_OFF;
-        } else if (vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT == HANDSHAKE_RECEIVE_BIT_ON) {
-            ai2vcu_data.AI2VCU_HANDSHAKE_SEND_BIT = HANDSHAKE_SEND_BIT_ON;
-        } else {
-            ROS_ERROR("HANDSHAKE_BIT error");
-        }
-
         // Send data to VCU
         fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
 
