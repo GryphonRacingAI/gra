@@ -10,7 +10,7 @@ include(ExternalProject)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  roscpp
+  roscpp std_msgs message_generation
 )
 
 ## System dependencies are found with CMake's conventions
@@ -62,12 +62,11 @@ set_property(TARGET fs_ai_api_lib PROPERTY
 ##   * uncomment the generate_messages entry below
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
-## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+# Generate messages in the 'msg' folder
+add_message_files(
+  FILES
+  VCU2AI.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -83,11 +82,11 @@ set_property(TARGET fs_ai_api_lib PROPERTY
 #   Action2.action
 # )
 
-## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+# Generate added messages and services with any dependencies listed here
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##

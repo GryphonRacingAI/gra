@@ -1,6 +1,8 @@
 #include <ros/ros.h>
 #include <fs-ai_api.h>
 
+#include <ai2vcu/VCU2AI.h>
+
 char can_id[] = "can0";
 
 class FSAIAPI {
@@ -138,13 +140,50 @@ public:
 class AI2VCUNode {
 private:
   FSAIAPI m_fs_ai_api;
+  ros::NodeHandle m_node_handle;
+  ros::Rate m_rate;
+  ros::Publisher m_publisher;
+
+  ai2vcu::VCU2AI get_message() {
+    ai2vcu::VCU2AI msg;
+    msg.handshake_receive_bit = m_fs_ai_api.get_handshake_receive_bit();
+    msg.res_go_signal = m_fs_ai_api.get_res_go_signal_bit();
+    msg.as_state = m_fs_ai_api.get_as_state();
+    msg.ami_state = m_fs_ai_api.get_ami_state();
+    msg.steer_angle_deg = m_fs_ai_api.get_steer_angle();
+    msg.brake_press_f_pct = m_fs_ai_api.get_brake_press_front();
+    msg.brake_press_r_pct = m_fs_ai_api.get_brake_press_rear();
+    msg.fl_wheel_speed_rpm = m_fs_ai_api.get_wheel_speed_front_left();
+    msg.fr_wheel_speed_rpm = m_fs_ai_api.get_wheel_speed_front_right();
+    msg.rl_wheel_speed_rpm = m_fs_ai_api.get_wheel_speed_rear_left();
+    msg.rr_wheel_speed_rpm = m_fs_ai_api.get_wheel_speed_rear_right();
+    msg.fl_pulse_count = m_fs_ai_api.get_pulse_count_front_left();
+    msg.fr_pulse_count = m_fs_ai_api.get_pulse_count_front_right();
+    msg.rl_pulse_count = m_fs_ai_api.get_pulse_count_rear_left();
+    msg.rr_pulse_count = m_fs_ai_api.get_pulse_count_rear_right();
+    return msg;
+  }
 
 public:
-  AI2VCUNode(char *can_id): m_fs_ai_api(can_id) {}
+  AI2VCUNode(char *can_id): m_fs_ai_api(can_id), m_rate(100) {
+    m_publisher = m_node_handle.advertise<ai2vcu::VCU2AI>("vcu2ai", 100);
+  }
+
+  void spin() {
+    while (ros::ok()) {
+      m_fs_ai_api.transmit();
+      m_fs_ai_api.receive();
+
+      m_publisher.publish(get_message());
+
+      ros::spinOnce();
+      m_rate.sleep();
+    }
+  }
 };
 
 int main(int argc, char* argv[]) {
   ros::init(argc, argv, "ai2vcu");
   AI2VCUNode node(can_id);
-  ros::spin();
+  node.spin();
 }
