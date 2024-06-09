@@ -25,6 +25,7 @@ ExternalProject_Add(fs_ai_api
 )
 ExternalProject_Get_Property(fs_ai_api INSTALL_DIR)
 add_library(fs_ai_api_lib STATIC IMPORTED GLOBAL)
+add_dependencies(fs_ai_api_lib fs_ai_api)
 set_property(TARGET fs_ai_api_lib PROPERTY
   IMPORTED_LOCATION ${INSTALL_DIR}/lib/fs-ai_api.a
 )
