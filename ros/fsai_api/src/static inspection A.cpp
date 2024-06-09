@@ -130,7 +130,7 @@ void* loop_thread(void*) {
 }
 
 int main(int argc, char** argv) {
-    ros::init(argc, argv, "ackermann_can");
+    ros::init(argc, argv, "static_inspection_A");
     ros::NodeHandle nh;
 
     if (argc < 2) {
