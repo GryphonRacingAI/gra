@@ -71,7 +71,7 @@ void* loop_thread(void*) {
 }
 
 int main(int argc, char** argv) {
-    ros::init(argc, argv, "ackermann_can");
+    ros::init(argc, argv, "ros_can");
     ros::NodeHandle nh;
 
     if (argc < 2) {
