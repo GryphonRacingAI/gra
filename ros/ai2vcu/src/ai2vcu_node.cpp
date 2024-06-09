@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <fs-ai_api.h>
+#include <ackermann_msgs/AckermannDrive.h>
 
 #include <ai2vcu/VCU2AI.h>
 
@@ -143,6 +144,7 @@ private:
   ros::NodeHandle m_node_handle;
   ros::Rate m_rate;
   ros::Publisher m_publisher;
+  ros::Subscriber m_subscriber_ackermann;
 
   ai2vcu::VCU2AI get_message() {
     ai2vcu::VCU2AI msg;
@@ -164,9 +166,17 @@ private:
     return msg;
   }
 
+  void ackermann_callback(const ackermann_msgs::AckermannDrive::ConstPtr &msg) {
+    m_fs_ai_api.set_direction_request(msg->speed > 0 ? DIRECTION_FORWARD : DIRECTION_NEUTRAL);
+    m_fs_ai_api.set_steer_angle_request(msg->steering_angle);
+    m_fs_ai_api.set_axle_speed_request(msg->speed);
+    m_fs_ai_api.set_axle_torque_request(msg->speed > 0 ? 250 : 0);
+  }
+
 public:
   AI2VCUNode(char *can_id): m_fs_ai_api(can_id), m_rate(100) {
     m_publisher = m_node_handle.advertise<ai2vcu::VCU2AI>("vcu2ai", 100);
+    m_subscriber_ackermann = m_node_handle.subscribe("ackermann_cmd", 1000, &AI2VCUNode::ackermann_callback, this);
   }
 
   void spin() {
@@ -176,8 +186,8 @@ public:
 
       m_publisher.publish(get_message());
 
-      ros::spinOnce();
       m_rate.sleep();
+      ros::spinOnce();
     }
   }
 };
