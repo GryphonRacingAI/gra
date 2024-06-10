@@ -1,0 +1,10 @@
+[Unit]
+Description="set up can communication at star"
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/gra/git/gra/driverless_startup.sh
+
+[Install]
+WantedBy=multi-user.target
