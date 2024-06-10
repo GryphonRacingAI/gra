@@ -6,6 +6,7 @@ find_package(catkin REQUIRED COMPONENTS
   ackermann_msgs
   rospy
   std_msgs
+  message_generation
 )
 
 catkin_package(
@@ -18,6 +19,13 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
 )
+
+# Generate messages in the 'msg' folder
+add_message_files(
+  FILES
+  VCU2AI.msg	
+)
+
 
 # Copy the FS-AI_API source files into the current build directory
 set(FS_AI_API_DIR "${PROJECT_SOURCE_DIR}/FS-AI_API")
