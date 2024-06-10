@@ -97,7 +97,7 @@ void* loop_thread(void*) {
         }
 
         if(mission_finished) {
-            ROS_INFO("AS Finished");
+            ROS_INFO("Finished");
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
         }
  
@@ -166,4 +166,3 @@ int main(int argc, char** argv) {
 
     return 0;
 }
-This paste expires in <1 hour. Public IP access. Share whatever you see with others in seconds with Context. Terms of ServiceReport this
