@@ -38,16 +38,29 @@ void* loop_thread(void*) {
             }
         }
         if (step == 3){
-            // confirm mission is selected
-            ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_SELECTED;
+            ROS_INFO("Step 3");
+                ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_NEUTRAL;
+                ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
+                ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = 0;
+                // confirm mission is selected
+                ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_SELECTED;
+            ROS_INFO("Step 3.1");
+
             // wait for go signal
-            if (vcu2ai_data.VCU2AI_RES_GO_SIGNAL == 1) {
+            if (vcu2ai_data.VCU2AI_AS_STATE == AS_READY) {
+                
+                ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_RUNNING;
+                
                 ROS_INFO("Starting Step 4 (steering sweep)");
                 step = 4;
                 step_4_begin = ros::Time::now();
             }
         }
         if (step == 4){
+            if (vcu2ai_data.VCU2AI_AS_STATE == AS_DRIVING) {
+            ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_FORWARD;
+            ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_RUNNING;
+
             time_elapsed = ros::Duration(ros::Time::now() - step_4_begin);
             float angle;
             if (time_elapsed < ros::Duration(3)){
@@ -65,6 +78,7 @@ void* loop_thread(void*) {
                 step_5_begin = ros::Time::now();
             }
             ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = angle;
+            }
         }
 
         if (step == 5){
@@ -103,22 +117,26 @@ void* loop_thread(void*) {
                 return 0;
             }
         }
+        ROS_INFO("Handshake");
 
         // Handshake logic
         if (vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT == HANDSHAKE_RECEIVE_BIT_OFF) {
             ai2vcu_data.AI2VCU_HANDSHAKE_SEND_BIT = HANDSHAKE_SEND_BIT_OFF;
         } else if (vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT == HANDSHAKE_RECEIVE_BIT_ON) {
             ai2vcu_data.AI2VCU_HANDSHAKE_SEND_BIT = HANDSHAKE_SEND_BIT_ON;
-            break; // Handshake established
         } else {
             ROS_ERROR("HANDSHAKE_BIT error");
         }
+        ROS_INFO("Handshake done");
 
         // Send data to VCU
         fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
+        ROS_INFO("Sending done");
 
         // Loop timing
         usleep(timing_us);
+        ROS_INFO("Waiting done");
+
     }
 
     // Step 4: Wait for AS_STATE to become 2
