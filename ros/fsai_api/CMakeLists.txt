@@ -39,6 +39,14 @@ target_link_libraries(ackermann_can
   ${catkin_LIBRARIES}
 )
 
+# Add the static inspection node
+add_executable(static_inspection_A src/static_inspection_A.cpp)
+add_dependencies(static_inspection_A ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(static_inspection_A
+  fs_ai_api
+  ${catkin_LIBRARIES}
+)
+
 # Add the handshake_can node
 add_executable(handshake_can src/handshake_can.cpp)
 add_dependencies(handshake_can ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

@@ -2,6 +2,7 @@
 #include <ackermann_msgs/AckermannDrive.h>
 #include <pthread.h>
 #include <cmath>
+#include <sstream>
 
 extern "C" {
 #include "fs-ai_api.h"
@@ -17,10 +18,28 @@ pthread_t loop_tid;
 int timing_us = 10000;
 bool mission_started = false;
 
+bool mission_finished = false;
+
 void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
+    float test = 50;
+    ROS_INFO("Message received");
+ 
     if (mission_started) {
+
+        ROS_INFO("Propagating commands");
+        
         // Convert speed from m/s to RPM (Motor ratio is 3.5:1)
-        float speed_rpm = msg->speed * MOTOR_RATIO;
+        // Actual speed is around 50 rpm lower than requested speed (in the air)
+        float speed_rpm = msg->speed * MOTOR_RATIO * 60 / (2*M_PI) ;
+        // float speed_rpm = 100;
+
+        ROS_INFO("speed rpm %f", speed_rpm);
+
+        // Temporary: set finish on negative speed
+        if(speed_rpm<0) {
+            speed_rpm=0;
+            mission_finished = true;
+		}
 
         // Convert steering angle from radians to degrees
         float steering_angle_deg = msg->steering_angle * DEGREE_CONVERSION;
@@ -42,8 +61,10 @@ void* loop_thread(void*) {
         // Handshake logic
         if (vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT == HANDSHAKE_RECEIVE_BIT_OFF) {
             ai2vcu_data.AI2VCU_HANDSHAKE_SEND_BIT = HANDSHAKE_SEND_BIT_OFF;
+            // ROS_INFO("Handshake 0");
         } else if (vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT == HANDSHAKE_RECEIVE_BIT_ON) {
             ai2vcu_data.AI2VCU_HANDSHAKE_SEND_BIT = HANDSHAKE_SEND_BIT_ON;
+            // ROS_INFO("Handshake 1");
         } else {
             ROS_ERROR("HANDSHAKE_BIT error");
         }
@@ -51,14 +72,33 @@ void* loop_thread(void*) {
         // Check for mission mode selection
         if (vcu2ai_data.VCU2AI_AMI_STATE != AMI_NOT_SELECTED && !mission_started) {
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_SELECTED;
+            ROS_INFO("Mission Selected");
         }
 
         // Check if AS_STATE is ready (2)
         if (vcu2ai_data.VCU2AI_AS_STATE == AS_READY && !mission_started) {
+            ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_NEUTRAL;
+            ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_SELECTED;
+            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
+            ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = 0;
+
+            ROS_INFO("AS Ready");
+        }
+
+        // Goes AS_Driving
+        if (vcu2ai_data.VCU2AI_AS_STATE == AS_DRIVING) {
             ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_FORWARD;
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_RUNNING;
+
             mission_started = true;
+            ROS_INFO("AS Driving");
         }
+
+        if(mission_finished) {
+            ROS_INFO("Finished");
+			ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
+		}
+ 
 
         // Send data to VCU
         fs_ai_api_ai2vcu_set_data(&ai2vcu_data);

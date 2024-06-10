@@ -1,5 +1,4 @@
 #include <ros/ros.h>
-#include <ackermann_msgs/AckermannDrive.h>
 #include <pthread.h>
 #include <cmath>
 #include <ros/console.h>
@@ -13,10 +12,15 @@ fs_ai_api_ai2vcu ai2vcu_data;
 pthread_t loop_tid;
 int timing_us = 10000;
 
+float linear_interpolate(ros::Duration n, float a, float b, float x, float y){
+    return y;
+}
+
 // Loop thread to handle communication with the VCU
 void* loop_thread(void*) {
     ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_NO;
     fs_ai_api_vcu2ai vcu2ai_data;
+    ros::Duration time_elapsed;
     ros::Time step_4_begin;
     ros::Time step_5_begin;
 
@@ -44,18 +48,18 @@ void* loop_thread(void*) {
             }
         }
         if (step == 4){
-            time_elapsed = ros::Time::now() - step_4_begin;
+            time_elapsed = ros::Duration(ros::Time::now() - step_4_begin);
             float angle;
-            if (time_elapsed < 3){
+            if (time_elapsed < ros::Duration(3)){
                 angle = linear_interpolate(time_elapsed, 0,3, 0, -25);
             }
-            if (time_elapsed >= 3 && time_elapsed < 9){
+            if (time_elapsed >= ros::Duration(3) && time_elapsed < ros::Duration(9)){
                 angle = linear_interpolate(time_elapsed, 3,9, -25, 25);
             }
-            if (time_elapsed >= 9 && time_elapsed < 12){
+            if (time_elapsed >= ros::Duration(9) && time_elapsed < ros::Duration(12)){
                 angle = linear_interpolate(time_elapsed, 9,12, 25, 0);
             }
-            if (time_elapsed >= 12){
+            if (time_elapsed >= ros::Duration(12)){
                 ROS_INFO("Starting Step 5 (acceleration)");
                 step=5;
                 step_5_begin = ros::Time::now();
@@ -66,10 +70,10 @@ void* loop_thread(void*) {
         if (step == 5){
             time_elapsed = ros::Time::now() - step_5_begin;
             float rpm;
-            if (time_elapsed < 10){
+            if (time_elapsed < ros::Duration(10)){
                 rpm = linear_interpolate(time_elapsed, 0,10, 0, 200);
             }
-            if (time_elapsed >= 10){
+            if (time_elapsed >= ros::Duration(10)){
                 ROS_INFO("Starting Step 6 (braking)");
                 step=6;
             }
@@ -79,14 +83,14 @@ void* loop_thread(void*) {
         if (step == 6){
             time_elapsed = ros::Time::now() - step_5_begin;
             float rpm;
-            if (time_elapsed < 1){
+            if (time_elapsed < ros::Duration(1)){
                 rpm = linear_interpolate(time_elapsed, 0,1, 200, 0);
             }
             
-            if (time_elapsed >= 1 && time_elapsed < 5){
+            if (time_elapsed >= ros::Duration(1) && time_elapsed < ros::Duration(5)){
                 rpm = 0;
             }
-            if (time_elapsed >= 5){
+            if (time_elapsed >= ros::Duration(5)){
                 ROS_INFO("Starting Step 7 (finished)");
                 step=7;
             }
@@ -95,7 +99,7 @@ void* loop_thread(void*) {
         
         if (step == 7){
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
-            if (vcu2ai_data.VCU2AI_AMI_STATE == AS_FINISHED){
+            if (vcu2ai_data.VCU2AI_AS_STATE == AS_FINISHED){
                 return 0;
             }
         }
@@ -134,7 +138,7 @@ int main(int argc, char** argv) {
     ros::NodeHandle nh;
 
     if (argc < 2) {
-        ROS_ERROR("Usage: rosrun fsai_api ackermann_can <can_interface>");
+        ROS_ERROR("Usage: rosrun fsai_api static_inspection_A <can_interface>");
         return 1;
     }
 
@@ -148,9 +152,6 @@ int main(int argc, char** argv) {
         ROS_ERROR("Can't create loop thread...");
         return 1;
     }
-
-    // Subscribe to the ackermann_cmd topic
-    ros::Subscriber sub = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);
 
     ros::spin();
 
