@@ -97,10 +97,7 @@ void* loop_thread(void*) {
         }
 
         if(mission_finished) {
-            ROS_INFO("Finished");
-            ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_NEUTRAL;
-            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
-
+            ROS_INFO("AS Finished");
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
         }
  
