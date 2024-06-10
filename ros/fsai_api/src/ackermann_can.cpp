@@ -1,8 +1,10 @@
+
 #include <ros/ros.h>
 #include <ackermann_msgs/AckermannDrive.h>
 #include <pthread.h>
 #include <cmath>
 #include <sstream>
+
 
 extern "C" {
 #include "fs-ai_api.h"
@@ -39,7 +41,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         if(speed_rpm<0) {
             speed_rpm=0;
             mission_finished = true;
-		}
+        }
 
         // Convert steering angle from radians to degrees
         float steering_angle_deg = msg->steering_angle * DEGREE_CONVERSION;
@@ -96,12 +98,42 @@ void* loop_thread(void*) {
 
         if(mission_finished) {
             ROS_INFO("Finished");
-			ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
-		}
+            ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_NEUTRAL;
+            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
+
+            ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
+        }
  
 
         // Send data to VCU
         fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
+
+        // Display sent data
+        // output
+        ROS_INFO("\033[H"); // home the cursor
+        ROS_INFO("VCU2AI_HANDSHAKE_RECEIVE_BIT       %u    \r\n",vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT);
+        ROS_INFO("VCU2AI_RES_GO_SIGNAL               %u    \r\n",vcu2ai_data.VCU2AI_RES_GO_SIGNAL);
+        ROS_INFO("VCU2AI_AS_STATE                    %u    \r\n",vcu2ai_data.VCU2AI_AS_STATE);
+        ROS_INFO("VCU2AI_AMI_STATE                   %u    \r\n",vcu2ai_data.VCU2AI_AMI_STATE);
+        ROS_INFO("VCU2AI_STEER_ANGLE_deg         %+5.1f    \r\n",vcu2ai_data.VCU2AI_STEER_ANGLE_deg);
+        ROS_INFO("VCU2AI_BRAKE_PRESS_F_pct        %4.1f    \r\n",vcu2ai_data.VCU2AI_BRAKE_PRESS_F_pct);
+        ROS_INFO("VCU2AI_BRAKE_PRESS_R_pct        %4.1f    \r\n",vcu2ai_data.VCU2AI_BRAKE_PRESS_R_pct);
+        ROS_INFO("VCU2AI_FL_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_FL_WHEEL_SPEED_rpm);
+        ROS_INFO("VCU2AI_FR_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_FR_WHEEL_SPEED_rpm);
+        ROS_INFO("VCU2AI_RL_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_RL_WHEEL_SPEED_rpm);
+        ROS_INFO("VCU2AI_RR_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_RR_WHEEL_SPEED_rpm);
+        ROS_INFO("VCU2AI_FL_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_FL_PULSE_COUNT);
+        ROS_INFO("VCU2AI_FR_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_FR_PULSE_COUNT);
+        ROS_INFO("VCU2AI_RL_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_RL_PULSE_COUNT);
+        ROS_INFO("VCU2AI_RR_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_RR_PULSE_COUNT);
+
+        ROS_INFO("AI2VCU_DIRECTION_REQUEST           %u    \r\n",ai2vcu_data.AI2VCU_DIRECTION_REQUEST);
+        ROS_INFO("AI2VCU_ESTOP_REQUEST               %u    \r\n",ai2vcu_data.AI2VCU_ESTOP_REQUEST);
+        ROS_INFO("AI2VCU_MISSION_STATUS              %u    \r\n",ai2vcu_data.AI2VCU_MISSION_STATUS);
+        ROS_INFO("AI2VCU_STEER_ANGLE_REQUEST_deg %+5.1f    \r\n",ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg);
+        ROS_INFO("AI2VCU_AXLE_SPEED_REQUEST_rpm   %4.0f    \r\n",ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm);
+        ROS_INFO("AI2VCU_AXLE_TORQUE_REQUEST_Nm   %4.0f    \r\n",ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm);
+        ROS_INFO("AI2VCU_BRAKE_PRESS_REQUEST_pct  %4.0f    \r\n",ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct);
 
         // Loop timing
         usleep(timing_us);
@@ -137,3 +169,4 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+This paste expires in <1 hour. Public IP access. Share whatever you see with others in seconds with Context. Terms of ServiceReport this
