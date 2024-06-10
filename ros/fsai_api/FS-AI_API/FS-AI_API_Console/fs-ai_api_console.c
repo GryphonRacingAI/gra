@@ -163,7 +163,7 @@ static void *loop_thread() {
 			printf("HANDSHAKE_BIT error\r\n");
 		}
 
-		fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
+		// fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
 
 		// repeat according to loop timing (default roughly every 10ms)
 		usleep(timing_us);
