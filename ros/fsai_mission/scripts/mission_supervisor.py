@@ -25,9 +25,6 @@ class MissionSupervisor:
         
         self.current_ami_state = ami_state
 
-        # Stop any running mission
-        self.stop_current_mission()
-
         # Determine which mission to start
         if ami_state == 1:
             self.start_launch_file('acceleration.launch')
@@ -44,14 +41,7 @@ class MissionSupervisor:
         elif ami_state == 7:
             self.start_launch_file('autonomous_demo.launch')
         else:
-            rospy.logwarn("AMI_STATE not recognized or not selected.")
-    
-    def stop_current_mission(self):
-        # Implement stopping the currently running mission launch file, if any
-        try:
-            subprocess.Popen(["rosnode", "kill", "/current_mission_node"])
-        except Exception as e:
-            rospy.logwarn("Could not stop current mission: %s", e)
+            rospy.logwarn("AMI_STATE not recognised or not selected.")
 
     def start_launch_file(self, launch_file):
         rospy.loginfo("Starting mission: %s", launch_file)
