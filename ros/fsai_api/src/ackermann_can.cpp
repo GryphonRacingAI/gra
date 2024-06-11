@@ -131,6 +131,19 @@ void* loop_thread(void*) {
             }
         }
 
+        // reset state in case we don't power cycle the PC before starting a new mission
+        if (vcu2ai_data.VCU2AI_AS_STATE == AS_FINISHED){
+            chequered_flag = false;
+            drive_enabled = false;
+            ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_NOT_SELECTED;
+            ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_NEUTRAL;
+            ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_NO;
+            ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = 0;
+            ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = 0;
+            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
+            ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct = 0;
+        }
+
         // Send data to VCU
         fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
 
