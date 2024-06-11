@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <ackermann_msgs/AckermannDrive.h>
-#include <std_msgs/Int32.h>
+#include <std_msgs/Bool.h>
 #include <pthread.h>
 #include <cmath>
 #include <sstream>
@@ -11,7 +11,7 @@ extern "C" {
 }
 
 // Constants
-const float MOTOR_RATIO = 3.5;
+// const float MOTOR_RATIO = 3.5;
 const float DEGREE_CONVERSION = 180.0 / M_PI;
 const float WHEEL_RADIUS = 0.2575; // Example wheel radius in meters
 
@@ -52,7 +52,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
     }
 }
 
-void emergencyBrakeCallback(const std_msgs::Int32::ConstPtr& msg) {
+void emergencyBrakeCallback(const std_msgs::Bool::ConstPtr& msg) {
     if (msg->data == 1) {
         ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_YES;
         ROS_WARN("Emergency brake triggered!");
