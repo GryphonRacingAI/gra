@@ -57,3 +57,9 @@ target_link_libraries(static_inspection_A
   fs_ai_api
   ${catkin_LIBRARIES}
 )
+
+# Install Python scripts
+catkin_install_python(PROGRAMS
+  scripts/wheel_speed_controller.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)

@@ -12,6 +12,7 @@ extern "C" {
 // Constants
 const float MOTOR_RATIO = 3.5;
 const float DEGREE_CONVERSION = 180.0 / M_PI;
+const float WHEEL_RADIUS = 0.2575; // Example wheel radius in meters
 
 // Global variables
 fs_ai_api_ai2vcu ai2vcu_data;
@@ -23,22 +24,21 @@ bool mission_finished = false;
 ros::Publisher vcu2ai_pub;
 
 void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
-    float test = 50;
     ROS_INFO("Message received");
  
     if (mission_started) {
         ROS_INFO("Propagating commands");
-        
-        // Convert speed from m/s to RPM (Motor ratio is 3.5:1)
-        // Actual speed is around 50 rpm lower than requested speed (in the air)
-        float speed_rpm = msg->speed * MOTOR_RATIO * 60 / (2*M_PI);
-        // float speed_rpm = 100;
 
-        ROS_INFO("speed rpm %f", speed_rpm);
+        // Convert speed from m/s to RPM (taking into account wheel radius)
+        float car_speed_mps = msg->speed;
+        float wheel_rpm = (car_speed_mps / WHEEL_RADIUS) * 60.0 / (2 * M_PI);
+        float motor_rpm = wheel_rpm * MOTOR_RATIO;
+
+        ROS_INFO("motor rpm %f", motor_rpm);
 
         // Temporary: set finish on negative speed
-        if (speed_rpm < 0) {
-            speed_rpm = 0;
+        if (motor_rpm < 0) {
+            motor_rpm = 0;
             mission_finished = true;
         }
 
@@ -46,9 +46,9 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         float steering_angle_deg = msg->steering_angle * DEGREE_CONVERSION;
 
         // Update the ai2vcu_data struct
-        ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = speed_rpm;
+        ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = motor_rpm;
         ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = steering_angle_deg;
-        ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 195; // Torque to 195
+        ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100; // Torque to 100
     }
 }
 
