@@ -3,14 +3,14 @@
 import time
 import rospy
 import math
-from std_msgs.msg import Int32
+from std_msgs.msg import Bool
 from ackermann_msgs.msg import AckermannDrive
 
 class StaticInspectionA:
     def __init__(self):
         rospy.init_node('static_inspection_A', anonymous=False)
         self.ackermann_publisher = rospy.Publisher('/ackermann_cmd', AckermannDrive, queue_size=1)
-        self.chequered_flag_publisher = rospy.Publisher('/chequered_flag', Int32, queue_size=1)
+        self.chequered_flag_publisher = rospy.Publisher('/chequered_flag', Bool, queue_size=1)
         self.rate = rospy.Rate(10)  # 10 Hz
 
     def start(self):
@@ -55,7 +55,7 @@ class StaticInspectionA:
         rospy.loginfo("Drivetrain stopped")
 
     def signal_completion(self):
-        self.chequered_flag_publisher.publish(Int32(1))
+        self.chequered_flag_publisher.publish(Bool(data=True))
         rospy.loginfo("Mission completed, chequered flag set")
 
     @staticmethod
