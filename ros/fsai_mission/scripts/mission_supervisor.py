@@ -35,9 +35,9 @@ class MissionSupervisor:
         elif ami_state == 4:
             self.start_launch_file('track_drive.launch')
         elif ami_state == 5:
-            self.start_launch_file('static_inspection_a.launch')
+            self.start_launch_file('static_inspection_A.launch')
         elif ami_state == 6:
-            self.start_launch_file('static_inspection_b.launch')
+            self.start_launch_file('static_inspection_B.launch')
         elif ami_state == 7:
             self.start_launch_file('autonomous_demo.launch')
         else:

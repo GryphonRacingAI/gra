@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start Static Inspection B routine -->
+    <node name="static_inspection_B" pkg="fsai_mission" type="static_inspection_B.py" output="screen"/>
+
+</launch>
