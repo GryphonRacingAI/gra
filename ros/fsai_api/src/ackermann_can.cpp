@@ -1,10 +1,9 @@
-
 #include <ros/ros.h>
 #include <ackermann_msgs/AckermannDrive.h>
 #include <pthread.h>
 #include <cmath>
 #include <sstream>
-
+#include <fsai_api/VCU2AI.h>
 
 extern "C" {
 #include "fs-ai_api.h"
@@ -19,27 +18,27 @@ fs_ai_api_ai2vcu ai2vcu_data;
 pthread_t loop_tid;
 int timing_us = 10000;
 bool mission_started = false;
-
 bool mission_finished = false;
+
+ros::Publisher vcu2ai_pub;
 
 void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
     float test = 50;
     ROS_INFO("Message received");
  
     if (mission_started) {
-
         ROS_INFO("Propagating commands");
         
         // Convert speed from m/s to RPM (Motor ratio is 3.5:1)
         // Actual speed is around 50 rpm lower than requested speed (in the air)
-        float speed_rpm = msg->speed * MOTOR_RATIO * 60 / (2*M_PI) ;
+        float speed_rpm = msg->speed * MOTOR_RATIO * 60 / (2*M_PI);
         // float speed_rpm = 100;
 
         ROS_INFO("speed rpm %f", speed_rpm);
 
         // Temporary: set finish on negative speed
-        if(speed_rpm<0) {
-            speed_rpm=0;
+        if (speed_rpm < 0) {
+            speed_rpm = 0;
             mission_finished = true;
         }
 
@@ -96,41 +95,33 @@ void* loop_thread(void*) {
             ROS_INFO("AS Driving");
         }
 
-        if(mission_finished) {
+        if (mission_finished) {
             ROS_INFO("Finished");
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
         }
- 
 
         // Send data to VCU
         fs_ai_api_ai2vcu_set_data(&ai2vcu_data);
 
-        // Display sent data
-        // output
-        ROS_INFO("\033[H"); // home the cursor
-        ROS_INFO("VCU2AI_HANDSHAKE_RECEIVE_BIT       %u    \r\n",vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT);
-        ROS_INFO("VCU2AI_RES_GO_SIGNAL               %u    \r\n",vcu2ai_data.VCU2AI_RES_GO_SIGNAL);
-        ROS_INFO("VCU2AI_AS_STATE                    %u    \r\n",vcu2ai_data.VCU2AI_AS_STATE);
-        ROS_INFO("VCU2AI_AMI_STATE                   %u    \r\n",vcu2ai_data.VCU2AI_AMI_STATE);
-        ROS_INFO("VCU2AI_STEER_ANGLE_deg         %+5.1f    \r\n",vcu2ai_data.VCU2AI_STEER_ANGLE_deg);
-        ROS_INFO("VCU2AI_BRAKE_PRESS_F_pct        %4.1f    \r\n",vcu2ai_data.VCU2AI_BRAKE_PRESS_F_pct);
-        ROS_INFO("VCU2AI_BRAKE_PRESS_R_pct        %4.1f    \r\n",vcu2ai_data.VCU2AI_BRAKE_PRESS_R_pct);
-        ROS_INFO("VCU2AI_FL_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_FL_WHEEL_SPEED_rpm);
-        ROS_INFO("VCU2AI_FR_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_FR_WHEEL_SPEED_rpm);
-        ROS_INFO("VCU2AI_RL_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_RL_WHEEL_SPEED_rpm);
-        ROS_INFO("VCU2AI_RR_WHEEL_SPEED_rpm       %4.0f    \r\n",vcu2ai_data.VCU2AI_RR_WHEEL_SPEED_rpm);
-        ROS_INFO("VCU2AI_FL_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_FL_PULSE_COUNT);
-        ROS_INFO("VCU2AI_FR_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_FR_PULSE_COUNT);
-        ROS_INFO("VCU2AI_RL_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_RL_PULSE_COUNT);
-        ROS_INFO("VCU2AI_RR_PULSE_COUNT          %5u       \r\n",vcu2ai_data.VCU2AI_RR_PULSE_COUNT);
+        // Publish VCU data
+        fsai_api::VCU2AI msg;
+        msg.handshake_receive_bit = vcu2ai_data.VCU2AI_HANDSHAKE_RECEIVE_BIT;
+        msg.res_go_signal = vcu2ai_data.VCU2AI_RES_GO_SIGNAL;
+        msg.as_state = vcu2ai_data.VCU2AI_AS_STATE;
+        msg.ami_state = vcu2ai_data.VCU2AI_AMI_STATE;
+        msg.steer_angle_deg = vcu2ai_data.VCU2AI_STEER_ANGLE_deg;
+        msg.brake_press_f_pct = vcu2ai_data.VCU2AI_BRAKE_PRESS_F_pct;
+        msg.brake_press_r_pct = vcu2ai_data.VCU2AI_BRAKE_PRESS_R_pct;
+        msg.fl_wheel_speed_rpm = vcu2ai_data.VCU2AI_FL_WHEEL_SPEED_rpm;
+        msg.fr_wheel_speed_rpm = vcu2ai_data.VCU2AI_FR_WHEEL_SPEED_rpm;
+        msg.rl_wheel_speed_rpm = vcu2ai_data.VCU2AI_RL_WHEEL_SPEED_rpm;
+        msg.rr_wheel_speed_rpm = vcu2ai_data.VCU2AI_RR_WHEEL_SPEED_rpm;
+        msg.fl_pulse_count = vcu2ai_data.VCU2AI_FL_PULSE_COUNT;
+        msg.fr_pulse_count = vcu2ai_data.VCU2AI_FR_PULSE_COUNT;
+        msg.rl_pulse_count = vcu2ai_data.VCU2AI_RL_PULSE_COUNT;
+        msg.rr_pulse_count = vcu2ai_data.VCU2AI_RR_PULSE_COUNT;
 
-        ROS_INFO("AI2VCU_DIRECTION_REQUEST           %u    \r\n",ai2vcu_data.AI2VCU_DIRECTION_REQUEST);
-        ROS_INFO("AI2VCU_ESTOP_REQUEST               %u    \r\n",ai2vcu_data.AI2VCU_ESTOP_REQUEST);
-        ROS_INFO("AI2VCU_MISSION_STATUS              %u    \r\n",ai2vcu_data.AI2VCU_MISSION_STATUS);
-        ROS_INFO("AI2VCU_STEER_ANGLE_REQUEST_deg %+5.1f    \r\n",ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg);
-        ROS_INFO("AI2VCU_AXLE_SPEED_REQUEST_rpm   %4.0f    \r\n",ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm);
-        ROS_INFO("AI2VCU_AXLE_TORQUE_REQUEST_Nm   %4.0f    \r\n",ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm);
-        ROS_INFO("AI2VCU_BRAKE_PRESS_REQUEST_pct  %4.0f    \r\n",ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct);
+        vcu2ai_pub.publish(msg);
 
         // Loop timing
         usleep(timing_us);
@@ -158,6 +149,9 @@ int main(int argc, char** argv) {
         ROS_ERROR("Can't create loop thread...");
         return 1;
     }
+
+    // Publisher for VCU2AI data
+    vcu2ai_pub = nh.advertise<fsai_api::VCU2AI>("vcu2ai", 10);
 
     // Subscribe to the ackermann_cmd topic
     ros::Subscriber sub = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);
