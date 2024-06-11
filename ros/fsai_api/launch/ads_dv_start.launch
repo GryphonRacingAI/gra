@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Start ROS core -->
+  <node name="roscore" pkg="roslaunch" type="roscore" />
+
+  <!-- AI-VCU API node -->
+  <node name="ackermann_can" pkg="fsai_api" type="ackermann_can" args="can0" output="screen"/>
+
+  <!-- Start Mission Supervisor for handling mission select -->
+  <node name="mission_supervisor" pkg="fsai_mission" type="mission_supervisor.py" output="screen"/>
+</launch>
