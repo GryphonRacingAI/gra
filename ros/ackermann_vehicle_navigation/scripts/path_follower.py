@@ -89,7 +89,7 @@ def odom_callback(odom_msg):
         yaw_rate = beta*0.5 + cte*0.5 + heading_error*1  # Adjusted for more responsiveness
         # yaw_rate = beta*0.8 + cte*0.6
         if yaw_rate_limit is True:
-            yaw_rate = max(min(yaw_rate, 0.5), -0.5)
+            yaw_rate = max(min(yaw_rate, 0.366519), -0.366519)  # Limit steering angle to -21deg to 21deg, steering range of ADS-DV
 
         # vx = 0.6
         vx = 1.5 - abs(beta*0.1 + cte*0.3 + heading_error*0.3)

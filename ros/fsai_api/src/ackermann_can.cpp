@@ -48,7 +48,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         // Update the ai2vcu_data struct
         ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = speed_rpm;
         ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = steering_angle_deg;
-        ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100; // Torque to 100
+        ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 195; // Torque to 195
     }
 }
 
