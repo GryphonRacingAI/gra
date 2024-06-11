@@ -134,6 +134,9 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "ackermann_can");
     ros::NodeHandle nh;
 
+    // Publisher for VCU2AI data
+    vcu2ai_pub = nh.advertise<fsai_api::VCU2AI>("vcu2ai", 10);
+
     if (argc < 2) {
         ROS_ERROR("Usage: rosrun fsai_api ackermann_can <can_interface>");
         return 1;
@@ -149,9 +152,6 @@ int main(int argc, char** argv) {
         ROS_ERROR("Can't create loop thread...");
         return 1;
     }
-
-    // Publisher for VCU2AI data
-    vcu2ai_pub = nh.advertise<fsai_api::VCU2AI>("vcu2ai", 10);
 
     // Subscribe to the ackermann_cmd topic
     ros::Subscriber sub = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);
