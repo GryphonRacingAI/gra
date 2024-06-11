@@ -52,6 +52,6 @@ Start with 700 and reduce gradually if the cone recognition process is unable to
 - `rosbag record -o {name} --duration=30 /joint_states /rosout /rosout_agg /tf /tf_static /camera/aligned_depth_to_color/camera_info /camera/aligned_depth_to_color/image_raw/compressedDepth /camera/color/camera_info /camera/color/image_raw/compressed` includes the essential topics for recording depth camera rosbags.
 - `roslaunch urdf_tutorial display.launch model:=ros/ackermann_vehicle_description/urdf/em_3905_hokuyo.urdf.xacro` to launch RViz with a basic setup (remember the X11 command above)
 - `roslaunch gra_recording rviz.launch` to display a recorded stream in RViz
-- `rosrun robot_upstart install ackermann_vehicle_navigation/launch/path_follower.launch --job gra_supervisor_ros --symlink` to make ROS start automatically on boot
+- `rosrun robot_upstart install fsai_api/launch/ads_dv_start.launch --job gra_supervisor_ros --symlink` to make ROS start automatically on boot
 - `sudo cp ./driverless_startup.service /etc/systemd/system/driverless_startup.service && sudo systemctl daemon-reload && sudo systemctl enable driverless_startup.service` to register the startup service
 - `gsettings set org.gnome.SessionManager logout-prompt false` to disable the 60s shutdown timer on Ubuntu (turn off immediately)
