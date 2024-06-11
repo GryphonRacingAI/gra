@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <ackermann_msgs/AckermannDrive.h>
+#include <std_msgs/Int32.h>
 #include <pthread.h>
 #include <cmath>
 #include <sstream>
@@ -49,6 +50,16 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = motor_rpm;
         ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = steering_angle_deg;
         ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100; // Torque to 100
+    }
+}
+
+void emergencyBrakeCallback(const std_msgs::Int32::ConstPtr& msg) {
+    if (msg->data == 1) {
+        ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_YES;
+        ROS_WARN("Emergency brake triggered!");
+    } else {
+        ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_NO;
+        ROS_INFO("Emergency brake released.");
     }
 }
 
@@ -154,7 +165,10 @@ int main(int argc, char** argv) {
     }
 
     // Subscribe to the ackermann_cmd topic
-    ros::Subscriber sub = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);
+    ros::Subscriber sub_ackermann = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);
+
+    // Subscribe to the emergency_brake topic
+    ros::Subscriber sub_brake = nh.subscribe("/emergency_brake", 10, emergencyBrakeCallback);
 
     ros::spin();
 
