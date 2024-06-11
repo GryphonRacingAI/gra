@@ -32,13 +32,12 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         // Convert speed from m/s to RPM (taking into account wheel radius)
         float car_speed_mps = msg->speed;
         float wheel_rpm = (car_speed_mps / WHEEL_RADIUS) * 60.0 / (2 * M_PI);
-        float motor_rpm = wheel_rpm * MOTOR_RATIO;
 
-        ROS_INFO("motor rpm %f", motor_rpm);
+        ROS_INFO("wheel rpm %f", wheel_rpm);
 
         // Temporary: set finish on negative speed
-        if (motor_rpm < 0) {
-            motor_rpm = 0;
+        if (wheel_rpm < 0) {
+            wheel_rpm = 0;
             mission_finished = true;
         }
 
@@ -46,7 +45,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         float steering_angle_deg = msg->steering_angle * DEGREE_CONVERSION;
 
         // Update the ai2vcu_data struct
-        ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = motor_rpm;
+        ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = wheel_rpm;
         ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = steering_angle_deg;
         ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100; // Torque to 100
     }
@@ -134,6 +133,9 @@ int main(int argc, char** argv) {
     ros::init(argc, argv, "ackermann_can");
     ros::NodeHandle nh;
 
+    // Publisher for VCU2AI data
+    vcu2ai_pub = nh.advertise<fsai_api::VCU2AI>("vcu2ai", 10);
+
     if (argc < 2) {
         ROS_ERROR("Usage: rosrun fsai_api ackermann_can <can_interface>");
         return 1;
@@ -149,9 +151,6 @@ int main(int argc, char** argv) {
         ROS_ERROR("Can't create loop thread...");
         return 1;
     }
-
-    // Publisher for VCU2AI data
-    vcu2ai_pub = nh.advertise<fsai_api::VCU2AI>("vcu2ai", 10);
 
     // Subscribe to the ackermann_cmd topic
     ros::Subscriber sub = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);

@@ -3,6 +3,7 @@
 import rospy
 from ackermann_msgs.msg import AckermannDrive
 from fsai_api.msg import VCU2AI
+import math
 
 # Constants
 WHEEL_RADIUS = 0.2575
@@ -40,7 +41,7 @@ class SpeedController:
         actual_wheel_speed_rpm = (rl_wheel_speed_rpm + rr_wheel_speed_rpm) / 2.0
         
         # Convert wheel speed to car speed (m/s)
-        actual_speed_mps = (actual_wheel_speed_rpm * 2 * M_PI * WHEEL_RADIUS) / 60.0
+        actual_speed_mps = (actual_wheel_speed_rpm * 2 * math.pi * WHEEL_RADIUS) / 60.0
         
         # PID control
         error = self.desired_speed - actual_speed_mps
