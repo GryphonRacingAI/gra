@@ -19,6 +19,7 @@ class StaticInspectionA:
 
     def sweep_steering(self):
         rospy.loginfo("Starting steering sweep")
+        time.sleep(3)
         angles = [-0.7, 0.7, 0.0]
         for angle in angles:
             ackermann_message = AckermannDrive()

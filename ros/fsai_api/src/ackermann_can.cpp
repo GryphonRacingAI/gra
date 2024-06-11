@@ -19,15 +19,17 @@ const float WHEEL_RADIUS = 0.2575; // Example wheel radius in meters
 fs_ai_api_ai2vcu ai2vcu_data;
 pthread_t loop_tid;
 int timing_us = 10000;
-bool mission_started = false;
-bool mission_finished = false;
+bool drive_enabled = false;
+bool chequered_flag = false;
+bool destroy_node = false;
+ros::NodeHandle * n_ptr;
 
 ros::Publisher vcu2ai_pub;
 
 void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
     ROS_INFO("Message received");
  
-    if (mission_started) {
+    if (drive_enabled) {
         ROS_INFO("Propagating commands");
 
         // Convert speed from m/s to RPM (taking into account wheel radius)
@@ -39,7 +41,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         // Temporary: set finish on negative speed
         if (wheel_rpm < 0) {
             wheel_rpm = 0;
-            mission_finished = true;
+            chequered_flag = true;
         }
 
         // Convert steering angle from radians to degrees
@@ -52,13 +54,24 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
     }
 }
 
+void finishingTimerCallback(const ros::TimerEvent&){
+    // *n_ptr->shutdown();
+    destroy_node = true;
+}
+
 void emergencyBrakeCallback(const std_msgs::Bool::ConstPtr& msg) {
-    if (msg->data == 1) {
+    if (msg->data == true) {
         ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_YES;
         ROS_WARN("Emergency brake triggered!");
     } else {
         ai2vcu_data.AI2VCU_ESTOP_REQUEST = ESTOP_NO;
         ROS_INFO("Emergency brake released.");
+    }
+}
+
+void chequeredFlagCallback(const std_msgs::Bool::ConstPtr& msg) {
+    if (msg->data == true) {
+        chequered_flag = true;
     }
 }
 
@@ -81,18 +94,17 @@ void* loop_thread(void*) {
         }
 
         // Check for mission mode selection
-        if (vcu2ai_data.VCU2AI_AMI_STATE != AMI_NOT_SELECTED && !mission_started) {
+        if (vcu2ai_data.VCU2AI_AMI_STATE != AMI_NOT_SELECTED && vcu2ai_data.VCU2AI_AS_STATE == AS_OFF) {
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_SELECTED;
             ROS_INFO("Mission Selected");
         }
 
         // Check if AS_STATE is ready (2)
-        if (vcu2ai_data.VCU2AI_AS_STATE == AS_READY && !mission_started) {
+        if (vcu2ai_data.VCU2AI_AS_STATE == AS_READY) {
             ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_NEUTRAL;
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_SELECTED;
             ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
             ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = 0;
-
             ROS_INFO("AS Ready");
         }
 
@@ -100,14 +112,23 @@ void* loop_thread(void*) {
         if (vcu2ai_data.VCU2AI_AS_STATE == AS_DRIVING) {
             ai2vcu_data.AI2VCU_DIRECTION_REQUEST = DIRECTION_FORWARD;
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_RUNNING;
-
-            mission_started = true;
+            drive_enabled = true;
             ROS_INFO("AS Driving");
         }
 
-        if (mission_finished) {
-            ROS_INFO("Finished");
-            ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
+        if (chequered_flag) {
+            if (vcu2ai_data.VCU2AI_FL_WHEEL_SPEED_rpm > 5 
+                || vcu2ai_data.VCU2AI_FR_WHEEL_SPEED_rpm > 5
+                || vcu2ai_data.VCU2AI_RL_WHEEL_SPEED_rpm > 5
+                || vcu2ai_data.VCU2AI_RR_WHEEL_SPEED_rpm > 5)
+                {
+                    ROS_INFO("Mission finished, braking...");
+                    ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct = 50;
+                }
+            else{
+                ROS_INFO("Finished");
+                ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_FINISHED;
+            }
         }
 
         // Send data to VCU
@@ -143,6 +164,7 @@ void* loop_thread(void*) {
 int main(int argc, char** argv) {
     ros::init(argc, argv, "ackermann_can");
     ros::NodeHandle nh;
+    n_ptr = &nh;
 
     // Publisher for VCU2AI data
     vcu2ai_pub = nh.advertise<fsai_api::VCU2AI>("vcu2ai", 10);
@@ -168,6 +190,9 @@ int main(int argc, char** argv) {
 
     // Subscribe to the emergency_brake topic
     ros::Subscriber sub_brake = nh.subscribe("/emergency_brake", 10, emergencyBrakeCallback);
+
+    // Subscribe to the chequered_flag topic
+    ros::Subscriber sub_chequered_flag = nh.subscribe("/chequered_flag", 10, chequeredFlagCallback);
 
     ros::spin();
 
