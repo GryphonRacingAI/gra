@@ -3,13 +3,14 @@
 import time
 import rospy
 import math
-from geometry_msgs.msg import Twist
 from ackermann_msgs.msg import AckermannDrive
+from std_msgs.msg import Bool
 
 class StaticInspectionB:
     def __init__(self):
         rospy.init_node('static_inspection_B', anonymous=False)
         self.ackermann_publisher = rospy.Publisher('/ackermann_cmd', AckermannDrive, queue_size=1)
+        self.emergency_brake_publisher = rospy.Publisher('/emergency_brake', Bool, queue_size=1)
         self.rate = rospy.Rate(10) # 10hz
         
     def start(self):
@@ -34,10 +35,7 @@ class StaticInspectionB:
                 return
             
     def step2(self):
-        ackermann_message = AckermannDrive()
-        ackermann_message.speed = -1
-        rospy.loginfo(f"speed: {ackermann_message.speed}")
-        self.ackermann_publisher.publish(ackermann_message)
+        self.emergency_brake_publisher.publish(True)
 
 
     @staticmethod
