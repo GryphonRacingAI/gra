@@ -25,6 +25,7 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>ackermann_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
+  <exec_depend>roslaunch</exec_depend>
 
   <export>
   </export>

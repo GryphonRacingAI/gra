@@ -7,6 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  roslaunch
 )
 
 add_message_files(
@@ -62,4 +63,9 @@ target_link_libraries(static_inspection_A
 catkin_install_python(PROGRAMS
   scripts/wheel_speed_controller.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+# Install launch files
+install(DIRECTORY launch/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
