@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-  <!-- Start ROS core -->
-  <node name="roscore" pkg="roslaunch" type="roscore" />
+
+  <!-- roslanuch automatically starts roscore when it isn't running already -->
 
   <!-- AI-VCU API node -->
   <node name="ackermann_can" pkg="fsai_api" type="ackermann_can" args="can0" output="screen"/>
