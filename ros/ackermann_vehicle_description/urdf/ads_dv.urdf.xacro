@@ -402,7 +402,7 @@ measured in kilograms. All of these values are approximations.
   <joint name="velodyne_joint" type="fixed">
     <parent link="base_link"/> 
     <child link="velodyne"/>
-    <origin xyz="0.4 0 ${chassis_height/2 + 0.27}" rpy="0 0 0"/> 
+    <origin xyz="0.667 0 ${chassis_height/2 + 0.27}" rpy="0 0 0"/> 
   </joint>
 
   <gazebo reference="velodyne">
@@ -453,7 +453,7 @@ measured in kilograms. All of these values are approximations.
     <parent link="base_link" />
     <child link="camera_link" />
     <!-- <origin xyz="0.08 0 0.425" rpy="0 0 0" /> -->
-    <origin xyz="1.4 0 ${chassis_height/2 + 0.05}" rpy="0 0 0" />
+    <origin xyz="0.617 0 ${chassis_height/2 + 0.33}" rpy="0 0 0" />
   </joint>
 
   <link name="camera_link">
