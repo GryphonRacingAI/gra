@@ -7,6 +7,7 @@ from ackermann_msgs.msg import AckermannDrive
 from fsai_api.msg import VCU2AI
 
 class AutonomousDemonstration:
+    WHEEL_CIRCUMFERENCE = 1.64
     def __init__(self):
         rospy.init_node('static_inspection_A', anonymous=False)
         self.ackermann_publisher = rospy.Publisher('/ackermann_cmd', AckermannDrive, queue_size=1)
@@ -61,7 +62,7 @@ class AutonomousDemonstration:
         ACCELERATION = 1.5 # m/s^2
         initial_rl = self.rl_pulse_count
         initial_rr = self.rr_pulse_count
-        pulse_count_10m = 2000 # TODO calculate this
+        pulse_count_10m = 10/1.64*20 # 10m / (1.64 m / rotation) * 20 (pulse/rotation)
 
         while not rospy.is_shutdown() and (self.rl_pulse_count < initial_rl + pulse_count_10m) and (self.rr_pulse_count < initial_rr+pulse_count_10m):
             ackermann_message = AckermannDrive()
