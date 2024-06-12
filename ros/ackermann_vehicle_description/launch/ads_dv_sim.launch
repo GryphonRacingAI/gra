@@ -50,10 +50,12 @@
     <node name="gazebo_tf_publisher" pkg="ackermann_vehicle_gazebo" type="gazebo_tf_publisher.py" output="screen"/> -->
     
 
-    <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
+    <!-- <node pkg="ackermann_vehicle_navigation" type="tf_odom_publisher.py" name="tf_odom_publisher" output="screen">
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="world" />
-    </node>
+    </node> -->
+
+    <include file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch" />
 
     <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
 
