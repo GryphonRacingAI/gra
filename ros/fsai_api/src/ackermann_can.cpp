@@ -58,7 +58,9 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
 }
 
 void brakeCallback(const std_msgs::Bool::ConstPtr& msg){
-    braking = msg->data;
+    if (!chequered_flag){ // chequered flag brakes anyway
+        braking = msg->data;
+    }
 }
 
 void finishingTimerCallback(const ros::TimerEvent&){
@@ -130,7 +132,7 @@ void* loop_thread(void*) {
                 || vcu2ai_data.VCU2AI_RR_WHEEL_SPEED_rpm > 5)
                 {
                     ROS_INFO("Mission finished, braking...");
-                    ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct = 50;
+                    braking = true;
                 }
             else{
                 ROS_INFO("Finished");
