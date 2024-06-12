@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start autonomous demo routine -->
+    <node name="autonomous_demo" pkg="fsai_mission" type="autonomous_demo.py" output="screen"/>
+
+</launch>
