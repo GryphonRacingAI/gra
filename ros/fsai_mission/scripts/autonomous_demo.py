@@ -38,7 +38,7 @@ class AutonomousDemonstration:
 
     def sweep_steering(self):
         rospy.loginfo("Starting steering sweep")
-        angles = [0.7, -0.7, 0.0]
+        angles = [0.367, -0.367, 0.0]
         start_time = time.time()
         angle = 0
         steering_done = False
@@ -47,11 +47,12 @@ class AutonomousDemonstration:
             
             if elapsed_time < 2:
                 angle = self.linear_interpolate(elapsed_time, 0, 2, 0, angles[0])
-            elif 2 < elapsed_time < 6:
-                angle = self.linear_interpolate(elapsed_time, 2, 6, angles[0], angles[1])
-            elif 6 < elapsed_time < 8:
+            elif 3 < elapsed_time < 5:
+                angle = self.linear_interpolate(elapsed_time, 3, 5, angles[0], angles[1])
+            elif 6 < elapsed_time < 8.5:
                 angle = self.linear_interpolate(elapsed_time, 6, 8, angles[1], angles[2])
-            else:
+            
+            if elapsed_time > 9:
                 steering_done = True
 
             ackermann_message = AckermannDrive()
@@ -88,6 +89,7 @@ class AutonomousDemonstration:
         while not rospy.is_shutdown() and self.rl_wheel_speed_rpm > 5:
             self.brake_publisher.publish(True)
             self.rate.sleep()
+        self.brake_publisher.publish(False)
 
     def emergency_brake(self):
         self.emergency_brake_publisher.publish(True)
