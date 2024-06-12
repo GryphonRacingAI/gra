@@ -11,6 +11,7 @@ class AutonomousDemonstration:
     def __init__(self):
         rospy.init_node('static_inspection_A', anonymous=False)
         self.ackermann_publisher = rospy.Publisher('/ackermann_cmd', AckermannDrive, queue_size=1)
+        self.brake_publisher = rospy.Publisher('/brake', Bool, queue_size=1)
         self.emergency_brake_publisher = rospy.Publisher('/emergency_brake', Bool, queue_size=1)
         self.chequered_flag_publisher = rospy.Publisher('/chequered_flag', Bool, queue_size=1)
         rospy.Subscriber('/vcu2ai', VCU2AI, self.vcu2ai_callback)
@@ -82,9 +83,11 @@ class AutonomousDemonstration:
                 break
     
     def brake_10m(self):
-        # TODO
         ackermann_message = AckermannDrive()
         self.ackermann_publisher.publish(ackermann_message)
+        while not rospy.is_shutdown() and self.rl_wheel_speed_rpm > 5:
+            self.brake_publisher.publish(True)
+            self.rate.sleep()
 
     def emergency_brake(self):
         self.emergency_brake_publisher.publish(True)
