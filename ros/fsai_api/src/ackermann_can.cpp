@@ -218,7 +218,7 @@ int main(int argc, char** argv) {
     ros::Subscriber sub_ackermann = nh.subscribe("/ackermann_cmd", 10, ackermannCmdCallback);
 
     // Subscribe to the emergency_brake topic
-    ros::Subscriber sub_brake = nh.subscribe("/emergency_brake", 10, emergencyBrakeCallback);
+    ros::Subscriber sub_emergencyBrake = nh.subscribe("/emergency_brake", 10, emergencyBrakeCallback);
 
     // Subscribe to the brake topic
     ros::Subscriber sub_brake = nh.subscribe("/brake", 10, brakeCallback);

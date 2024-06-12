@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <include file="$(find ackermann_vehicle_description)/launch/ads_dv_hokuyo.launch" />
+
+    <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="$(find ackermann_vehicle_gazebo)/config/ads_dv_joint_ctrlr_params.yaml"/>
+
+    <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo"
+          type="ackermann_controller">
+      <param name="cmd_timeout" value="0.5"/>
+      <rosparam file="$(find ackermann_vehicle_gazebo)/config/ads_dv_ctrlr_params.yaml" command="load"/>
+    </node> -->
+
+    <!-- Start realsense driver -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="filters" value="pointcloud"/>
+    </include>
+
+    <!-- Start velodyne driver -->
+    <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="$(find ackermann_vehicle_gazebo)/config/ads_dv_joint_ctrlr_params.yaml"/>
+
+    <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo"
+          type="ackermann_controller">
+      <param name="cmd_timeout" value="0.5"/>
+      <rosparam file="$(find ackermann_vehicle_gazebo)/config/ads_dv_ctrlr_params.yaml" command="load"/>
+    </node>
+
+    <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
+    
+    <!-- decrease damping factor to reduce encoder noise -->
+    <!-- <node name="odom_publisher" pkg="ackermann_vehicle_description" type="odom_publisher.py" output="screen">
+        <param name="axle_length" value="1.2"/>
+        <param name="wheelbase_length" value="2"/>
+        <param name="wheel_radius" value="0.2575"/>
+        <param name="center_of_mass_offset" value="0.0"/>
+        <param name="damping_factor" value="1.0"/>  
+    </node>
+    <node name="gazebo_tf_publisher" pkg="ackermann_vehicle_gazebo" type="gazebo_tf_publisher.py" output="screen"/> -->
+    
+    <include file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch" />
+
+    <!-- <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" /> -->
+
+</launch>
