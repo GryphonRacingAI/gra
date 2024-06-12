@@ -21,15 +21,6 @@
     <!-- Start velodyne driver -->
     <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch" />
 
-    <node name="controller_spawner" pkg="controller_manager" type="spawner"
-          args="$(find ackermann_vehicle_gazebo)/config/ads_dv_joint_ctrlr_params.yaml"/>
-
-    <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo"
-          type="ackermann_controller">
-      <param name="cmd_timeout" value="0.5"/>
-      <rosparam file="$(find ackermann_vehicle_gazebo)/config/ads_dv_ctrlr_params.yaml" command="load"/>
-    </node>
-
     <node name="cmd_vel_to_ackermann_drive" pkg="ackermann_vehicle_navigation" type="cmd_vel_to_ackermann_drive.py" output="screen"/>
     
     <!-- decrease damping factor to reduce encoder noise -->
