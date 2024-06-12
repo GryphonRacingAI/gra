@@ -94,7 +94,7 @@ def odom_callback(odom_msg):
             yaw_rate = max(min(yaw_rate, 0.366519), -0.366519)  # Limit steering angle to -21deg to 21deg, steering range of ADS-DV
 
         # vx = 0.6
-        vx = 3.5 - abs(beta*0.1 + cte*0.3 + heading_error*0.3)
+        vx = 3 - abs(beta*0.1 + cte*0.3 + heading_error*0.3)
         if vx_limit is True:
             # vx = max(min(vx, 0.7), 0.1)
             vx = max(vx, 0.1)
