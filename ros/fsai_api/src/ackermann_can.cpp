@@ -22,6 +22,7 @@ int timing_us = 10000;
 bool drive_enabled = false;
 bool chequered_flag = false;
 bool destroy_node = false;
+bool braking = false;
 ros::NodeHandle * n_ptr;
 
 ros::Publisher vcu2ai_pub;
@@ -48,10 +49,16 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         float steering_angle_deg = msg->steering_angle * DEGREE_CONVERSION;
 
         // Update the ai2vcu_data struct
-        ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = wheel_rpm;
         ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = steering_angle_deg;
-        ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100; // Torque to 100
+        if (!braking){
+            ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = wheel_rpm;
+            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100;
+        }
     }
+}
+
+void brakeCallback(const std_msgs::Bool::ConstPtr& msg){
+    braking = msg->data;
 }
 
 void finishingTimerCallback(const ros::TimerEvent&){
@@ -131,6 +138,15 @@ void* loop_thread(void*) {
             }
         }
 
+        if (braking){
+            ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = 0;
+            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 0;
+            ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct = 50;
+        }
+        else{
+            ai2vcu_data.AI2VCU_BRAKE_PRESS_REQUEST_pct = 0;
+        }
+
         // reset state in case we don't power cycle the PC before starting a new mission
         if (vcu2ai_data.VCU2AI_AS_STATE == AS_FINISHED || vcu2ai_data.VCU2AI_AS_STATE == AS_EMERGENCY_BRAKE){
             chequered_flag = false;
@@ -203,6 +219,9 @@ int main(int argc, char** argv) {
 
     // Subscribe to the emergency_brake topic
     ros::Subscriber sub_brake = nh.subscribe("/emergency_brake", 10, emergencyBrakeCallback);
+
+    // Subscribe to the brake topic
+    ros::Subscriber sub_brake = nh.subscribe("/brake", 10, brakeCallback);
 
     // Subscribe to the chequered_flag topic
     ros::Subscriber sub_chequered_flag = nh.subscribe("/chequered_flag", 10, chequeredFlagCallback);
