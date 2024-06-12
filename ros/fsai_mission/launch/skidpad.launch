@@ -3,7 +3,7 @@
 <launch>
 
     <!-- Start URDF node, 3D lidar driver, depth camera driver, SLAM -->
-    <!-- <include file="$(find ackermann_vehicle_description)/launch/ads_dv_real.launch" /> -->
+    <include file="$(find ackermann_vehicle_description)/launch/ads_dv_real.launch" />
 
     <!-- Start Perception subsystem: 3D cone recognition -->
     <include file="$(find ultralytics_ros)/launch/tracker_with_cloud.launch" />
