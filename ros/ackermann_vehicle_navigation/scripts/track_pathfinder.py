@@ -4,7 +4,7 @@ import rospy
 import numpy as np
 from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import Path
-from std_msgs.msg import Header, UInt16
+from std_msgs.msg import Header, Bool
 from tf.transformations import euler_from_quaternion
 from ultralytics_ros.msg import ExtendedConeDetection
 from fsd_path_planning import PathPlanner, MissionTypes, ConeTypes
@@ -18,7 +18,7 @@ class TrackPathfinder:
         self.path_planner = PathPlanner(MissionTypes.trackdrive)
         self.path_pub = rospy.Publisher('/path', Path, queue_size=10)
         rospy.Subscriber('/filtered_cone_list', ExtendedConeDetection, self.path_callback)
-        rospy.Subscriber('/chequered_flag', UInt16, self.chequered_flag_callback)
+        rospy.Subscriber('/chequered_flag', Bool, self.chequered_flag_callback)
 
         self.rate = rospy.Rate(10)  # 10 Hz
         self.final_lap = False
@@ -26,7 +26,7 @@ class TrackPathfinder:
         print("node initialised")
 
     def chequered_flag_callback(self, msg):
-        if msg.data == 1 and not self.final_path_published:
+        if msg.data and not self.final_path_published:
             self.final_lap = True
             rospy.loginfo("Final lap detected! Preparing to publish the final path.")
 

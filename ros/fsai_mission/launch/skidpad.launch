@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- Start track follower -->
+    <include file="$(find ackermann_vehicle_navigation)/launch/skidpad_follower.launch" />
+
+</launch>

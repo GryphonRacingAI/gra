@@ -143,6 +143,7 @@ RUN python3 -m pip install numpy==1.23.4
 RUN python3 -m pip install lap==0.4.0
 RUN python3 -m pip install onnx==1.14.0
 RUN python3 -m pip install urllib3==1.26.18
+RUN python3 -m pip install networkx==3.0 torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 RUN python3 -m pip install opencv-python==4.7.0.72
 RUN python3 -m pip install ultralytics
 

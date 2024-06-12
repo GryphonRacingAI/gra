@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- roslanuch automatically starts roscore when it isn't running already -->
+
+  <!-- AI-VCU API node -->
+  <node name="ackermann_can" pkg="fsai_api" type="ackermann_can" args="can0" output="screen"/>
+
+  <!-- Start Mission Supervisor for handling mission select -->
+  <node name="mission_supervisor" pkg="fsai_mission" type="mission_supervisor.py" output="screen"/>
+
+  <!-- Start URDF node, 3D lidar driver, depth camera driver, SLAM -->
+  <include file="$(find ackermann_vehicle_description)/launch/ads_dv_real.launch" />
+
+  <!-- Start Perception subsystem: 3D cone recognition -->
+  <include file="$(find ultralytics_ros)/launch/tracker_with_cloud.launch" />
+
+  <!-- Start Cone mapping -->
+  <include file="$(find ultralytics_ros)/launch/cone_mapper.launch" />
+  
+</launch>

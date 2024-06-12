@@ -13,10 +13,10 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
       <arg name="gui" value="false"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/custom_track.world"/> -->
-      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/skidpad.world"/> -->
+      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/skidpad.world"/>
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/acceleration.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small.world"/> -->
-      <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/>
+      <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_small_features.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/track_big.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/gazebo_world_building/sparse_spaced_cones.world"/> -->
       <!-- <arg name="world_name" value="$(find ackermann_vehicle_gazebo)/worlds/empty.world"/> -->
@@ -54,6 +54,8 @@
         <param name="vehicle_name" value="ackermann_vehicle" />
         <param name="global_frame_id" value="world" />
     </node>
+
+    <!-- <include file="$(find hdl_graph_slam)/launch/hdl_graph_slam.launch" /> -->
 
     <include file="$(find ackermann_vehicle_description)/launch/rviz.launch" />
 
