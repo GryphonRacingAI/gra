@@ -16,6 +16,11 @@ class AutonomousDemonstration:
         rospy.Subscriber('/vcu2ai', VCU2AI, self.vcu2ai_callback)
         self.rate = rospy.Rate(10)  # 10 Hz
 
+        self.rl_wheel_speed_rpm = None
+        self.rr_wheel_speed_rpm = None
+        self.rr_pulse_count = None
+        self.rl_pulse_count = None
+
     def vcu2ai_callback(self, msg):
         self.rl_wheel_speed_rpm = msg.rl_wheel_speed_rpm
         self.rr_wheel_speed_rpm = msg.rr_wheel_speed_rpm
@@ -58,11 +63,13 @@ class AutonomousDemonstration:
 
     def accelerate_10m(self):
         rospy.loginfo("Starting drivetrain ramp up")
+        assert self.rl_pulse_count is not None
+        assert self.rr_pulse_count is not None
         start_stopwatch = time.time()
         ACCELERATION = 1.5 # m/s^2
         initial_rl = self.rl_pulse_count
         initial_rr = self.rr_pulse_count
-        pulse_count_10m = 10/1.64*20 # 10m / (1.64 m / rotation) * 20 (pulse/rotation)
+        pulse_count_10m = 10/self.WHEEL_CIRCUMFERENCE*20 # 10m / (WHEEL_CIRCUMFERENCE m / rotation) * 20 (pulse/rotation)
 
         while not rospy.is_shutdown() and (self.rl_pulse_count < initial_rl + pulse_count_10m) and (self.rr_pulse_count < initial_rr+pulse_count_10m):
             ackermann_message = AckermannDrive()
@@ -96,7 +103,7 @@ class AutonomousDemonstration:
 
 if __name__ == '__main__':
     try:
-        inspection = StaticInspectionA()
+        inspection = AutonomousDemonstration()
         inspection.start()
     except rospy.ROSInterruptException:
         pass
