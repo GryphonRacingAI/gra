@@ -27,10 +27,13 @@ class SpeedController:
         
         # Subscribers
         rospy.Subscriber('/vcu2ai', VCU2AI, self.vcu2ai_callback)
-        rospy.Subscriber('/ackermann_cmd', AckermannDrive, self.ackermann_cmd_callback)
+        rospy.Subscriber('/ackermann_cmd_controller', AckermannDrive, self.ackermann_cmd_callback)
         
         # Publisher
-        self.pub = rospy.Publisher('/ackermann_cmd_PID', AckermannDrive, queue_size=10)
+        self.ackermann_cmd_publisher = rospy.Publisher('/ackermann_cmd', AckermannDrive, queue_size=10)
+
+        self.timer = rospy.Timer(rospy.Duration(0.1), self.controlled_ackermann_publish)
+        self.actual_speed_mps = 0
     
     def vcu2ai_callback(self, msg):
         # Get the actual rear wheel speeds (in RPM)
@@ -41,20 +44,28 @@ class SpeedController:
         actual_wheel_speed_rpm = (rl_wheel_speed_rpm + rr_wheel_speed_rpm) / 2.0
         
         # Convert wheel speed to car speed (m/s)
-        actual_speed_mps = (actual_wheel_speed_rpm * 2 * math.pi * WHEEL_RADIUS) / 60.0
-        
-        # PID control
-        error = self.desired_speed - actual_speed_mps
-        self.integral += error
-        derivative = error - self.previous_error
-        output = Kp * error + Ki * self.integral + Kd * derivative
-        self.previous_error = error
-        
-        # Create and publish the new AckermannDrive message
-        cmd = AckermannDrive()
-        cmd.speed = output
-        self.pub.publish(cmd)
+        self.actual_speed_mps = (actual_wheel_speed_rpm * 2 * math.pi * WHEEL_RADIUS) / 60.0
+
     
+    def controlled_ackermann_publish(self):
+        cmd = AckermannDrive()
+
+        if self.desired_speed > 0.05:
+            # PID control
+            error = self.desired_speed - self.actual_speed_mps
+            self.integral += error
+            # derivative = error - self.previous_error
+            output_with_feedback = Kp * error + Ki * self.integral # + Kd * derivative
+            self.previous_error = error
+            
+            # Create and publish the new AckermannDrive message
+            cmd.speed = output_with_feedback
+        else:
+            cmd.speed = self.desired_speed
+
+        self.ackermann_cmd_publisher.publish(cmd)
+
+
     def ackermann_cmd_callback(self, msg):
         # Get the desired speed (m/s)
         self.desired_speed = msg.speed
