@@ -14,7 +14,7 @@ class SkidpadPathfinder:
     def __init__(self):
         rospy.init_node('skidpad_pathfinder', anonymous=True)
 
-        # Initialize the PathPlanner with Skidpad mission type
+        # Initialise the PathPlanner with Skidpad mission type
         self.path_planner = PathPlanner(MissionTypes.skidpad)
         self.path_pub = rospy.Publisher('/path', Path, queue_size=10)
         rospy.Subscriber('/filtered_cone_list', ExtendedConeDetection, self.path_callback)
@@ -57,7 +57,7 @@ class SkidpadPathfinder:
         ros_path.header = Header(stamp=rospy.Time.now(), frame_id='world')
 
         # Publish the path as before but consider any skidpad-specific adjustments
-        for point in path[2:4]:
+        for point in path[2:6]:
             pose = PoseStamped()
             pose.header = ros_path.header
             pose.pose.position.x = point[1]  # path_x

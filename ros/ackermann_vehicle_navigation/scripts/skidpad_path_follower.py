@@ -2,7 +2,7 @@
 import rospy
 from nav_msgs.msg import Path
 from nav_msgs.msg import Odometry
-from std_msgs.msg import Header
+from std_msgs.msg import Header, Bool
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Pose
 from geometry_msgs.msg import Twist
@@ -50,6 +50,8 @@ def odom_callback(odom_msg):
             if wp_index >= len(subscribed_path.poses):
                 end_time = rospy.Time.now()
                 rospy.loginfo((end_time - start_time).to_sec())
+                rospy.loginfo("Path following complete. Publishing to /chequered_flag")
+                chequered_flag_pub.publish(True)
                 rospy.signal_shutdown("Path following finish")
 
         current_wp = np.array([subscribed_path.poses[wp_index-1].pose.position.x, subscribed_path.poses[wp_index-1].pose.position.y])
@@ -113,8 +115,9 @@ def path_callback(path_msg):
     subscribed_path = path_msg
 
 if __name__ == '__main__':
-    rospy.init_node('path_follower', anonymous=True, disable_signals=True)
+    rospy.init_node('skidpad_path_follower', anonymous=True, disable_signals=True)
     cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+    chequered_flag_pub = rospy.Publisher('/chequered_flag', Bool, queue_size=1)
     rospy.Subscriber('/path', Path, path_callback)
     rospy.Subscriber('/odom', Odometry, odom_callback, queue_size=1)
 
