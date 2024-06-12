@@ -132,7 +132,7 @@ void* loop_thread(void*) {
         }
 
         // reset state in case we don't power cycle the PC before starting a new mission
-        if (vcu2ai_data.VCU2AI_AS_STATE == AS_FINISHED){
+        if (vcu2ai_data.VCU2AI_AS_STATE == AS_FINISHED || vcu2ai_data.VCU2AI_AS_STATE == AS_EMERGENCY_BRAKE){
             chequered_flag = false;
             drive_enabled = false;
             ai2vcu_data.AI2VCU_MISSION_STATUS = MISSION_NOT_SELECTED;
