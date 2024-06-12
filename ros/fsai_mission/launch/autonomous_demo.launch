@@ -4,5 +4,6 @@
 
     <!-- Start autonomous demo routine -->
     <node name="autonomous_demo" pkg="fsai_mission" type="autonomous_demo.py" output="screen"/>
+    <node name="speed_controller" pkg="fsai_api" type="wheel_speed_controller.py" output="screen"/>
 
 </launch>

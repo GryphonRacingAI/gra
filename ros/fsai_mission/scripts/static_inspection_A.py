@@ -9,7 +9,7 @@ from ackermann_msgs.msg import AckermannDrive
 class StaticInspectionA:
     def __init__(self):
         rospy.init_node('static_inspection_A', anonymous=False)
-        self.ackermann_publisher = rospy.Publisher('/ackermann_cmd', AckermannDrive, queue_size=1)
+        self.ackermann_publisher = rospy.Publisher('/ackermann_cmd_controller', AckermannDrive, queue_size=1)
         self.chequered_flag_publisher = rospy.Publisher('/chequered_flag', Bool, queue_size=1)
         self.rate = rospy.Rate(10)  # 10 Hz
 
