@@ -21,7 +21,7 @@ class StaticInspectionB:
         rospy.loginfo("step 1")
         start_stopwatch = time.time()
         WHEEL_RADIUS = 0.2575
-        AXLE_SPEED = 100
+        AXLE_SPEED = 50
         car_speed_mps = AXLE_SPEED * (2*math.pi) / 60 * WHEEL_RADIUS
 
         while not rospy.is_shutdown():
