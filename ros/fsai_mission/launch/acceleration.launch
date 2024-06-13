@@ -3,7 +3,7 @@
 <launch>
 
     <!-- Start track follower -->
-    <include file="$(find ackermann_vehicle_navigation)/launch/track_follower.launch" />
+    <include file="$(find ackermann_vehicle_navigation)/launch/acceleration_follower.launch" />
 
     <!-- Start acceleration_finish (detects when large orange cone pair finish line has been crossed) -->
     <node name="acceleration_finish" pkg="fsai_mission" type="acceleration_finish.py" output="screen"/>
