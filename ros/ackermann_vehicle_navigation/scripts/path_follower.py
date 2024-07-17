@@ -85,7 +85,7 @@ def odom_callback(odom_msg):
         if pause:
             vx = 0
         else:
-            vx = 4.5 - abs(beta * 0.1 + cte * 0.3 + heading_error * 0.3)
+            vx = 5.5 - abs(beta * 0.1 + cte * 0.3 + heading_error * 0.3)
             if vx_limit:
                 vx = max(vx, 0.1)
 
