@@ -69,7 +69,7 @@ class AutonomousDemonstration:
         assert self.rl_pulse_count is not None
         assert self.rr_pulse_count is not None
         start_stopwatch = time.time()
-        ACCELERATION = 1.5 # m/s^2
+        ACCELERATION = 0.9 # m/s^2
         initial_rl = self.rl_pulse_count
         initial_rr = self.rr_pulse_count
         pulse_count_10m = 10/self.WHEEL_CIRCUMFERENCE*20 # 10m / (WHEEL_CIRCUMFERENCE m / rotation) * 20 (pulse/rotation)
