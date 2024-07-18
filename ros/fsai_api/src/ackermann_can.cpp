@@ -52,7 +52,7 @@ void ackermannCmdCallback(const ackermann_msgs::AckermannDrive::ConstPtr& msg) {
         ai2vcu_data.AI2VCU_STEER_ANGLE_REQUEST_deg = steering_angle_deg;
         if (!braking){
             ai2vcu_data.AI2VCU_AXLE_SPEED_REQUEST_rpm = wheel_rpm;
-            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 100;
+            ai2vcu_data.AI2VCU_AXLE_TORQUE_REQUEST_Nm = 195;
         }
     }
 }
