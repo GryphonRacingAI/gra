@@ -69,10 +69,10 @@ class AutonomousDemonstration:
         assert self.rl_pulse_count is not None
         assert self.rr_pulse_count is not None
         start_stopwatch = time.time()
-        ACCELERATION = 0.9 # m/s^2
+        ACCELERATION = 1.1 # m/s^2
         initial_rl = self.rl_pulse_count
         initial_rr = self.rr_pulse_count
-        pulse_count_10m = 10/self.WHEEL_CIRCUMFERENCE*20 # 10m / (WHEEL_CIRCUMFERENCE m / rotation) * 20 (pulse/rotation)
+        pulse_count_10m = 6/self.WHEEL_CIRCUMFERENCE*20 # 6m / (WHEEL_CIRCUMFERENCE m / rotation) * 20 (pulse/rotation)
 
         while not rospy.is_shutdown() and (self.rl_pulse_count < initial_rl + pulse_count_10m) and (self.rr_pulse_count < initial_rr+pulse_count_10m):
             ackermann_message = AckermannDrive()
