@@ -23,12 +23,12 @@ class AutonomousDemonstration:
         self.sweep_steering()
         time.sleep(1)
         self.pause_publisher.publish(Bool(data=False))
-        time.sleep(5)
+        time.sleep(4)
         self.pause_publisher.publish(Bool(data=True))
         self.brake_10m()
-        time.sleep(5)
+        time.sleep(4)
         self.pause_publisher.publish(Bool(data=False))
-        time.sleep(5)
+        time.sleep(4)
         self.emergency_brake()
         rospy.loginfo("Autonomous demo routine completed.")
 
@@ -60,8 +60,8 @@ class AutonomousDemonstration:
 
     def brake_10m(self):
         self.brake_publisher.publish(Bool(data=True))
-        rospy.loginfo("Braking for 5 seconds")
-        time.sleep(5)
+        rospy.loginfo("Braking for 4 seconds")
+        time.sleep(4)
         self.brake_publisher.publish(Bool(data=False))
         rospy.loginfo("Braking complete")
 
