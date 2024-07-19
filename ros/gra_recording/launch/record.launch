@@ -11,7 +11,7 @@
 
   <node name="sensor_recorder" pkg="rosbag" type="record" 
   args=
-  "-o /root/gra/recordings/$(arg output_name)
+  "-o /home/gra/Desktop/recordings/$(arg output_name)
     $(arg duration_evaluated)
     /scan
     /camera/aligned_depth_to_color/image_raw/compressedDepth

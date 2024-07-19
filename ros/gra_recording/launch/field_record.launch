@@ -13,7 +13,7 @@
 
   <node name="field_recorder" pkg="rosbag" type="record" 
   args=
-  "-o /root/gra/recordings/$(arg output_name)
+  "-o /home/gra/Desktop/recordings/$(arg output_name)
     $(arg duration_evaluated)
     /ackermann_cmd
     /chequered_flag
