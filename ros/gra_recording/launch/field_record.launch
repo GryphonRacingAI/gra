@@ -19,6 +19,9 @@
     /chequered_flag
     /cone_marker_array
     /path
-    /odom"
+    /odom
+    /laps
+    /emergency_brake
+    /brake"
   />
 </launch>
