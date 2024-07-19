@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- rosbag for recording field data -->
+<!-- play back using: roslaunch ackermann_vehicle_description rviz.launch  -->
+
+<launch>
+  <arg name="output_name" default="field_data"/>
+  <arg name="duration" default=""/>
+
+  <!-- Hacky solution for forwarding the duration argument -->
+  <arg name="duration_evaluated" value="" if="$(eval duration == '')"/>
+  <arg name="duration_evaluated" value="--duration $(arg duration)" unless="$(eval duration == '')"/>
+
+
+  <node name="field_recorder" pkg="rosbag" type="record" 
+  args=
+  "-o /root/gra/recordings/$(arg output_name)
+    $(arg duration_evaluated)
+    /ackermann_cmd
+    /chequered_flag
+    /cone_marker_array
+    /path
+    /odom"
+  />
+</launch>
