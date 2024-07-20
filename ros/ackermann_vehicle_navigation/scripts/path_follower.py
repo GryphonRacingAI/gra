@@ -86,7 +86,7 @@ def odom_callback(odom_msg):
         # Heading Error is the difference between the vehicle's current heading and the desired heading, which is the direction from the current waypoint to the next waypoint. 
         # yaw_rate = beta*1.0 + cte*1.00 + beta_dot*1.0 + cte_dot*0.05
         # yaw_rate = beta*0.7 + cte*0.5 + heading_error*1.0
-        yaw_rate = beta*1.5 + cte*0.5 + heading_error*2.0  # Adjusted for more responsiveness
+        yaw_rate = beta*0.8 + cte*0.5 + heading_error*1.5  # Adjusted for more responsiveness
         # yaw_rate = beta*0.8 + cte*0.6
         if yaw_rate_limit is True:
             yaw_rate = max(min(yaw_rate, 0.366519), -0.366519)  # Limit steering angle to -21deg to 21deg, steering range of ADS-DV
