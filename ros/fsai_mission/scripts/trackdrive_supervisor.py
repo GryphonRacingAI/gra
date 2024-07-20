@@ -18,7 +18,7 @@ class TrackdriveSupervisor:
         rospy.loginfo("Trackdrive Supervisor node initialised")
 
     def lap_callback(self, msg):
-        if msg.data == 11 and not self.final_lap_detected:
+        if msg.data == 11 and not self.final_lap_detected:      # 11 here because the car starts behind the 2 large orange cones
             rospy.loginfo("Final lap completion detected! Sending chequered flag signal.")
             self.chequered_flag_pub.publish(Bool(data=True))
             self.final_lap_detected = True
