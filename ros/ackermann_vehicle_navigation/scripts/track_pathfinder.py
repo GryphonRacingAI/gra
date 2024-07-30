@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# This node computes the path from the cone map /filtered_cone_list using he fsd_path_planning library
 
 import rospy
 import numpy as np

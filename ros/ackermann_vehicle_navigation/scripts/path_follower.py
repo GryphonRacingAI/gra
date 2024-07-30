@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# This node is the vehicle pursuit controller, enabling the car to reach the waypoints in /path
+# Used in trackdrive and autocross
+
 import rospy
 from nav_msgs.msg import Path
 from nav_msgs.msg import Odometry

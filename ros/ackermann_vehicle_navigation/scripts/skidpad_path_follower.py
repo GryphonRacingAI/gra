@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# This script is identical to path_follower.py, but was cloned such that speed for skidpad can be tuned separately
+
 import rospy
 from nav_msgs.msg import Path
 from nav_msgs.msg import Odometry

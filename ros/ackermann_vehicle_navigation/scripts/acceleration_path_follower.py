@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-
 # This script is identical to path_follower.py, but was cloned such that speed for acceleration can be tuned separately
 
 import rospy

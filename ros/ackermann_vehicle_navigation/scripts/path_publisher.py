@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Not used in the autonomous system. This node reads the pre-defined path in a text file and publish it to /path
+
 import rospy
 from nav_msgs.msg import Path
 from std_msgs.msg import Header

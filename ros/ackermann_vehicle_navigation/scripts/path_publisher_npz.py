@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Same as path_publisher.py but this reads from npz instead of txt
+
 import rospy
 from nav_msgs.msg import Path
 from std_msgs.msg import Header
