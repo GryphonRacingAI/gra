@@ -5,7 +5,7 @@
 # if it does not work - please change to '#!/usr/bin/env python' in path on the header
 # This is to fix some compatibility issues with ROS on Melodic
 
-# This node convert the standard /vel_cmd to ackermann specific transformation commands /ackermann_cmd
+# This node converts the standard /cmd_vel to ackermann specific drive commands /ackermann_cmd
 
 import rospy, math
 from geometry_msgs.msg import Twist
