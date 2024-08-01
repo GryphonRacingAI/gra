@@ -25,7 +25,7 @@ class ConeSorter:
 
     def is_new_cone(self, new_cone, existing_cones):
         for cone in existing_cones:
-            if np.linalg.norm(np.array([cone.x, cone.y]) - np.array([new_cone.x, new_cone.y])) < 1.0:   # Avoid redundant cones. Value is cone proximity threshold in meters
+            if np.linalg.norm(np.array([cone.x, cone.y]) - np.array([new_cone.x, new_cone.y])) < 1.5:   # Avoid redundant cones. Value is cone proximity threshold in meters
                 return False
         return True
 

@@ -1,0 +1,11 @@
+<launch>
+  
+  <!-- This node computes the path for the car to follow based on position of cones and car position + direction -->
+  <node name="track_pathfinder" pkg="ackermann_vehicle_navigation" type="track_pathfinder.py" output="screen" launch-prefix="nice -n -20"/>
+
+  <!-- This node compute the transformation required for the car to achieve poses in /path. Output is /cmd_vel -->
+  <node name="acceleration_path_follower" pkg="ackermann_vehicle_navigation" type="acceleration_path_follower.py" output="screen" launch-prefix="nice -n -19"/>
+
+  <!-- launch-prefix="nice -n N" set process priority. N ranges from -20 (highest priority) to 19 (lowest priority) -->
+
+</launch>

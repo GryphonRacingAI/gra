@@ -17,5 +17,8 @@
 
   <!-- Start Cone mapping -->
   <include file="$(find ultralytics_ros)/launch/cone_mapper.launch" />
+
+  <!-- Start rosbag -->
+  <include file="$(find gra_recording)/launch/field_record.launch" />
   
 </launch>

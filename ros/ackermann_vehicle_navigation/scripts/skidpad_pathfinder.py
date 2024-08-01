@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# This node computes path for skidpad using the fsd_path_planning library
+
 import rospy
 import numpy as np
 from geometry_msgs.msg import PoseStamped

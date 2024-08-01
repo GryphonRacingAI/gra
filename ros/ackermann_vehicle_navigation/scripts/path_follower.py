@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# This node is the vehicle pursuit controller, enabling the car to reach the waypoints in /path
+# Used in trackdrive and autocross
+
 import rospy
 from nav_msgs.msg import Path
 from nav_msgs.msg import Odometry
@@ -86,16 +89,16 @@ def odom_callback(odom_msg):
         # Heading Error is the difference between the vehicle's current heading and the desired heading, which is the direction from the current waypoint to the next waypoint. 
         # yaw_rate = beta*1.0 + cte*1.00 + beta_dot*1.0 + cte_dot*0.05
         # yaw_rate = beta*0.7 + cte*0.5 + heading_error*1.0
-        yaw_rate = beta*0.5 + cte*0.5 + heading_error*1  # Adjusted for more responsiveness
+        yaw_rate = beta*1.5 + cte*0.5 + heading_error*1.5  # Adjusted for more responsiveness
         # yaw_rate = beta*0.8 + cte*0.6
         if yaw_rate_limit is True:
             yaw_rate = max(min(yaw_rate, 0.366519), -0.366519)  # Limit steering angle to -21deg to 21deg, steering range of ADS-DV
 
         # vx = 0.6
-        vx = 3 - abs(beta*0.1 + cte*0.3 + heading_error*0.3)
+        vx = 3 - abs(beta*0.1 + cte*0.3 + heading_error*1.5)
         if vx_limit is True:
             # vx = max(min(vx, 0.7), 0.1)
-            vx = max(vx, 0.1)
+            vx = max(vx, 0.4)
             pass
         rospy.loginfo(vx)
         # rospy.loginfo("wp_index:{} heading_error:{} heading:{} wp_heading:{} beta:{} cte:{} yaw_rate:{} vx:{}".format(subscribed_path.poses[wp_index-1], heading_error, current_heading, wp_heading, np.degrees(beta), cte, yaw_rate, vx))

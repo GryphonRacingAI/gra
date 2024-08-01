@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# This node pre-process cone map data such that they can feed into the path planner input pipeline
 
 import rospy
 import numpy as np

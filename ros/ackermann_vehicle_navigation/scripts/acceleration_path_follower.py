@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# This script is identical to path_follower.py, but was cloned such that speed for skidpad can be tuned separately
+# This script is identical to path_follower.py, but was cloned such that speed for acceleration can be tuned separately
 
 import rospy
 from nav_msgs.msg import Path
 from nav_msgs.msg import Odometry
-from std_msgs.msg import Header, Bool
+from std_msgs.msg import Header
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Pose
 from geometry_msgs.msg import Twist
@@ -52,8 +52,6 @@ def odom_callback(odom_msg):
             if wp_index >= len(subscribed_path.poses):
                 end_time = rospy.Time.now()
                 rospy.loginfo((end_time - start_time).to_sec())
-                rospy.loginfo("Path following complete. Publishing to /chequered_flag")
-                chequered_flag_pub.publish(True)
                 rospy.signal_shutdown("Path following finish")
 
         current_wp = np.array([subscribed_path.poses[wp_index-1].pose.position.x, subscribed_path.poses[wp_index-1].pose.position.y])
@@ -90,13 +88,13 @@ def odom_callback(odom_msg):
         # Heading Error is the difference between the vehicle's current heading and the desired heading, which is the direction from the current waypoint to the next waypoint. 
         # yaw_rate = beta*1.0 + cte*1.00 + beta_dot*1.0 + cte_dot*0.05
         # yaw_rate = beta*0.7 + cte*0.5 + heading_error*1.0
-        yaw_rate = beta*1.5 + cte*0.5 + heading_error*2.0  # Adjusted for more responsiveness
+        yaw_rate = beta*0.1 + cte*0.1 + heading_error*0.5  # Adjusted for more responsiveness
         # yaw_rate = beta*0.8 + cte*0.6
         if yaw_rate_limit is True:
             yaw_rate = max(min(yaw_rate, 0.366519), -0.366519)  # Limit steering angle to -21deg to 21deg, steering range of ADS-DV
 
         # vx = 0.6
-        vx = 3 - abs(beta*0.1 + cte*0.3 + heading_error*1.5)
+        vx = 6 - abs(beta*0.1 + cte*0.3 + heading_error*0.3)
         if vx_limit is True:
             # vx = max(min(vx, 0.7), 0.1)
             vx = max(vx, 0.1)
@@ -117,9 +115,8 @@ def path_callback(path_msg):
     subscribed_path = path_msg
 
 if __name__ == '__main__':
-    rospy.init_node('skidpad_path_follower', anonymous=True, disable_signals=True)
+    rospy.init_node('acceleration_path_follower', anonymous=True, disable_signals=True)
     cmd_vel_pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
-    chequered_flag_pub = rospy.Publisher('/chequered_flag', Bool, queue_size=1)
     rospy.Subscriber('/path', Path, path_callback)
     rospy.Subscriber('/odom', Odometry, odom_callback, queue_size=1)
 

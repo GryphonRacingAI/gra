@@ -18,7 +18,7 @@ class AutocrossSupervisor:
         rospy.loginfo("Autocross Supervisor node initialised")
 
     def lap_callback(self, msg):
-        if msg.data == 1 and not self.final_lap_detected:
+        if msg.data == 2 and not self.final_lap_detected:   # 2 here because the car starts behind the large orange cones, so it will cross it twice
             rospy.loginfo("Final lap completion detected! Sending chequered flag signal.")
             self.chequered_flag_pub.publish(Bool(data=True))
             self.final_lap_detected = True

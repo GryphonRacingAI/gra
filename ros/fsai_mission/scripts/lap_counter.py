@@ -59,7 +59,7 @@ class LapCounter:
 
         self.previous_position = self.car_position
 
-    def is_near_finish_line(self, first_cone, second_cone, car_position, threshold=2.0):    # 2.0 meter away from the line segment will be ignored
+    def is_near_finish_line(self, first_cone, second_cone, car_position, threshold=4.0):    # 4.0 meter away from the line segment will be ignored
         """Check if the car is near the line segment formed by the first and second cone."""
         def point_line_distance(px, py, x1, y1, x2, y2):
             # Calculate the distance from point (px, py) to the line segment (x1, y1) - (x2, y2)
