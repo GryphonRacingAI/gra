@@ -22,6 +22,9 @@
     /odom
     /laps
     /emergency_brake
-    /brake"
+    /brake
+    /detection_marker
+    /tf
+    /tf_static"
   />
 </launch>
