@@ -369,7 +369,7 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
+      Class: rviz/ThirdPersonFollower
       Distance: 10.671420097351074
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
